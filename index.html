@@ -2388,6 +2388,332 @@ function meu_perfil_confirmarSaida() {
   </script>
 </section>
 
+    <section data-tela="notificacoes" class="hidden">
+        <div class="px-5 pt-6 pb-4">
+            <!-- Cabeçalho -->
+            <div class="flex items-center justify-between mb-1">
+                <div>
+                    <h1 class="text-2xl font-display font-bold text-neutral-900 tracking-tight">Notificações</h1>
+                    <p class="text-sm text-neutral-500 mt-0.5 font-body">3 alertas não lidos</p>
+                </div>
+                <button onclick="notificacoes_marcarTodasLidas()" class="text-xs font-medium text-marca hover:text-marca-700 transition-colors bg-marca-50 hover:bg-marca-100 px-3 py-1.5 rounded-lg active:scale-95 transition-transform">
+                    Marcar todas como lidas
+                </button>
+            </div>
+
+            <!-- Abas de categoria -->
+            <div class="flex gap-1 mt-5 bg-neutral-100 rounded-xl p-1">
+                <button onclick="notificacoes_setAba('todas')" id="aba-todas" class="flex-1 py-2 px-3 rounded-lg text-sm font-medium font-body transition-all bg-white text-neutral-900 shadow-sm">
+                    Todas
+                </button>
+                <button onclick="notificacoes_setAba('dividendos')" id="aba-dividendos" class="flex-1 py-2 px-3 rounded-lg text-sm font-medium font-body transition-all text-neutral-500 hover:text-neutral-700">
+                    Dividendos
+                </button>
+                <button onclick="notificacoes_setAba('sistema')" id="aba-sistema" class="flex-1 py-2 px-3 rounded-lg text-sm font-medium font-body transition-all text-neutral-500 hover:text-neutral-700">
+                    Sistema
+                </button>
+            </div>
+
+            <!-- Busca -->
+            <div class="mt-4 relative">
+                <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+                <input type="text" id="busca-notificacoes" oninput="notificacoes_buscar(this.value)" placeholder="Buscar notificações..." class="w-full bg-neutral-50 border border-neutral-200 rounded-xl pl-10 pr-4 py-2.5 text-sm font-body text-neutral-900 placeholder:text-neutral-400 focus:outline-none focus:border-marca-400 focus:ring-2 focus:ring-marca-200 transition-all">
+            </div>
+
+            <!-- Lista de notificações -->
+            <div id="lista-notificacoes" class="mt-4 space-y-3">
+            </div>
+
+            <!-- Estado vazio -->
+            <div id="estado-vazio" class="hidden mt-12 flex-col items-center text-center">
+                <div class="w-16 h-16 bg-neutral-100 rounded-full flex items-center justify-center mb-4">
+                    <svg class="w-8 h-8 text-neutral-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
+                </div>
+                <p class="text-sm font-body text-neutral-500">Nenhuma notificação encontrada</p>
+                <p class="text-xs font-body text-neutral-400 mt-1">As notificações aparecerão aqui</p>
+            </div>
+        </div>
+
+        <script>
+        // Dados das notificações
+        const notificacoes_dados = [
+            {
+                id: 'n1',
+                categoria: 'dividendos',
+                icone: 'dinheiro',
+                titulo: 'Dividendo recebido',
+                descricao: 'R$ 45,00 de Coca-Cola FEMSA debitados na sua conta.',
+                timestamp: 'há 2 horas',
+                lida: false,
+                acao: 'ver_detalhes',
+                acaoLabel: 'Ver Detalhes'
+            },
+            {
+                id: 'n2',
+                categoria: 'sistema',
+                icone: 'grafico',
+                titulo: 'Novo setor disponível',
+                descricao: 'Fundos Imobiliários Globais já está disponível para aportes.',
+                timestamp: 'há 4 horas',
+                lida: false,
+                acao: 'navegar_carteira',
+                acaoLabel: 'Explorar Setor'
+            },
+            {
+                id: 'n3',
+                categoria: 'dividendos',
+                icone: 'dinheiro',
+                titulo: 'Aporte confirmado',
+                descricao: 'Seu aporte de R$ 500,00 foi confirmado e creditado.',
+                timestamp: 'há 6 horas',
+                lida: false,
+                acao: 'ver_historico',
+                acaoLabel: 'Ver Histórico'
+            },
+            {
+                id: 'n4',
+                categoria: 'sistema',
+                icone: 'relatorio',
+                titulo: 'Relatório mensal disponível',
+                descricao: 'Relatório de performance de setembro está pronto para download.',
+                timestamp: 'há 1 dia',
+                lida: true,
+                acao: 'ver_detalhes',
+                acaoLabel: 'Ver Relatório'
+            },
+            {
+                id: 'n5',
+                categoria: 'sistema',
+                icone: 'sino',
+                titulo: 'Atualização nas regras',
+                descricao: 'Distribuição FIFA: novas regras de rateio entram em vigor este mês.',
+                timestamp: 'há 2 dias',
+                lida: true,
+                acao: 'ver_detalhes',
+                acaoLabel: 'Ler Mais'
+            },
+            {
+                id: 'n6',
+                categoria: 'dividendos',
+                icone: 'dinheiro',
+                titulo: 'Dividendo recebido',
+                descricao: 'R$ 120,00 de Apple Inc. creditados na sua conta.',
+                timestamp: 'há 3 dias',
+                lida: true,
+                acao: 'ver_detalhes',
+                acaoLabel: 'Ver Detalhes'
+            },
+            {
+                id: 'n7',
+                categoria: 'sistema',
+                icone: 'grafico',
+                titulo: 'Variação de ativos',
+                descricao: 'Setor de Energia Eólica registrou alta de 2,3% no período.',
+                timestamp: 'há 4 dias',
+                lida: true,
+                acao: 'navegar_painel',
+                acaoLabel: 'Ver Painel'
+            },
+            {
+                id: 'n8',
+                categoria: 'dividendos',
+                icone: 'dinheiro',
+                titulo: 'Dividendo recebido',
+                descricao: 'R$ 78,50 de McDonald\'s Corporation debitados na sua conta.',
+                timestamp: 'há 5 dias',
+                lida: true,
+                acao: 'ver_detalhes',
+                acaoLabel: 'Ver Detalhes'
+            },
+            {
+                id: 'n9',
+                categoria: 'sistema',
+                icone: 'sino',
+                titulo: 'Manutenção programada',
+                descricao: 'Sistema ficará indisponível entre 02:00 e 04:00 UTC-3.',
+                timestamp: 'há 6 dias',
+                lida: true,
+                acao: null,
+                acaoLabel: null
+            },
+            {
+                id: 'n10',
+                categoria: 'dividendos',
+                icone: 'dinheiro',
+                titulo: 'Dividendo recebido',
+                descricao: 'R$ 32,00 de hidrelétricas do grupo credenciado.',
+                timestamp: 'há 1 semana',
+                lida: true,
+                acao: 'ver_detalhes',
+                acaoLabel: 'Ver Detalhes'
+            }
+        ];
+
+        let notificacoes_abaAtiva = 'todas';
+        let notificacoes_termoBusca = '';
+
+        // Ícones SVG inline
+        const icones = {
+            dinheiro: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>`,
+            sino: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>`,
+            grafico: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/></svg>`,
+            relatorio: `<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>`
+        };
+
+        function notificacoes_setAba(aba) {
+            notificacoes_abaAtiva = aba;
+            ['todas', 'dividendos', 'sistema'].forEach(a => {
+                const btn = document.getElementById('aba-' + a);
+                if (a === aba) {
+                    btn.classList.remove('text-neutral-500');
+                    btn.classList.add('bg-white', 'text-neutral-900', 'shadow-sm');
+                } else {
+                    btn.classList.add('text-neutral-500');
+                    btn.classList.remove('bg-white', 'text-neutral-900', 'shadow-sm');
+                }
+            });
+            notificacoes_renderizar();
+        }
+
+        function notificacoes_buscar(termo) {
+            notificacoes_termoBusca = termo.toLowerCase().trim();
+            notificacoes_renderizar();
+        }
+
+        function notificacoes_getNotificacoesFiltradas() {
+            return notificacoes_dados.filter(n => {
+                const matchCategoria = notificacoes_abaAtiva === 'todas' || n.categoria === notificacoes_abaAtiva;
+                const matchBusca = !notificacoes_termoBusca ||
+                    n.titulo.toLowerCase().includes(notificacoes_termoBusca) ||
+                    n.descricao.toLowerCase().includes(notificacoes_termoBusca);
+                return matchCategoria && matchBusca;
+            });
+        }
+
+        function notificacoes_renderizar() {
+            const lista = document.getElementById('lista-notificacoes');
+            const vazio = document.getElementById('estado-vazio');
+            const filtradas = notificacoes_getNotificacoesFiltradas();
+
+            if (filtradas.length === 0) {
+                lista.classList.add('hidden');
+                vazio.classList.remove('hidden');
+                vazio.classList.add('flex');
+                return;
+            }
+
+            lista.classList.remove('hidden');
+            vazio.classList.add('hidden');
+            vazio.classList.remove('flex');
+
+            lista.innerHTML = filtradas.map(n => {
+                const iconeSvg = icones[n.icone] || icones.sino;
+                const corIcone = n.categoria === 'dividendos' ? 'bg-emerald-50 text-emerald-600' : n.categoria === 'sistema' ? 'bg-amber-50 text-amber-600' : 'bg-blue-50 text-blue-600';
+                const corBarra = n.categoria === 'dividendos' ? 'border-l-emerald-500' : n.categoria === 'sistema' ? 'border-l-amber-500' : 'border-l-blue-500';
+                const naoLida = !n.lida ? 'bg-marca-50/50' : 'bg-white';
+                const dot = !n.lida ? `<span class="w-2 h-2 rounded-full bg-marca inline-block flex-shrink-0"></span>` : '';
+
+                let acaoHtml = '';
+                if (n.acao === 'ver_detalhes') {
+                    acaoHtml = `<button onclick="notificacoes_abrirDetalhe('${n.id}')" class="text-xs font-medium text-marca hover:text-marca-700 transition-colors active:scale-95">${n.acaoLabel}</button>`;
+                } else if (n.acao === 'navegar_carteira') {
+                    acaoHtml = `<button onclick="mostrarTela('carteira-de-ativos')" class="text-xs font-medium text-marca hover:text-marca-700 transition-colors active:scale-95">${n.acaoLabel}</button>`;
+                } else if (n.acao === 'ver_historico') {
+                    acaoHtml = `<button onclick="mostrarTela('historico-de-transacoes')" class="text-xs font-medium text-marca hover:text-marca-700 transition-colors active:scale-95">${n.acaoLabel}</button>`;
+                } else if (n.acao === 'navegar_painel') {
+                    acaoHtml = `<button onclick="mostrarTela('painel-de-investimentos')" class="text-xs font-medium text-marca hover:text-marca-700 transition-colors active:scale-95">${n.acaoLabel}</button>`;
+                }
+
+                return `
+                <div onclick="notificacoes_marcarLida('${n.id}')" class="card ${naoLida} ${corBarra} border-l-4 rounded-xl p-4 cursor-pointer transition-all hover:shadow-md hover:-translate-y-0.5 active:scale-[0.98]">
+                    <div class="flex items-start gap-3">
+                        <div class="w-10 h-10 rounded-xl ${corIcone} flex items-center justify-center flex-shrink-0">
+                            ${iconeSvg}
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <div class="flex items-center gap-2 mb-0.5">
+                                ${dot}
+                                <span class="text-sm font-semibold font-display text-neutral-900 truncate">${n.titulo}</span>
+                            </div>
+                            <p class="text-xs font-body text-neutral-600 leading-relaxed line-clamp-2">${n.descricao}</p>
+                            <div class="flex items-center justify-between mt-2.5">
+                                <span class="text-[11px] font-body text-neutral-400">${n.timestamp}</span>
+                                <div onclick="event.stopPropagation()">${acaoHtml}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        function notificacoes_marcarLida(id) {
+            const n = notificacoes_dados.find(x => x.id === id);
+            if (n && !n.lida) {
+                n.lida = true;
+                notificacoes_atualizarContador();
+                notificacoes_renderizar();
+                toast('Notificação marcada como lida', 'ok');
+            }
+        }
+
+        function notificacoes_marcarTodasLidas() {
+            notificacoes_dados.forEach(n => n.lida = true);
+            notificacoes_atualizarContador();
+            notificacoes_renderizar();
+            toast('Todas as notificações foram marcadas como lidas', 'ok');
+        }
+
+        function notificacoes_atualizarContador() {
+            const naoLidas = notificacoes_dados.filter(n => !n.lida).length;
+            const subtitle = document.querySelector('[data-tela="notificacoes"] h1 + p');
+            if (subtitle) {
+                subtitle.textContent = naoLidas > 0 ? naoLidas + ' alerta' + (naoLidas > 1 ? 's' : '') + ' não lidos' : 'Todas as notificações foram lidas';
+            }
+        }
+
+        function notificacoes_abrirDetalhe(id) {
+            const n = notificacoes_dados.find(x => x.id === id);
+            if (!n) return;
+            const corIcone = n.categoria === 'dividendos' ? 'bg-emerald-50 text-emerald-600' : n.categoria === 'sistema' ? 'bg-amber-50 text-amber-600' : 'bg-blue-50 text-blue-600';
+            const categoriaLabel = n.categoria === 'dividendos' ? 'Dividendo' : n.categoria === 'sistema' ? 'Sistema' : 'Geral';
+
+            const html = `
+                <div class="space-y-4">
+                    <div class="flex items-center gap-3">
+                        <div class="w-12 h-12 rounded-xl ${corIcone} flex items-center justify-center">
+                            ${icones[n.icone] || icones.sino}
+                        </div>
+                        <div>
+                            <p class="text-xs text-neutral-500 font-body uppercase tracking-wide">${categoriaLabel}</p>
+                            <p class="text-sm text-neutral-400 font-body">${n.timestamp}</p>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-display font-bold text-neutral-900">${n.titulo}</h3>
+                    <p class="text-sm font-body text-neutral-600 leading-relaxed">${n.descricao}</p>
+                    <div class="bg-neutral-50 rounded-xl p-4 mt-2">
+                        <p class="text-xs text-neutral-500 font-body mb-1">Detalhes adicionais</p>
+                        <p class="text-sm font-body text-neutral-700">Esta notificação foi enviada automaticamente pelo sistema. Para mais informações, entre em contato com o suporte ou acesse o painel administrativo.</p>
+                    </div>
+                    <div class="flex gap-2 pt-2">
+                        ${n.acao === 'ver_historico' ? '<button onclick="fecharModal(); mostrarTela(\'historico-de-transacoes\')" class="flex-1 py-2.5 px-4 bg-marca text-white text-sm font-medium font-body rounded-xl active:scale-95 transition-transform">Ver Histórico</button>' : ''}
+                        ${n.acao === 'navegar_carteira' ? '<button onclick="fecharModal(); mostrarTela(\'carteira-de-ativos\')" class="flex-1 py-2.5 px-4 bg-marca text-white text-sm font-medium font-body rounded-xl active:scale-95 transition-transform">Ver Carteira</button>' : ''}
+                        ${n.acao === 'navegar_painel' ? '<button onclick="fecharModal(); mostrarTela(\'painel-de-investimentos\')" class="flex-1 py-2.5 px-4 bg-marca text-white text-sm font-medium font-body rounded-xl active:scale-95 transition-transform">Ver Painel</button>' : ''}
+                        <button onclick="fecharModal()" class="flex-1 py-2.5 px-4 bg-neutral-100 text-neutral-700 text-sm font-medium font-body rounded-xl hover:bg-neutral-200 transition-colors active:scale-95">Fechar</button>
+                    </div>
+                </div>
+            `;
+            abrirModal(html, 'Detalhes da Notificação');
+            n.lida = true;
+            notificacoes_atualizarContador();
+            notificacoes_renderizar();
+        }
+
+        // Inicializar a tela
+        notificacoes_renderizar();
+        </script>
+    </section>
+
     <!-- TELAS -->
     </main>
 
