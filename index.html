@@ -1863,6 +1863,360 @@ function confirmar_aporte_finalizar() {
 confirmar_aporte_verificarTermos();
 </script>
 
+    <section data-tela="minha-carteira" class="hidden">
+  <header class="px-5 pt-4 pb-3">
+    <div class="flex items-start justify-between">
+      <div>
+        <h1 class="font-display text-xl font-bold text-white leading-tight">Minha Carteira</h1>
+        <p class="text-sm text-gray-400 mt-0.5">Atualizado em 07/06/2025 às 14:32</p>
+      </div>
+      <button onclick="mostrarTela('notificacoes-e-alertas')" class="relative p-2 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition active:scale-95" aria-label="Notificações">
+        <svg class="w-5 h-5 text-marca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+        <span class="absolute -top-0.5 -right-0.5 w-4 h-4 bg-red-500 rounded-full text-[10px] font-bold text-white flex items-center justify-center">3</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="px-5 pb-28 space-y-5">
+    <div class="bg-[#0A0A0A] rounded-2xl p-5 border border-white/10 shadow-lg shadow-black/30">
+      <p class="text-xs text-gray-400 uppercase tracking-wider font-medium mb-1">Patrimônio Total</p>
+      <p class="font-display text-3xl font-bold text-white tracking-tight">R$ 1.523.847,32</p>
+      <div class="flex items-center gap-2 mt-2">
+        <span class="inline-flex items-center gap-1 text-sm font-semibold text-emerald-400">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+          +12,47%
+        </span>
+        <span class="text-xs text-gray-500">R$ +168.932,10 no mês</span>
+      </div>
+      <div class="flex gap-2 mt-4">
+        <button onclick="mostrarTela('confirmar-aporte')" class="flex-1 bg-marca text-[#0A0A0A] font-semibold text-sm py-2.5 rounded-xl hover:brightness-110 transition active:scale-95">Aportar</button>
+        <button onclick="mostrarTela('catalogo-de-investimentos')" class="flex-1 bg-white/5 border border-white/10 text-white font-semibold text-sm py-2.5 rounded-xl hover:bg-white/10 transition active:scale-95">Investir</button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-3">
+      <div class="bg-[#0A0A0A] rounded-2xl p-4 border border-white/10">
+        <div class="flex items-center gap-1.5 text-xs text-gray-400 mb-2">
+          <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          Lucro Total
+        </div>
+        <p class="font-display text-lg font-bold text-emerald-400">+R$ 168.932</p>
+        <p class="text-[11px] text-gray-500 mt-1">Desde Jan/2024</p>
+      </div>
+      <div class="bg-[#0A0A0A] rounded-2xl p-4 border border-white/10">
+        <div class="flex items-center gap-1.5 text-xs text-gray-400 mb-2">
+          <svg class="w-3.5 h-3.5 text-marca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          Dividendos
+        </div>
+        <p class="font-display text-lg font-bold text-white">R$ 14.521</p>
+        <p class="text-[11px] text-gray-500 mt-1">R$ 1.210/mês médio</p>
+      </div>
+      <div class="bg-[#0A0A0A] rounded-2xl p-4 border border-white/10">
+        <div class="flex items-center gap-1.5 text-xs text-gray-400 mb-2">
+          <svg class="w-3.5 h-3.5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          Aportes
+        </div>
+        <p class="font-display text-lg font-bold text-white">R$ 1.300.000</p>
+        <p class="text-[11px] text-gray-500 mt-1">27 aportes realizados</p>
+      </div>
+      <div class="bg-[#0A0A0A] rounded-2xl p-4 border border-white/10">
+        <div class="flex items-center gap-1.5 text-xs text-gray-400 mb-2">
+          <svg class="w-3.5 h-3.5 text-purple-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Sharpe Ratio
+        </div>
+        <p class="font-display text-lg font-bold text-white">1,84</p>
+        <p class="text-[11px] text-gray-500 mt-1">Perfil: Moderado</p>
+      </div>
+    </div>
+
+    <div class="bg-[#0A0A0A] rounded-2xl p-5 border border-white/10">
+      <h3 class="font-display text-sm font-semibold text-white mb-4">Distribuição por Setor</h3>
+      <div class="flex items-center gap-4">
+        <div class="relative flex-shrink-0">
+          <svg id="donut-chart" viewBox="0 0 200 200" class="w-36 h-36"></svg>
+          <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
+            <span class="text-[10px] text-gray-400 uppercase tracking-wider">Total</span>
+            <span class="text-sm font-bold text-white font-display">5 setores</span>
+          </div>
+        </div>
+        <div id="donut-legend" class="flex-1 space-y-2"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex items-center gap-2 mb-3 overflow-x-auto pb-1 -mx-5 px-5 scrollbar-hide" id="filter-bar">
+        <button class="carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-marca text-[#0A0A0A] transition" data-filtro="todos">Todos</button>
+        <button class="carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 transition" data-filtro="acoes">Ações Globais</button>
+        <button class="carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 transition" data-filtro="energias">Energias</button>
+        <button class="carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 transition" data-filtro="fundos">Fundos Imobiliários</button>
+        <button class="carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 transition" data-filtro="esportes">Esportes</button>
+        <button class="carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 transition" data-filtro="caixa">Caixa</button>
+        <button class="carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 transition" data-filtro="cripto">Cripto</button>
+        <button class="carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 transition" data-filtro="rent-pos">Maior Rentab.</button>
+        <button class="carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 transition" data-filtro="rent-neg">Menor Rentab.</button>
+      </div>
+    </div>
+
+    <div>
+      <h3 class="font-display text-sm font-semibold text-white mb-3">Posições Abertas <span id="pos-count" class="text-gray-500 font-normal"></span></h3>
+      <div id="positions-list" class="space-y-3"></div>
+      <div id="positions-empty" class="hidden text-center py-10">
+        <svg class="w-12 h-12 text-gray-600 mx-auto mb-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        <p class="text-sm text-gray-400">Nenhuma posição encontrada</p>
+        <p class="text-xs text-gray-500 mt-1">Tente ajustar os filtros aplicados</p>
+      </div>
+    </div>
+
+    <button onclick="minha_carteira_rebalance()" class="w-full bg-marca/10 border border-marca/30 text-marca font-semibold text-sm py-3.5 rounded-2xl hover:bg-marca/20 transition active:scale-[0.98] flex items-center justify-center gap-2">
+      <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+      Rebalancear Carteira
+    </button>
+  </main>
+
+  <div id="modal-overlay" class="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 hidden items-end sm:items-center justify-center" onclick="if(event.target===this)fecharModal()">
+    <div id="modal-content" class="bg-[#111111] rounded-t-3xl sm:rounded-3xl w-full max-w-md max-h-[85vh] overflow-y-auto border border-white/10"></div>
+  </div>
+
+  <script>
+    (function() {
+      const carteiraDados = {
+        resumo: {
+          totalInvestido: 1354975.22, totalAtual: 1523847.32,
+          lucroPrejuizo: 168932.10, rentabilidadeTotal: 12.47,
+          dividendosMensais: 1210.50, dividendosAcumulados: 14521.33
+        },
+        alocacao: [
+          { id: 'acoes', nome: 'Ações Globais', pct: 40, valor: 609538.93, cor: '#D4AF37', glow: 'rgba(212,175,55,0.15)' },
+          { id: 'energias', nome: 'Energias', pct: 25, valor: 380961.83, cor: '#34D399', glow: 'rgba(52,211,153,0.15)' },
+          { id: 'fundos', nome: 'Fundos Imobiliários', pct: 20, valor: 304769.46, cor: '#60A5FA', glow: 'rgba(96,165,250,0.15)' },
+          { id: 'esportes', nome: 'Esportes', pct: 10, valor: 152384.73, cor: '#F472B6', glow: 'rgba(244,114,182,0.15)' },
+          { id: 'caixa', nome: 'Caixa', pct: 5, valor: 76192.37, cor: '#94A3B8', glow: 'rgba(148,163,184,0.15)' }
+        ],
+        posicoes: [
+          { ativo: 'Apple Inc.', ticker: 'AAPL', setor: 'acoes', tipo: 'Ação', risco: 'Médio', qtd: 45, investido: 67606.35, atual: 82350.00, div: 3156.75, preco: 1829.00, min: 120, max: 1850, spark: [5,7,6,9,8,12,11,15,14,16,18,19], change: 0.78 },
+          { ativo: 'Coca-Cola Co.', ticker: 'KO', setor: 'acoes', tipo: 'Ação', risco: 'Baixo', qtd: 120, investido: 61320.00, atual: 71400.00, div: 4212.00, preco: 595.00, min: 450, max: 620, spark: [8,9,8,10,11,10,12,13,12,14,15,16], change: 0.42 },
+          { ativo: 'McDonald\'s Corp.', ticker: 'MCD', setor: 'acoes', tipo: 'Ação', risco: 'Médio', qtd: 35, investido: 89945.00, atual: 106645.00, div: 3285.00, preco: 3047.00, min: 2400, max: 3100, spark: [7,8,9,8,11,10,12,13,14,13,15,16], change: 0.62 },
+          { ativo: 'NextEra Energy', ticker: 'NEE', setor: 'energias', tipo: 'Ação', risco: 'Médio', qtd: 80, investido: 49680.00, atual: 61360.00, div: 1920.00, preco: 767.00, min: 550, max: 780, spark: [3,4,5,6,5,8,7,10,9,11,12,14], change: 1.25 },
+          { ativo: 'Vestas Wind Systems', ticker: 'VWS', setor: 'energias', tipo: 'Ação', risco: 'Alto', qtd: 200, investido: 65800.00, atual: 74200.00, div: 980.00, preco: 371.00, min: 280, max: 390, spark: [2,1,3,2,5,4,6,7,5,8,9,11], change: -0.34 },
+          { ativo: 'HBR Real Estate Fund', ticker: 'HBRT11', setor: 'fundos', tipo: 'FII', risco: 'Médio', qtd: 500, investido: 62750.00, atual: 71500.00, div: 3562.50, preco: 143.00, min: 105, max: 150, spark: [4,5,4,6,5,7,8,7,9,8,10,11], change: 0.55 },
+          { ativo: 'FIFA Merchandising', ticker: 'FIFM', setor: 'esportes', tipo: 'Ação', risco: 'Alto', qtd: 300, investido: 54600.00, atual: 78150.00, div: 1890.00, preco: 260.50, min: 150, max: 280, spark: [1,3,2,5,4,7,6,9,8,11,12,15], change: 2.10 },
+          { ativo: 'CDB Banco Inter', ticker: 'CDB-INT', setor: 'caixa', tipo: 'CDB', risco: 'Baixo', qtd: 1, investido: 50000.00, atual: 52600.00, div: 2360.00, preco: 1.00, min: 0, max: 0, spark: [2,3,3,4,4,5,5,6,6,7,7,8], change: 0.48 },
+          { ativo: 'Bitcoin', ticker: 'BTC', setor: 'cripto', tipo: 'Criptomoeda', risco: 'Muito Alto', qtd: 0.15, investido: 64200.00, atual: 83192.37, div: 155.08, preco: 554615.78, min: 0, max: 0, spark: [5,3,7,4,9,6,10,8,12,10,14,16], change: 3.45 }
+        ]
+      };
+
+      function brl(v) {
+        const n = Number(v);
+        if (isNaN(n)) return 'R$ 0,00';
+        return n < 0
+          ? '-R$ ' + Math.abs(n).toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.')
+          : 'R$ ' + n.toFixed(2).replace('.', ',').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      }
+
+      function pct(v) {
+        return (v >= 0 ? '+' : '') + v.toFixed(2) + '%';
+      }
+
+      function getIniciais(str) {
+        return str.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+      }
+
+      function setorCor(id) {
+        const m = { acoes: '#D4AF37', energias: '#34D399', fundos: '#60A5FA', esportes: '#F472B6', caixa: '#94A3B8', cripto: '#A78BFA' };
+        return m[id] || '#D4AF37';
+      }
+
+      function setorBg(id) {
+        const m = { acoes: 'rgba(212,175,55,0.12)', energias: 'rgba(52,211,153,0.12)', fundos: 'rgba(96,165,250,0.12)', esportes: 'rgba(244,114,182,0.12)', caixa: 'rgba(148,163,184,0.12)', cripto: 'rgba(167,139,250,0.12)' };
+        return m[id] || 'rgba(212,175,55,0.12)';
+      }
+
+      function setorLabel(id) {
+        const m = { acoes: 'Ações Globais', energias: 'Energias', fundos: 'Fundos Imobiliários', esportes: 'Esportes', caixa: 'Caixa', cripto: 'Criptomoedas' };
+        return m[id] || id;
+      }
+
+      function sparklinePath(data, w, h) {
+        if (!data || data.length < 2) return '';
+        const mn = Math.min(...data), mx = Math.max(...data), rng = mx - mn || 1;
+        const step = w / (data.length - 1);
+        return data.map((v, i) => `${i === 0 ? 'M' : 'L'} ${(i * step).toFixed(1)} ${(h - ((v - mn) / rng) * (h - 4) - 2).toFixed(1)}`).join(' ');
+      }
+
+      function donutArc(cx, cy, or, ir, sa, ea) {
+        const large = (ea - sa) > 180 ? 1 : 0;
+        const s = sa * Math.PI / 180, e = ea * Math.PI / 180;
+        const x1 = cx + or * Math.cos(s), y1 = cy + or * Math.sin(s);
+        const x2 = cx + or * Math.cos(e), y2 = cy + or * Math.sin(e);
+        const x3 = cx + ir * Math.cos(e), y3 = cy + ir * Math.sin(e);
+        const x4 = cx + ir * Math.cos(s), y4 = cy + ir * Math.sin(s);
+        const arc = ea - sa === 360 ? `A ${or} ${or} 0 1 1 ${x1 - 0.01} ${y1}` : `A ${or} ${or} 0 ${large} 1 ${x2} ${y2}`;
+        return `M ${x1} ${y1} ${arc} L ${x3} ${y3} A ${ir} ${ir} 0 ${large} 0 ${x4} ${y4} Z`;
+      }
+
+      function renderDonut() {
+        const svg = document.getElementById('donut-chart');
+        const legend = document.getElementById('donut-legend');
+        if (!svg || !legend) return;
+        const cx = 100, cy = 100, or = 90, ir = 58;
+        let ca = 0, h = '';
+        carteiraDados.alocacao.forEach(s => {
+          const ea = ca + s.pct * 3.6;
+          h += `<path d="${donutArc(cx, cy, or, ir, ca, ea)}" fill="${s.cor}" opacity="0.9"><title>${s.nome}: ${s.pct}%</title></path>`;
+          ca = ea;
+        });
+        svg.innerHTML = h + `<circle cx="${cx}" cy="${cy}" r="${ir}" fill="#0A0A0A"/>`;
+        legend.innerHTML = carteiraDados.alocacao.map(s => `
+          <div class="flex items-center justify-between gap-2">
+            <div class="flex items-center gap-2 min-w-0">
+              <span class="w-2.5 h-2.5 rounded-sm flex-shrink-0" style="background:${s.cor}"></span>
+              <span class="text-[11px] text-gray-300 truncate">${s.nome}</span>
+            </div>
+            <span class="text-[11px] font-semibold text-white flex-shrink-0">${s.pct}%</span>
+          </div>
+        `).join('');
+      }
+
+      function getBadge(setor, tipo) {
+        const m = { acoes: { bg: 'rgba(212,175,55,0.12)', tx: '#D4AF37', lb: 'Ações' }, energias: { bg: 'rgba(52,211,153,0.12)', tx: '#34D399', lb: 'Energia' }, fundos: { bg: 'rgba(96,165,250,0.12)', tx: '#60A5FA', lb: 'FII' }, esportes: { bg: 'rgba(244,114,182,0.12)', tx: '#F472B6', lb: 'Esportes' }, caixa: { bg: 'rgba(148,163,184,0.12)', tx: '#94A3B8', lb: 'Renda Fixa' }, cripto: { bg: 'rgba(167,139,250,0.12)', tx: '#A78BFA', lb: 'Cripto' } };
+        const c = m[setor] || m.acoes;
+        return `<span class="text-[10px] font-semibold px-2 py-0.5 rounded-md" style="background:${c.bg};color:${c.tx}">${c.lb}</span>`;
+      }
+
+      function renderPositions(filtro) {
+        const container = document.getElementById('positions-list');
+        const empty = document.getElementById('positions-empty');
+        const count = document.getElementById('pos-count');
+        if (!container) return;
+        let data = [...carteiraDados.posicoes];
+        if (filtro === 'rent-pos') data.sort((a, b) => ((b.atual - b.investido) / b.investido) - ((a.atual - a.investido) / a.investido));
+        else if (filtro === 'rent-neg') data.sort((a, b) => ((a.atual - a.investido) / a.investido) - ((b.atual - b.investido) / b.investido));
+        else if (filtro !== 'todos') data = data.filter(p => p.setor === filtro);
+        if (count) count.textContent = `(${data.length})`;
+        if (data.length === 0) { container.innerHTML = ''; empty.classList.remove('hidden'); return; }
+        empty.classList.add('hidden');
+        container.innerHTML = data.map(p => {
+          const l = p.atual - p.investido, rp = (l / p.investido * 100);
+          const lc = l >= 0 ? '#34D399' : '#EF4444';
+          const ls = l >= 0 ? '+' : '';
+          const sc = setorCor(p.setor);
+          const pts = sparklinePath(p.spark, 56, 20);
+          return `<div class="carteira-posicao bg-[#0A0A0A] rounded-2xl p-4 border border-white/10 hover:border-white/20 hover:bg-[#161616] transition-all cursor-pointer active:scale-[0.98]" data-ativo='${JSON.stringify(p).replace(/'/g, "&#39;")}' onclick="minha_carteira_abrirPosicao(this)">
+            <div class="flex items-start gap-3">
+              <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0 font-display font-bold text-sm" style="background:${setorBg(p.setor)};color:${sc}">${getIniciais(p.ativo)}</div>
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-0.5">
+                  <span class="font-semibold text-white text-sm truncate">${p.ativo}</span>
+                  ${getBadge(p.setor, p.tipo)}
+                </div>
+                <p class="text-[11px] text-gray-500">${p.qtd} ${p.qtd === 1 ? 'cota' : 'cotas'} · ${p.ticker}</p>
+                <div class="flex items-end justify-between mt-2.5">
+                  <div>
+                    <p class="text-xs text-gray-500">Valor Atual</p>
+                    <p class="font-display font-bold text-white text-sm">${brl(p.atual)}</p>
+                  </div>
+                  <div class="text-right">
+                    <span class="inline-flex items-center gap-0.5 text-xs font-bold ${l >= 0 ? 'text-emerald-400' : 'text-red-400'}">${ls}${brl(Math.abs(l))} <span class="text-[10px]">(${pct(rp)})</span></span>
+                    <svg class="w-14 h-5 ml-2 mt-0.5 inline-block" viewBox="0 0 56 20"><polyline points="${pts}" fill="none" stroke="${lc}" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between mt-2 pt-2 border-t border-white/5">
+                  <span class="text-[11px] text-gray-500">Investido: ${brl(p.investido)}</span>
+                  <span class="text-[11px] text-marca font-medium">Dividendos: ${brl(p.div)}</span>
+                </div>
+              </div>
+            </div>
+          </div>`;
+        }).join('');
+      }
+
+      function abrirPosicao(p) {
+        const l = p.atual - p.investido, rp = (l / p.investido * 100);
+        const lc = l >= 0 ? 'text-emerald-400' : 'text-red-400';
+        const ls = l >= 0 ? '+' : '';
+        const sc = setorCor(p.setor);
+        const hist = Array.from({ length: 12 }, (_, i) => {
+          const d = new Date(); d.setMonth(d.getMonth() - 11 + i);
+          return { mes: d.toLocaleDateString('pt-BR', { month: 'short', year: '2-digit' }), val: +(p.investido * (1 + (p.atual - p.investido) / p.investido * (i / 12) + (Math.random() - 0.45) * p.investido * 0.03)).toFixed(2) };
+        });
+        const maxH = Math.max(...hist.map(h => h.val)), minH = Math.min(...hist.map(h => h.val));
+        const pts = hist.map((h, i) => `${(i * 48).toFixed(1)},${(60 - ((h.val - minH) / (maxH - minH || 1)) * 50).toFixed(1)}`).join(' ');
+        abrirModal(`
+          <div class="p-6 space-y-5">
+            <div class="flex items-center gap-3">
+              <div class="w-14 h-14 rounded-2xl flex items-center justify-center font-display font-bold text-lg" style="background:${setorBg(p.setor)};color:${sc}">${getIniciais(p.ativo)}</div>
+              <div><h3 class="font-display font-bold text-white text-lg">${p.ativo}</h3><p class="text-xs text-gray-400">${p.ticker} · ${setorLabel(p.setor)} · Risco ${p.risco}</p></div>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-white/5 rounded-xl p-3"><p class="text-[11px] text-gray-400 mb-0.5">Investido</p><p class="font-semibold text-white text-sm">${brl(p.investido)}</p></div>
+              <div class="bg-white/5 rounded-xl p-3"><p class="text-[11px] text-gray-400 mb-0.5">Valor Atual</p><p class="font-semibold text-white text-sm">${brl(p.atual)}</p></div>
+              <div class="bg-white/5 rounded-xl p-3"><p class="text-[11px] text-gray-400 mb-0.5">Lucro/Prejuízo</p><p class="font-semibold ${lc} text-sm">${ls}${brl(Math.abs(l))} (${pct(rp)})</p></div>
+              <div class="bg-white/5 rounded-xl p-3"><p class="text-[11px] text-gray-400 mb-0.5">Dividendos Acum.</p><p class="font-semibold text-marca text-sm">${brl(p.div)}</p></div>
+            </div>
+            <div>
+              <p class="text-xs text-gray-400 mb-2">Evolução (12 meses)</p>
+              <svg viewBox="0 0 240 60" class="w-full h-14"><polyline points="${pts}" fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><polyline points="${pts} 239,60 0,60" fill="url(#areaGrad)" stroke="none"/><defs><linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4AF37" stop-opacity="0.2"/><stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/></linearGradient></defs></svg>
+              <div class="flex justify-between mt-1">${hist.map(h => `<span class="text-[9px] text-gray-500">${h.mes}</span>`).join('')}</div>
+            </div>
+            <div class="grid grid-cols-3 gap-2 text-center">
+              <div class="bg-white/5 rounded-xl p-2.5"><p class="text-[10px] text-gray-400">Cotação</p><p class="font-bold text-white text-xs mt-0.5">${p.preco > 0 ? brl(p.preco) : '—'}</p></div>
+              <div class="bg-white/5 rounded-xl p-2.5"><p class="text-[10px] text-gray-400">Quantidade</p><p class="font-bold text-white text-xs mt-0.5">${p.qtd}</p></div>
+              <div class="bg-white/5 rounded-xl p-2.5"><p class="text-[10px] text-gray-400">Rentab.</p><p class="font-bold ${lc} text-xs mt-0.5">${pct(rp)}</p></div>
+            </div>
+            <div class="flex gap-2 pt-1">
+              <button onclick="mostrarTela('confirmar-aporte');fecharModal()" class="flex-1 bg-marca text-[#0A0A0A] font-semibold text-sm py-3 rounded-xl hover:brightness-110 transition active:scale-95">Aportar</button>
+              <button onclick="fecharModal();mostrarTela('notificacoes-e-alertas')" class="flex-1 bg-white/5 border border-white/10 text-white font-semibold text-sm py-3 rounded-xl hover:bg-white/10 transition active:scale-95">Criar Alerta</button>
+            </div>
+          </div>
+        `, p.ativo);
+      }
+
+      function rebalance() {
+        const aloc = carteiraDados.alocacao.map(s => ({ ...s }));
+        const targets = [{ id: 'acoes', tp: 30 }, { id: 'energias', tp: 30 }, { id: 'fundos', tp: 20 }, { id: 'esportes', tp: 10 }, { id: 'caixa', tp: 10 }];
+        const diffs = targets.map(t => { const a = aloc.find(x => x.id === t.id); return { ...a, tp: t.tp, diff: a.pct - t.tp }; });
+        const rows = diffs.map(d => `<div class="flex justify-between text-sm"><span class="text-gray-300">${d.nome}</span><span class="font-medium ${d.diff > 0 ? 'text-amber-400' : d.diff < 0 ? 'text-blue-400' : 'text-gray-400'}">${d.pct}% → ${d.tp}%${d.diff !== 0 ? ' (' + (d.diff > 0 ? '+' : '') + d.diff + '%)' : ''}</span></div>`).join('');
+        abrirModal(`
+          <div class="p-6 space-y-4">
+            <div class="flex items-center gap-3"><div class="w-10 h-10 rounded-xl bg-marca/10 flex items-center justify-center"><svg class="w-5 h-5 text-marca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg></div><div><h3 class="font-display font-bold text-white text-lg">Sugestão de Rebalanceamento</h3><p class="text-xs text-gray-400">Perfil: Moderado · Baseado no seu risco</p></div></div>
+            <div class="bg-amber-500/10 border border-amber-500/20 rounded-xl p-3"><p class="text-xs text-amber-400 leading-relaxed">Reduza exposição em Ações Globais (peso alto) e aumente em Energias. O rebalanceamento otimiza a relação risco/retorno do seu perfil moderado.</p></div>
+            <div class="space-y-2">${rows}</div>
+            <div class="bg-white/5 rounded-xl p-3"><p class="text-xs text-gray-400 mb-1">Movimentação estimada</p><p class="text-sm font-semibold text-white">~R$ 45.000 em 7 dias úteis</p></div>
+            <div class="flex gap-2 pt-1"><button onclick="fecharModal();minha_carteira_confirmarRebalance()" class="flex-1 bg-marca text-[#0A0A0A] font-semibold text-sm py-3 rounded-xl hover:brightness-110 transition active:scale-95">Confirmar Rebalanceamento</button><button onclick="fecharModal()" class="px-6 bg-white/5 border border-white/10 text-gray-300 font-medium text-sm py-3 rounded-xl hover:bg-white/10 transition active:scale-95">Cancelar</button></div>
+          </div>
+        `, 'Rebalancear Carteira');
+      }
+
+      function confirmarRebalance() {
+        fecharModal();
+        toast('Processando rebalanceamento...', 'info');
+        setTimeout(() => {
+          abrirModal(`<div class="p-6 text-center space-y-4"><div class="w-16 h-16 rounded-full bg-marca/10 flex items-center justify-center mx-auto"><svg class="w-8 h-8 text-marca animate-spin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12a9 9 0 11-6.219-8.56"/></svg></div><h3 class="font-display font-bold text-white text-lg">Rebalanceamento Iniciado</h3><p class="text-sm text-gray-400">Suas ordens foram enviadas. Conclusão prevista em 7 dias úteis.</p><div class="w-full bg-white/10 rounded-full h-2 overflow-hidden"><div class="bg-marca h-full rounded-full transition-all duration-[3000ms]" style="width:0%" id="rb-progress"></div></div><p class="text-xs text-gray-500">Você receberá uma notificação a cada etapa.</p><button onclick="fecharModal();toast('Carteira rebalanceada com sucesso!','ok')" class="w-full bg-marca text-[#0A0A0A] font-semibold text-sm py-3 rounded-xl hover:brightness-110 transition active:scale-95 mt-2">Concluir</button></div>`, 'Processando');
+          setTimeout(() => { const pb = document.getElementById('rb-progress'); if (pb) pb.style.width = '100%'; }, 100);
+        }, 1500);
+      }
+
+      document.addEventListener('click', function(e) {
+        const btn = e.target.closest('.carteira-filtro');
+        if (btn) {
+          document.querySelectorAll('.carteira-filtro').forEach(b => { b.className = 'carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 hover:bg-white/10 transition'; });
+          btn.className = 'carteira-filtro flex-shrink-0 px-3.5 py-1.5 rounded-full text-xs font-medium bg-marca text-[#0A0A0A] transition';
+          renderPositions(btn.dataset.filtro);
+        }
+      });
+
+      window.minha_carteira_abrirPosicao = function(el) {
+        try { const d = JSON.parse(el.dataset.ativo); abrirPosicao(d); } catch(e) {}
+      };
+      window.minha_carteira_rebalance = rebalance;
+      window.minha_carteira_confirmarRebalance = confirmarRebalance;
+
+      renderDonut();
+      renderPositions('todos');
+    })();
+  </script>
+</section>
+
     <!-- TELAS -->
       </main>
 
