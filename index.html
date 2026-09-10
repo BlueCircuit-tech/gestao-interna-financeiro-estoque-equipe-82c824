@@ -639,6 +639,278 @@
       </script>
     </section>
 
+    <section data-tela="carteira-de-ativos" class="hidden">
+      <div class="px-5 pt-4 pb-3">
+        <div class="flex items-start justify-between mb-0.5">
+          <div>
+            <p class="text-xs font-medium tracking-wider uppercase" style="color:var(--marca-700);">Carteira de Ativos</p>
+            <h1 class="text-[22px] font-bold leading-tight mt-0.5" style="font-family:var(--font-display);color:var(--marca-900);">Meus Investimentos</h1>
+          </div>
+          <button onclick="carteira_de_ativos_simular()" class="active:scale-95 transition-transform shrink-0 mt-1 inline-flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-[11px] font-bold shadow-lg" style="background:var(--marca-700);color:var(--marca-50);" onmouseenter="this.style.background='var(--marca-900)'" onmouseleave="this.style.background='var(--marca-700)'">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+            Simular Aporte
+          </button>
+        </div>
+        <p class="text-[11px] mt-1" style="color:#9CA3AF;">Acompanhe o desempenho dos seus investimentos</p>
+      </div>
+
+      <div class="px-5 mb-3">
+        <div class="rounded-2xl p-4 shadow-lg relative overflow-hidden" style="background:var(--marca-900);">
+          <div class="absolute inset-0 opacity-5">
+            <div class="absolute -top-6 -right-6 w-32 h-32 rounded-full border-2" style="border-color:var(--marca-700);"></div>
+            <div class="absolute -bottom-10 -left-10 w-40 h-40 rounded-full border-2" style="border-color:var(--marca-700);"></div>
+          </div>
+          <div class="relative z-10">
+            <div class="flex items-center gap-1.5 mb-1">
+              <p class="text-[11px] font-medium" style="color:var(--marca-700);">Patrimônio Total</p>
+            </div>
+            <p class="text-3xl font-bold tracking-tight" style="font-family:var(--font-display);color:var(--marca-50);">R$ 508.900,00</p>
+            <div class="flex items-center gap-1.5 mt-2">
+              <span class="inline-flex items-center gap-0.5 px-2 py-0.5 rounded-lg text-[11px] font-bold" style="background:rgba(34,197,94,0.2);color:#4ADE80;">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="18 15 12 9 6 15"/></svg>
+                +7,13%
+              </span>
+              <span class="text-[11px]" style="color:var(--marca-700);">R$ 33.900,00 este mês</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-5 mb-3">
+        <div class="grid grid-cols-2 gap-2.5">
+          <div class="rounded-xl p-3.5 border" style="background:var(--marca-50);border-color:#E5E7EB;">
+            <div class="flex items-center gap-1.5 mb-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--marca-700);"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+              <span class="text-[10px] font-medium uppercase tracking-wider" style="color:#9CA3AF;">Total Investido</span>
+            </div>
+            <p class="text-base font-bold" style="font-family:var(--font-display);color:var(--marca-900);">R$ 475.000</p>
+            <p class="text-[10px] mt-0.5" style="color:#9CA3AF;">em 9 ativos</p>
+          </div>
+          <div class="rounded-xl p-3.5 border" style="background:var(--marca-50);border-color:#E5E7EB;">
+            <div class="flex items-center gap-1.5 mb-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:#22C55E;"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+              <span class="text-[10px] font-medium uppercase tracking-wider" style="color:#9CA3AF;">Rendimento Médio</span>
+            </div>
+            <p class="text-base font-bold" style="font-family:var(--font-display);color:#22C55E;">+8,45%</p>
+            <p class="text-[10px] mt-0.5" style="color:#9CA3AF;">acumulado 12 meses</p>
+          </div>
+          <div class="rounded-xl p-3.5 border" style="background:var(--marca-50);border-color:#E5E7EB;">
+            <div class="flex items-center gap-1.5 mb-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--marca-700);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span class="text-[10px] font-medium uppercase tracking-wider" style="color:#9CA3AF;">Próx. Distribuição</span>
+            </div>
+            <p class="text-base font-bold" style="font-family:var(--font-display);color:var(--marca-900);" id="countdownDisplay">23d 14h 22m</p>
+            <p class="text-[10px] mt-0.5" style="color:#9CA3AF;">em <span style="color:var(--marca-700);font-weight:600;">USD</span></p>
+          </div>
+          <div class="rounded-xl p-3.5 border" style="background:var(--marca-50);border-color:#E5E7EB;">
+            <div class="flex items-center gap-1.5 mb-2">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--marca-700);"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+              <span class="text-[10px] font-medium uppercase tracking-wider" style="color:#9CA3AF;">Setores</span>
+            </div>
+            <p class="text-base font-bold" style="font-family:var(--font-display);color:var(--marca-900);">4 ativos</p>
+            <p class="text-[10px] mt-0.5" style="color:#9CA3AF;">diversificados</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-5 mb-2.5">
+        <svg width="180" height="52" viewBox="0 0 180 52" class="w-full">
+          <text x="90" y="14" text-anchor="middle" font-size="9" fill="#9CA3AF" font-family="system-ui" font-weight="600" letter-spacing="0.5">RENDIMENTO POR ATIVO (%)</text>
+          <line x1="22" y1="18" x2="22" y2="42" stroke="#E5E7EB" stroke-width="1"/>
+          <line x1="22" y1="42" x2="170" y2="42" stroke="#E5E7EB" stroke-width="1"/>
+          <rect x="26" y="32" width="10" height="10" rx="2" fill="var(--marca-700)" opacity="0.3"/>
+          <rect x="43" y="26" width="10" height="16" rx="2" fill="var(--marca-700)" opacity="0.4"/>
+          <rect x="60" y="28" width="10" height="14" rx="2" fill="var(--marca-700)" opacity="0.35"/>
+          <rect x="77" y="20" width="10" height="22" rx="2" fill="var(--marca-700)" opacity="0.6"/>
+          <rect x="94" y="22" width="10" height="20" rx="2" fill="var(--marca-700)" opacity="0.55"/>
+          <rect x="111" y="24" width="10" height="18" rx="2" fill="var(--marca-700)" opacity="0.5"/>
+          <rect x="128" y="18" width="10" height="24" rx="2" fill="var(--marca-700)" opacity="0.7"/>
+          <rect x="145" y="16" width="10" height="26" rx="2" fill="var(--marca-700)" opacity="0.8"/>
+          <rect x="162" y="20" width="10" height="22" rx="2" fill="var(--marca-700)" opacity="0.6"/>
+        </svg>
+      </div>
+
+      <div class="px-5 mb-2">
+        <div class="flex items-center justify-between mb-2.5">
+          <h2 class="text-[13px] font-bold" style="font-family:var(--font-display);color:var(--marca-900);">Meus Ativos</h2>
+          <span class="text-[11px] font-medium" style="color:#9CA3AF;" id="assetCount">9 ativos</span>
+        </div>
+        <div class="flex gap-2 overflow-x-auto pb-2 -mx-5 px-5 scrollbar-hide" style="scrollbar-width:none;" id="filterBar">
+          <button onclick="carteira_de_ativos_filtrar(this,'todos')" data-filtro="todos" class="carteira-filtro shrink-0 px-3.5 py-1.5 rounded-full text-[11px] font-bold transition-all active:scale-95" style="background:var(--marca-900);color:var(--marca-50);">Todos</button>
+          <button onclick="carteira_de_ativos_filtrar(this,'energia')" data-filtro="energia" class="carteira-filtro shrink-0 px-3.5 py-1.5 rounded-full text-[11px] font-bold transition-all active:scale-95" style="background:var(--marca-50);color:#6B7280;border:1.5px solid #E5E7EB;">Energia</button>
+          <button onclick="carteira_de_ativos_filtrar(this,'multinacional')" data-filtro="multinacional" class="carteira-filtro shrink-0 px-3.5 py-1.5 rounded-full text-[11px] font-bold transition-all active:scale-95" style="background:var(--marca-50);color:#6B7280;border:1.5px solid #E5E7EB;">Multinacionais</button>
+          <button onclick="carteira_de_ativos_filtrar(this,'esportes')" data-filtro="esportes" class="carteira-filtro shrink-0 px-3.5 py-1.5 rounded-full text-[11px] font-bold transition-all active:scale-95" style="background:var(--marca-50);color:#6B7280;border:1.5px solid #E5E7EB;">Esportes</button>
+          <button onclick="carteira_de_ativos_filtrar(this,'imobiliario')" data-filtro="imobiliario" class="carteira-filtro shrink-0 px-3.5 py-1.5 rounded-full text-[11px] font-bold transition-all active:scale-95" style="background:var(--marca-50);color:#6B7280;border:1.5px solid #E5E7EB;">Imobiliário</button>
+        </div>
+      </div>
+
+      <div class="px-5 pb-3 space-y-2.5" id="assetList"></div>
+
+      <div class="mx-5 mb-4 rounded-2xl overflow-hidden border" style="background:var(--marca-50);border-color:#E5E7EB;">
+        <div class="p-4">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-2">
+              <div class="w-8 h-8 rounded-xl flex items-center justify-center" style="background:var(--marca-700);"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--marca-50);"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+              <div>
+                <p class="text-xs font-bold" style="color:var(--marca-900);font-family:var(--font-display);">Próxima Distribuição</p>
+                <p class="text-[10px]" style="color:#9CA3AF;">Dividendos e rendimentos</p>
+              </div>
+            </div>
+            <span class="badge text-[10px] font-bold px-2 py-0.5 rounded-lg" style="background:#DBEAFE;color:#1D4ED8;">Em breve</span>
+          </div>
+          <div class="flex items-end justify-between">
+            <div>
+              <p class="text-[10px] mb-0.5" style="color:#9CA3AF;">Valor estimado</p>
+              <p class="text-lg font-bold" style="font-family:var(--font-display);color:var(--marca-900);">USD 8.450,00</p>
+              <p class="text-[10px] mt-0.5" style="color:#9CA3AF;">≈ R$ 42.250,00</p>
+            </div>
+            <div class="text-right">
+              <p class="text-[10px] mb-0.5" style="color:#9CA3AF;">Chega em</p>
+              <p class="text-sm font-bold" style="color:var(--marca-700);font-family:var(--font-display);" id="countdownSmall">23d 14h 22m</p>
+            </div>
+          </div>
+          <div class="mt-3 pt-3 border-t" style="border-color:#E5E7EB;">
+            <div class="flex items-center justify-between mb-1.5">
+              <span class="text-[10px]" style="color:#9CA3AF;">Progresso até distribuição</span>
+              <span class="text-[10px] font-bold" style="color:var(--marca-700);">76%</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full" style="background:#E5E7EB;"><div class="h-1.5 rounded-full transition-all" style="width:76%;background:var(--marca-700);"></div></div>
+            <div class="flex justify-between mt-1"><span class="text-[9px]" style="color:#9CA3AF;">01 Jan 2025</span><span class="text-[9px]" style="color:#9CA3AF;">15 Fev 2025</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="h-6"></div>
+    </section>
+
+    <script>
+    (function(){
+      var ativos=[
+        {id:'coca-cola',nome:'Coca-Cola',setor:'multinacional',investido:85000,rendimento:9.2,meta:100000,icone:'cocacola',cor:'#E31C25',descricao:'Investimento em ações preferenciais da The Coca-Cola Company, líder mundial em bebidas não alcoólicas. Presente em mais de 200 países com portfólio diversificado de marcas.',setorLabel:'Multinacionais',risco:'Baixo',data:'15/01/2023',tipo:'Ações Preferenciais'},
+        {id:'mcdonalds',nome:"McDonald's",setor:'multinacional',investido:62000,rendimento:12.5,meta:80000,icone:'mcdonalds',cor:'#FFBC0D',descricao:"Posição em The McDonald's Corporation, maior rede de fast-food do mundo. Modelo de franquias com fluxo de caixa recorrente e dividendos consistentes.",setorLabel:'Multinacionais',risco:'Baixo',data:'22/03/2023',tipo:'Ações Ordinárias'},
+        {id:'apple',nome:'Apple',setor:'multinacional',investido:120000,rendimento:18.3,meta:150000,icone:'apple',cor:'#A2AAAD',descricao:"Investimento em AAPL, uma das maiores empresas de tecnologia do mundo. Ecossistema integrado com iPhone, Mac, iPad e serviços recorrentes.",setorLabel:'Multinacionais',risco:'Médio',data:'10/06/2022',tipo:'Ações Ordinárias'},
+        {id:'energia-solar',nome:'Energia Solar',setor:'energia',investido:45000,rendimento:14.1,meta:60000,icone:'solar',cor:'#F59E0B',descricao:'Fundo de investimento em energia solar fotovoltaica. Inclui parques solares em operação no Brasil e projetos de geração distribuída.',setorLabel:'Energia Renovável',risco:'Baixo',data:'05/09/2023',tipo:'Fundo de Investimento'},
+        {id:'energia-eolica',nome:'Energia Eólica',setor:'energia',investido:38000,rendimento:11.8,meta:50000,icone:'eolica',cor:'#3B82F6',descricao:'Exposição ao mercado de energia eólica onshore e offshore. Participação em parques eólicos no Nordeste brasileiro e projetos internacionais.',setorLabel:'Energia Renovável',risco:'Médio',data:'18/11/2023',tipo:'Fundo de Investimento'},
+        {id:'hidreletricas',nome:'Hidrelétricas',setor:'energia',investido:55000,rendimento:6.5,meta:70000,icone:'hidreletrica',cor:'#06B6D4',descricao:'Investimento em usinas hidrelétricas e fundos de infraestrutura energética. Geração limpa com contratos de longo prazo e previsibilidade.',setorLabel:'Energia Renovável',risco:'Baixo',data:'01/02/2023',tipo:'Fundo de Infraestrutura'},
+        {id:'fifa',nome:'FIFA',setor:'esportes',investido:28000,rendimento:5.8,meta:40000,icone:'fifa',cor:'#326295',descricao:'Participação em fundos ligados à Federação Internacional de Futebol. Inclui direitos de transmissão e patrocínios de eventos esportivos globais.',setorLabel:'Esportes',risco:'Médio',data:'14/07/2023',tipo:'Fundo Setorial'},
+        {id:'uefa',nome:'UEFA',setor:'esportes',investido:22000,rendimento:4.2,meta:35000,icone:'uefa',cor:'#003399',descricao:'Exposição a fundos de investimento em competições UEFA. Inclui Champions League, Europa League e ligas europeias de futebol profissional.',setorLabel:'Esportes',risco:'Médio',data:'30/08/2023',tipo:'Fundo Setorial'},
+        {id:'fundos-imobiliarios',nome:'Fundos Imobiliários',setor:'imobiliario',investido:20000,rendimento:8.9,meta:30000,icone:'imobiliario',cor:'var(--marca-700)',descricao:'Carteira diversificada de FIIs (Fundos de Investimento Imobiliário). Inclui tijolos, papel, fundos de shopping e lajes corporativas.',setorLabel:'Imobiliário',risco:'Baixo',data:'12/12/2022',tipo:'FIIs Diversificados'}
+      ];
+      var filtroAtual='todos';
+
+      function getIcone(tipo,cor){
+        var icons={cocacola:'<svg width="22" height="22" viewBox="0 0 40 40"><path d="M20 8 C14 8 10 14 10 22 C10 26 12 30 16 32 L24 32 C28 30 30 26 30 22 C30 14 26 8 20 8Z" fill="'+cor+'" opacity="0.9"/><ellipse cx="20" cy="18" rx="6" ry="8" fill="#fff" opacity="0.25"/></svg>',mcdonalds:'<svg width="22" height="22" viewBox="0 0 40 40"><rect width="40" height="40" rx="8" fill="'+cor+'" opacity="0.15"/><path d="M12 14h2v10h-2zM17 11h2v13h-2zM22 8h2v16h-2zM27 11h2v13h-2z" fill="'+cor+'"/></svg>',apple:'<svg width="22" height="22" viewBox="0 0 40 40"><rect width="40" height="40" rx="10" fill="'+cor+'" opacity="0.12"/><path d="M25.5 14c.5-2.5-1-4.5-3-5.5-1-.5-3-.5-4.5.5C16.5 9.5 15 12.5 15 15v.5c-1.5.5-3 1.5-3.5 3.5-.5 2 0 4.5 1.5 6 1 1 2.5 1.5 4 1.5h.5c3.5 0 6.5-2.5 7.5-5.5.5-1.5.5-3 0-4.5z" fill="'+cor+'"/></svg>',solar:'<svg width="22" height="22" viewBox="0 0 40 40"><circle cx="20" cy="20" r="5" fill="'+cor+'"/><g stroke="'+cor+'" stroke-width="2.5" stroke-linecap="round"><line x1="20" y1="4" x2="20" y2="11"/><line x1="20" y1="29" x2="20" y2="36"/><line x1="4" y1="20" x2="11" y2="20"/><line x1="29" y1="20" x2="36" y2="20"/><line x1="8.7" y1="8.7" x2="13.5" y2="13.5"/><line x1="26.5" y1="26.5" x2="31.3" y2="31.3"/><line x1="8.7" y1="31.3" x2="13.5" y2="26.5"/><line x1="26.5" y1="13.5" x2="31.3" y2="8.7"/></g></svg>',eolica:'<svg width="22" height="22" viewBox="0 0 40 40"><circle cx="20" cy="20" r="2.5" fill="'+cor+'"/><g stroke="'+cor+'" stroke-width="2.5" stroke-linecap="round"><line x1="20" y1="20" x2="20" y2="6"/><line x1="20" y1="20" x2="34" y2="20"/><line x1="20" y1="20" x2="10" y2="30"/><line x1="20" y1="20" x2="30" y2="30"/><line x1="20" y1="20" x2="6" y2="20"/></g><rect x="17" y="33" width="6" height="3" rx="1" fill="'+cor+'"/></svg>',hidreletrica:'<svg width="22" height="22" viewBox="0 0 40 40"><path d="M8 32 Q14 20 20 26 Q26 14 32 24" fill="none" stroke="'+cor+'" stroke-width="2.5" stroke-linecap="round"/><path d="M5 34 Q12 24 18 30 Q24 18 30 28 Q34 22 35 26" fill="'+cor+'" opacity="0.2"/><rect x="14" y="28" width="12" height="8" rx="2" fill="'+cor+'" opacity="0.6"/><rect x="17" y="22" width="6" height="8" rx="1" fill="'+cor+'"/></svg>',fifa:'<svg width="22" height="22" viewBox="0 0 40 40"><circle cx="20" cy="20" r="13" fill="'+cor+'" opacity="0.15"/><circle cx="20" cy="20" r="10" fill="none" stroke="'+cor+'" stroke-width="1.5"/><circle cx="20" cy="20" r="4" fill="'+cor+'"/><g stroke="'+cor+'" stroke-width="1.5"><line x1="20" y1="6" x2="20" y2="12"/><line x1="20" y1="28" x2="20" y2="34"/><line x1="6" y1="20" x2="12" y2="20"/><line x1="28" y1="20" x2="34" y2="20"/><line x1="10.3" y1="10.3" x2="14.5" y2="14.5"/><line x1="25.5" y1="25.5" x2="29.7" y2="29.7"/><line x1="10.3" y1="29.7" x2="14.5" y2="25.5"/><line x1="25.5" y1="14.5" x2="29.7" y2="10.3"/></g></svg>',uefa:'<svg width="22" height="22" viewBox="0 0 40 40"><rect width="40" height="40" rx="8" fill="'+cor+'" opacity="0.12"/><path d="M20 8 L26 14 L34 16 L28 24 L30 34 L20 29 L10 34 L12 24 L6 16 L14 14Z" fill="'+cor+'" opacity="0.3"/><text x="20" y="24" text-anchor="middle" font-size="11" font-weight="900" fill="'+cor+'">★</text></svg>',imobiliario:'<svg width="22" height="22" viewBox="0 0 40 40"><rect width="40" height="40" rx="8" fill="'+cor+'" opacity="0.08"/><rect x="6" y="20" width="28" height="14" rx="2" fill="'+cor+'" opacity="0.5"/><rect x="10" y="10" width="8" height="12" rx="1.5" fill="'+cor+'"/><rect x="22" y="14" width="8" height="8" rx="1.5" fill="'+cor+'" opacity="0.7"/><rect x="13" y="23" width="5" height="6" rx="1" fill="var(--marca-50)"/><rect x="22" y="23" width="5" height="6" rx="1" fill="var(--marca-50)"/></svg>'};
+        return icons[tipo]||icons['imobiliario'];
+      }
+
+      function renderizar(){
+        var l=document.getElementById('assetList');
+        var itens=filtroAtual==='todos'?ativos:ativos.filter(function(a){return a.setor===filtroAtual;});
+        document.getElementById('assetCount').textContent=itens.length+(itens.length===1?' ativo':' ativos');
+        if(!itens.length){l.innerHTML='<div class="text-center py-10 rounded-2xl border-2 border-dashed" style="border-color:#E5E7EB;"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#D1D5DB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="mx-auto mb-2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg><p class="text-xs font-medium" style="color:#9CA3AF;">Nenhum ativo encontrado</p><p class="text-[10px] mt-0.5" style="color:#D1D5DB;">Tente outro filtro</p></div>';return;}
+        var h='';
+        itens.forEach(function(a){
+          var pct=Math.round((a.investido/a.meta)*100);
+          var isPos=a.rendimento>=0;
+          var corRend=isPos?'#22C55E':'#EF4444';
+          var setorCores={multinacional:'#E31C25',energia:'#22C55E',esportes:'#3B82F6',imobiliario:'var(--marca-700)'};
+          h+='<div class="card rounded-xl border cursor-pointer active:scale-[0.98] transition-all" style="background:#fff;border-color:#E5E7EB;" onclick="carteira_de_ativos_detalhe(\''+a.id+'\')">';
+          h+='<div class="p-3.5 flex items-center gap-3">';
+          h+='<div class="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 shadow-sm" style="background:'+setorCores[a.setor]+'15;">'+getIcone(a.icone,setorCores[a.setor])+'</div>';
+          h+='<div class="flex-1 min-w-0">';
+          h+='<div class="flex items-center justify-between mb-0.5"><p class="text-[13px] font-bold truncate" style="color:var(--marca-900);font-family:var(--font-display);">'+a.nome+'</p><span class="text-[10px] font-medium px-1.5 py-0.5 rounded-md shrink-0 ml-1.5" style="background:'+setorCores[a.setor]+'12;color:'+setorCores[a.setor]+';">'+a.setorLabel+'</span></div>';
+          h+='<div class="flex items-center justify-between"><p class="text-[11px] font-semibold" style="color:var(--marca-700);">R$ '+a.investido.toLocaleString('pt-BR')+'</p><span class="text-[11px] font-bold" style="color:'+corRend+';">'+(isPos?'+':'')+a.rendimento.toFixed(1)+'%</span></div>';
+          h+='<div class="mt-1.5"><div class="flex justify-between mb-0.5"><span class="text-[9px]" style="color:#9CA3AF;">Meta: R$ '+a.meta.toLocaleString('pt-BR')+'</span><span class="text-[9px] font-bold" style="color:var(--marca-700);">'+pct+'%</span></div><div class="w-full h-1 rounded-full" style="background:#F3F4F6;"><div class="h-1 rounded-full transition-all" style="width:'+pct+'%;background:var(--marca-700);"></div></div></div>';
+          h+='</div></div></div>';
+        });
+        l.innerHTML=h;
+      }
+
+      function detalheHTML(a){
+        var isPos=a.rendimento>=0;
+        var setorCores={multinacional:'#E31C25',energia:'#22C55E',esportes:'#3B82F6',imobiliario:'var(--marca-700)'};
+        var c=setorCores[a.setor]||'var(--marca-700)';
+        var ganho=Math.round(a.investido*(a.rendimento/100));
+        var restante=a.meta-a.investido;
+        var pct=Math.round((a.investido/a.meta)*100);
+        var h='<div class="space-y-4">';
+        h+='<div class="flex items-center gap-3.5"><div class="w-14 h-14 rounded-2xl flex items-center justify-center shrink-0 shadow-md" style="background:'+c+'15;">'+getIcone(a.icone,c)+'</div><div><p class="text-base font-bold" style="color:var(--marca-900);font-family:var(--font-display);">'+a.nome+'</p><p class="text-[11px]" style="color:#9CA3AF;">'+a.tipo+'</p><span class="badge text-[10px] font-bold px-2 py-0.5 rounded-lg inline-block mt-1" style="background:'+c+'15;color:'+c+';">'+a.setorLabel+'</span></div></div>';
+        h+='<div class="grid grid-cols-2 gap-2.5"><div class="rounded-xl p-3 border" style="background:var(--marca-50);border-color:#E5E7EB;"><p class="text-[10px]" style="color:#9CA3AF;">Investido</p><p class="text-sm font-bold" style="color:var(--marca-900);font-family:var(--font-display);">R$ '+a.investido.toLocaleString('pt-BR')+'</p></div><div class="rounded-xl p-3 border" style="background:var(--marca-50);border-color:#E5E7EB;"><p class="text-[10px]" style="color:#9CA3AF;">Rendimento</p><p class="text-sm font-bold" style="color:'+(isPos?'#22C55E':'#EF4444')+';">'+(isPos?'+':'')+a.rendimento.toFixed(1)+'%</p></div><div class="rounded-xl p-3 border" style="background:var(--marca-50);border-color:#E5E7EB;"><p class="text-[10px]" style="color:#9CA3AF;">Ganho</p><p class="text-sm font-bold" style="color:#22C55E;font-family:var(--font-display);">R$ '+ganho.toLocaleString('pt-BR')+'</p></div><div class="rounded-xl p-3 border" style="background:var(--marca-50);border-color:#E5E7EB;"><p class="text-[10px]" style="color:#9CA3AF;">Risco</p><p class="text-sm font-bold" style="color:var(--marca-900);">'+a.risco+'</p></div></div>';
+        h+='<div class="rounded-xl p-3.5 border" style="background:var(--marca-50);border-color:#E5E7EB;"><div class="flex justify-between mb-1.5"><span class="text-[11px] font-medium" style="color:var(--marca-900);">Progresso da Meta</span><span class="text-[11px] font-bold" style="color:var(--marca-700);">'+pct+'%</span></div><div class="w-full h-2 rounded-full mb-1" style="background:#E5E7EB;"><div class="h-2 rounded-full" style="width:'+pct+'%;background:var(--marca-700);"></div></div><div class="flex justify-between"><span class="text-[10px]" style="color:#9CA3AF;">R$ '+a.investido.toLocaleString('pt-BR')+' investidos</span><span class="text-[10px]" style="color:#9CA3AF;">R$ '+a.meta.toLocaleString('pt-BR')+' meta</span></div><p class="text-[10px] mt-1" style="color:#9CA3AF;">Restam <strong style="color:var(--marca-700);">R$ '+restante.toLocaleString('pt-BR')+'</strong> para atingir a meta</p></div>';
+        h+='<div><p class="text-[11px] font-bold mb-1.5" style="color:var(--marca-900);">Sobre o Ativo</p><p class="text-[11px] leading-relaxed" style="color:#6B7280;">'+a.descricao+'</p></div>';
+        h+='<div class="grid grid-cols-2 gap-2 text-[11px]"><div class="rounded-lg p-2 border" style="border-color:#E5E7EB;"><span style="color:#9CA3AF;">Data:</span> <strong style="color:var(--marca-900);">'+a.data+'</strong></div><div class="rounded-lg p-2 border" style="border-color:#E5E7EB;"><span style="color:#9CA3AF;">Tipo:</span> <strong style="color:var(--marca-900);">'+a.tipo+'</strong></div></div>';
+        h+='<div class="flex gap-2 pt-1"><button onclick="mostrarTela(\'reivindicacoes-e-dividendos\');fecharModal();" class="flex-1 active:scale-95 transition-transform text-center px-4 py-2.5 rounded-xl text-[12px] font-bold" style="background:var(--marca-700);color:var(--marca-50);">Dividendos</button><button onclick="carteira_de_ativos_aplicar(\''+a.id+'\')" class="flex-1 active:scale-95 transition-transform text-center px-4 py-2.5 rounded-xl text-[12px] font-bold border-2" style="border-color:var(--marca-700);color:var(--marca-700);">Aplicar Mais</button></div></div>';
+        return h;
+      }
+
+      window.carteira_de_ativos_filtrar=function(b,f){
+        filtroAtual=f;
+        document.querySelectorAll('.carteira-filtro').forEach(function(btn){
+          if(btn.getAttribute('data-filtro')===f){btn.style.background='var(--marca-900)';btn.style.color='var(--marca-50)';btn.style.border='none';}
+          else{btn.style.background='var(--marca-50)';btn.style.color='#6B7280';btn.style.border='1.5px solid #E5E7EB';}
+        });
+        renderizar();
+      };
+
+      window.carteira_de_ativos_detalhe=function(id){
+        var a=ativos.find(function(x){return x.id===id;});
+        if(!a)return;
+        abrirModal(detalheHTML(a),a.nome);
+      };
+
+      window.carteira_de_ativos_simular=function(){
+        var h='<div class="space-y-4"><p class="text-xs" style="color:#6B7280;">Selecione o ativo e informe o valor do aporte.</p>';
+        h+='<div><label class="text-[11px] font-bold block mb-1.5" style="color:var(--marca-900);">Ativo</label><select id="simAsset" class="w-full px-3 py-2.5 rounded-xl text-[13px] border-2 focus:outline-none" style="border-color:#E5E7EB;color:var(--marca-900);"><option value="">Selecione um ativo</option>';
+        ativos.forEach(function(a){h+='<option value="'+a.id+'">'+a.nome+' — R$ '+a.investido.toLocaleString('pt-BR')+'</option>';});
+        h+='</select></div>';
+        h+='<div><label class="text-[11px] font-bold block mb-1.5" style="color:var(--marca-900);">Valor do Aporte</label><div class="relative"><span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold" style="color:#9CA3AF;">R$</span><input type="text" id="simValor" placeholder="0,00" oninput="this.value=this.value.replace(/[^0-9]/g,\'\').replace(/(\d{1,2})$/,\'$1\')" class="w-full pl-10 pr-3 py-2.5 rounded-xl text-[13px] border-2 focus:outline-none" style="border-color:#E5E7EB;color:var(--marca-900);"></div><p class="text-[10px] mt-1" style="color:#9CA3AF;">Aporte mínimo: R$ 50,00</p></div>';
+        h+='<button onclick="carteira_de_ativos_confirmarAporte()" class="w-full active:scale-95 transition-transform px-4 py-3 rounded-xl text-[13px] font-bold shadow-lg" style="background:var(--marca-700);color:var(--marca-50);">Confirmar Simulação</button></div>';
+        abrirModal(h,'Simular Novo Aporte');
+      };
+
+      window.carteira_de_ativos_confirmarAporte=function(){
+        var sel=document.getElementById('simAsset');
+        var val=document.getElementById('simValor');
+        if(!sel||!sel.value){toast('Selecione um ativo.','erro');return;}
+        if(!val||!val.value||parseFloat(val.value)<50){toast('Valor mínimo de aporte: R$ 50,00.','erro');return;}
+        var a=ativos.find(function(x){return x.id===sel.value;});
+        if(a){
+          var v=parseFloat(val.value);
+          a.investido+=v;
+          a.rendimento=Math.round((a.rendimento*a.meta+v*8.45)/(a.meta+v)*10)/10;
+          a.meta=Math.round(a.meta*1.05);
+          renderizar();
+          fecharModal();
+          toast('Simulação realizada! R$ '+v.toLocaleString('pt-BR')+' em '+a.nome+'.','ok');
+        }
+      };
+
+      window.carteira_de_ativos_aplicar=function(id){
+        var h='<div class="space-y-4"><p class="text-xs" style="color:#6B7280;">Informe o valor do aporte adicional.</p>';
+        h+='<div><label class="text-[11px] font-bold block mb-1.5" style="color:var(--marca-900);">Valor do Aporte</label><div class="relative"><span class="absolute left-3 top-1/2 -translate-y-1/2 text-xs font-bold" style="color:#9CA3AF;">R$</span><input type="text" id="apValor" placeholder="0,00" oninput="this.value=this.value.replace(/[^0-9]/g,\'\').replace(/(\d{1,2})$/,\'$1\')" class="w-full pl-10 pr-3 py-2.5 rounded-xl text-[13px] border-2 focus:outline-none" style="border-color:#E5E7EB;color:var(--marca-900);"></div></div>';
+        h+='<button onclick="carteira_de_ativos_confirmarAporte()" class="w-full active:scale-95 transition-transform px-4 py-3 rounded-xl text-[13px] font-bold shadow-lg" style="background:var(--marca-700);color:var(--marca-50);">Confirmar Aporte</button></div>';
+        abrirModal(h,'Aplicar em '+(ativos.find(function(x){return x.id===id;})||{}).nome||'Ativo');
+      };
+
+      window.carteira_de_ativos_iniciarContagem=function(){
+        var data=new Date();data.setDate(data.getDate()+23);data.setHours(data.getHours()+14);data.setMinutes(data.getMinutes()+22);
+        var fim=data.getTime();
+        function tick(){
+          var d=new Date(),diff=fim-d.getTime();
+          if(diff<=0){document.getElementById('countdownDisplay').textContent='Distribuindo...';document.getElementById('countdownSmall').textContent='Agora';return;}
+          var s=Math.floor(diff/1000%60),m=Math.floor(diff/60000%60),h=Math.floor(diff/3600000%24),dy=Math.floor(diff/86400000);
+          var t=dy+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m';
+          var el1=document.getElementById('countdownDisplay'),el2=document.getElementById('countdownSmall');
+          if(el1)el1.textContent=t;if(el2)el2.textContent=dy+'d '+String(h).padStart(2,'0')+'h '+String(m).padStart(2,'0')+'m';
+        }
+        tick();setInterval(tick,60000);
+      };
+
+      window.carteira_de_ativos_iniciar=function(){renderizar();carteira_de_ativos_iniciarContagem();};
+      if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',carteira_de_ativos_iniciar);else carteira_de_ativos_iniciar();
+    })();
+    </script>
+
     <!-- TELAS -->
     </main>
 
