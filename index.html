@@ -911,6 +911,433 @@
     })();
     </script>
 
+    <section data-tela="detalhes-do-ativo" class="hidden">
+      <div class="pb-28">
+        <!-- Header do Ativo -->
+        <div class="px-4 pt-2 pb-4 flex items-center justify-between">
+          <div class="flex items-center gap-3 flex-1 min-w-0">
+            <div class="w-14 h-14 rounded-xl bg-white border border-marca-200 flex items-center justify-center flex-shrink-0">
+              <svg class="w-8 h-8 text-marca-800" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.26-3.14-2.53-1.71-2.55-2.99-7.12-1.25-10.21 1.27-2.33 3.56-3.78 6.05-3.83 1.77-.03 3.24 1.14 4.25 1.14 1 0 2.66-1.4 4.44-1.17.63.03 2.39.26 3.52 1.96-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.4 2.83M13 3.5c.73-.83 1.21-1.96 1.07-3.11-1.05.05-2.31.71-3.06 1.58-.67.78-1.19 2.01-1.04 3.17 1.2.09 2.29-.63 3.03-1.64"/></svg>
+            </div>
+            <div class="min-w-0">
+              <h2 class="font-display text-lg font-bold text-marca-800 truncate">Apple Inc.</h2>
+              <p class="text-sm text-neutral-500">AAPL · NASDAQ</p>
+            </div>
+          </div>
+          <button onclick="detalhes_do_ativo_favoritar()" id="btn-fav" class="p-2 -mr-2 rounded-full hover:bg-marca-50 transition-colors flex-shrink-0">
+            <svg id="icone-fav" class="w-6 h-6 text-marca-200 transition-colors" viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </button>
+        </div>
+
+        <!-- Card Principal: Preço e Variação -->
+        <div class="mx-4 mb-5 bg-white rounded-2xl border border-neutral-100 p-5">
+          <div class="flex items-end justify-between mb-1">
+            <div>
+              <p class="text-xs font-medium text-neutral-400 uppercase tracking-wider mb-1">Cotação atual</p>
+              <p class="font-display text-3xl font-bold text-marca-800">$212,49</p>
+            </div>
+            <div class="flex items-center gap-1 bg-emerald-50 text-emerald-700 px-2.5 py-1 rounded-lg">
+              <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M7 17l5-5 5 5M7 7l5-5 5 5"/></svg>
+              <span class="text-sm font-bold">+3.42%</span>
+            </div>
+          </div>
+          <p class="text-xs text-neutral-400 mt-2">Atualizado em 15 de junho de 2025, 16:00 ET</p>
+
+          <!-- Indicadores rápidos -->
+          <div class="grid grid-cols-3 gap-3 mt-5 pt-4 border-t border-neutral-100">
+            <div>
+              <p class="text-xs text-neutral-400 mb-0.5">Min. 52 sem.</p>
+              <p class="text-sm font-bold text-marca-800">$164,08</p>
+            </div>
+            <div>
+              <p class="text-xs text-neutral-400 mb-0.5">Máx. 52 sem.</p>
+              <p class="text-sm font-bold text-marca-800">$259,02</p>
+            </div>
+            <div>
+              <p class="text-xs text-neutral-400 mb-0.5">Volume</p>
+              <p class="text-sm font-bold text-marca-800">48.2M</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Badge de Risco -->
+        <div class="mx-4 mb-5">
+          <div class="flex items-center gap-2">
+            <span class="text-sm font-medium text-neutral-500">Avaliação de Risco:</span>
+            <span class="badge bg-amber-50 text-amber-700 border-amber-200">Médio</span>
+          </div>
+        </div>
+
+        <!-- Sobre o Investimento -->
+        <div class="mx-4 mb-5">
+          <h3 class="font-display text-base font-bold text-marca-800 mb-3">Sobre o Investimento</h3>
+          <div class="bg-white rounded-2xl border border-neutral-100 p-5">
+            <p class="text-sm text-neutral-600 leading-relaxed mb-4">A Apple Inc. é a maior empresa de tecnologia do mundo por capitalização de mercado, com sede em Cupertino, Califórnia. Projetada como um pilar de crescimento e dividendos consistentes para investidores de longo prazo.</p>
+            <div class="grid grid-cols-2 gap-3">
+              <div class="bg-neutral-50 rounded-xl p-3">
+                <p class="text-xs text-neutral-400 mb-1">Setor</p>
+                <p class="text-sm font-bold text-marca-800">Tecnologia</p>
+              </div>
+              <div class="bg-neutral-50 rounded-xl p-3">
+                <p class="text-xs text-neutral-400 mb-1">Capitalização</p>
+                <p class="text-sm font-bold text-marca-800">$3.21 T</p>
+              </div>
+              <div class="bg-neutral-50 rounded-xl p-3">
+                <p class="text-xs text-neutral-400 mb-1">Dividend Yield</p>
+                <p class="text-sm font-bold text-marca-800">0.55%</p>
+              </div>
+              <div class="bg-neutral-50 rounded-xl p-3">
+                <p class="text-xs text-neutral-400 mb-1">P/L Ratio</p>
+                <p class="text-sm font-bold text-marca-800">33.4x</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Performance -->
+        <div class="mx-4 mb-5">
+          <h3 class="font-display text-base font-bold text-marca-800 mb-3">Performance</h3>
+          <div class="bg-white rounded-2xl border border-neutral-100 p-5">
+            <div class="flex items-center gap-4 mb-4">
+              <div class="flex items-center gap-1.5">
+                <div class="w-3 h-0.5 bg-marca-700 rounded-full"></div>
+                <span class="text-xs text-neutral-500">Seu investimento</span>
+              </div>
+              <div class="flex items-center gap-1.5">
+                <div class="w-3 h-0.5 bg-neutral-300 rounded-full"></div>
+                <span class="text-xs text-neutral-500">Benchmark (S&P 500)</span>
+              </div>
+            </div>
+            <svg class="w-full h-40" viewBox="0 0 340 120" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="gradArea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.15"/>
+                  <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polyline fill="url(#gradArea)" points="0,100 0,85 30,78 57,90 85,72 113,65 142,70 170,55 198,48 227,60 256,42 285,35 312,40 340,22 340,120 0,120"/>
+              <polyline fill="none" stroke="#D4AF37" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" points="0,85 30,78 57,90 85,72 113,65 142,70 170,55 198,48 227,60 256,42 285,35 312,40 340,22"/>
+              <polyline fill="none" stroke="#D4D4D4" stroke-width="2" stroke-dasharray="4,4" points="0,92 30,88 57,95 85,82 113,78 142,80 170,70 198,65 227,68 256,58 285,52 312,55 340,48"/>
+            </svg>
+            <div class="flex justify-between mt-2 text-xs text-neutral-400">
+              <span>Jan</span><span>Fev</span><span>Mar</span><span>Abr</span><span>Mai</span><span>Jun</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Histórico de Dividendos -->
+        <div class="mx-4 mb-5">
+          <h3 class="font-display text-base font-bold text-marca-800 mb-3">Histórico de Dividendos</h3>
+          <div class="bg-white rounded-2xl border border-neutral-100 divide-y divide-neutral-100">
+            <div class="flex items-center justify-between px-5 py-3.5">
+              <div><p class="text-sm font-semibold text-marca-800">15/06/2025</p><p class="text-xs text-neutral-400">Jun/2025</p></div>
+              <span class="text-sm font-bold text-emerald-700">$0.25</span>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3.5">
+              <div><p class="text-sm font-semibold text-marca-800">13/05/2025</p><p class="text-xs text-neutral-400">Mai/2025</p></div>
+              <span class="text-sm font-bold text-emerald-700">$0.25</span>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3.5">
+              <div><p class="text-sm font-semibold text-marca-800">11/04/2025</p><p class="text-xs text-neutral-400">Abr/2025</p></div>
+              <span class="text-sm font-bold text-emerald-700">$0.25</span>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3.5">
+              <div><p class="text-sm font-semibold text-marca-800">10/03/2025</p><p class="text-xs text-neutral-400">Mar/2025</p></div>
+              <span class="text-sm font-bold text-emerald-700">$0.25</span>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3.5">
+              <div><p class="text-sm font-semibold text-marca-800">12/02/2025</p><p class="text-xs text-neutral-400">Fev/2025</p></div>
+              <span class="text-sm font-bold text-emerald-700">$0.25</span>
+            </div>
+            <div class="flex items-center justify-between px-5 py-3.5">
+              <div><p class="text-sm font-semibold text-marca-800">13/01/2025</p><p class="text-xs text-neutral-400">Jan/2025</p></div>
+              <span class="text-sm font-bold text-emerald-700">$0.25</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Projeções -->
+        <div class="mx-4 mb-5">
+          <h3 class="font-display text-base font-bold text-marca-800 mb-3">Projeções de Rendimento</h3>
+          <div class="grid grid-cols-3 gap-3">
+            <div class="bg-white rounded-xl border border-neutral-100 p-4 text-center">
+              <p class="text-xs text-neutral-400 mb-1.5">6 meses</p>
+              <p class="font-display text-xl font-bold text-marca-800">+4.2%</p>
+              <p class="text-xs text-emerald-600 mt-1">$221,37</p>
+            </div>
+            <div class="bg-marca-800 rounded-xl p-4 text-center">
+              <p class="text-xs text-marca-300 mb-1.5">12 meses</p>
+              <p class="font-display text-xl font-bold text-white">+8.7%</p>
+              <p class="text-xs text-marca-300 mt-1">$230,95</p>
+            </div>
+            <div class="bg-white rounded-xl border border-neutral-100 p-4 text-center">
+              <p class="text-xs text-neutral-400 mb-1.5">24 meses</p>
+              <p class="font-display text-xl font-bold text-marca-800">+15.3%</p>
+              <p class="text-xs text-emerald-600 mt-1">$244,98</p>
+            </div>
+          </div>
+          <p class="text-xs text-neutral-400 mt-2.5 text-center">Simulações baseadas em dados históricos. Não constitui garantia de retorno.</p>
+        </div>
+      </div>
+
+      <!-- Botões Fixos -->
+      <div class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-neutral-200 px-4 py-3 flex items-center gap-3 z-50">
+        <div class="max-w-[430px] mx-auto w-full flex items-center gap-3">
+          <button onclick="detalhes_do_ativo_aportar()" class="flex-1 bg-marca-700 hover:bg-marca-600 active:scale-[0.97] text-white font-bold text-sm py-3.5 rounded-xl transition-all">
+            Aportar
+          </button>
+          <button onclick="detalhes_do_ativo_resgatar()" class="flex-1 bg-white border-2 border-marca-700 text-marca-700 hover:bg-marca-50 active:scale-[0.97] font-bold text-sm py-3.5 rounded-xl transition-all">
+            Resgatar
+          </button>
+          <button onclick="detalhes_do_ativo_compartilhar()" class="w-12 h-12 flex items-center justify-center bg-neutral-100 hover:bg-neutral-200 active:scale-[0.97] rounded-xl transition-all flex-shrink-0">
+            <svg class="w-5 h-5 text-marca-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8M16 6l-4-4-4 4M12 2v13"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <script>
+        function detalhes_do_ativo_favoritar() {
+          const icone = document.getElementById('icone-fav');
+          const btn = document.getElementById('btn-fav');
+          if (icone.classList.contains('text-marca-200')) {
+            icone.classList.remove('text-marca-200');
+            icone.classList.add('text-marca-700');
+            toast('Ativo adicionado aos favoritos', 'ok');
+          } else {
+            icone.classList.remove('text-marca-700');
+            icone.classList.add('text-marca-200');
+            toast('Ativo removido dos favoritos', 'info');
+          }
+        }
+        function detalhes_do_ativo_aportar() {
+          abrirModal(`
+            <div class="space-y-4">
+              <p class="text-sm text-neutral-500">Valor em USD para aportar em <strong class="text-marca-800">Apple Inc. (AAPL)</strong></p>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-marca-700 font-bold text-lg">$</span>
+                <input type="number" id="input-aporte" placeholder="0,00" class="w-full pl-8 pr-4 py-3.5 rounded-xl border border-neutral-200 text-marca-800 font-bold text-lg focus:outline-none focus:border-marca-700 focus:ring-2 focus:ring-marca-100 transition" />
+              </div>
+              <div class="flex gap-2 flex-wrap">
+                <button onclick="document.getElementById('input-aporte').value='100'" class="px-3 py-1.5 rounded-lg bg-marca-50 text-marca-700 text-xs font-semibold hover:bg-marca-100 transition">$100</button>
+                <button onclick="document.getElementById('input-aporte').value='500'" class="px-3 py-1.5 rounded-lg bg-marca-50 text-marca-700 text-xs font-semibold hover:bg-marca-100 transition">$500</button>
+                <button onclick="document.getElementById('input-aporte').value='1000'" class="px-3 py-1.5 rounded-lg bg-marca-50 text-marca-700 text-xs font-semibold hover:bg-marca-100 transition">$1.000</button>
+                <button onclick="document.getElementById('input-aporte').value='5000'" class="px-3 py-1.5 rounded-lg bg-marca-50 text-marca-700 text-xs font-semibold hover:bg-marca-100 transition">$5.000</button>
+              </div>
+              <div class="bg-marca-50 rounded-xl p-3.5">
+                <p class="text-xs text-marca-600 mb-1">Resumo do aporte</p>
+                <p class="text-sm font-bold text-marca-800" id="resumo-aporte">Informe um valor</p>
+              </div>
+            </div>
+          `, 'Realizar Aporte');
+          const inp = document.getElementById('input-aporte');
+          if (inp) {
+            inp.addEventListener('input', function() {
+              const v = parseFloat(this.value);
+              document.getElementById('resumo-aporte').textContent = v > 0 ? `Você receberá aproximadamente ${(v / 212.49).toFixed(4)} ações` : 'Informe um valor';
+            });
+            const btnConfirmar = document.createElement('button');
+            btnConfirmar.className = 'w-full bg-marca-700 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-marca-600 active:scale-[0.97] transition-all mt-4';
+            btnConfirmar.textContent = 'Confirmar Aporte';
+            btnConfirmar.onclick = function() {
+              const val = parseFloat(inp.value);
+              if (!val || val <= 0) { toast('Informe um valor válido', 'erro'); return; }
+              fecharModal();
+              toast('Aporte de 
+    </main>
+
+    <!-- Bottom Navigation -->
+    <nav style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; background: linear-gradient(180deg, #0f0f0f 0%, #0A0A0A 100%); border-top: 1px solid #1f1f1f; padding: 8px 8px 24px 8px; display: flex; justify-content: space-around; z-index: 100;">
+      <button class="nav-btn" data-nav="painel-de-investimentos" onclick="mostrarTela('painel-de-investimentos')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="3" width="7" height="7" rx="1"/>
+          <rect x="14" y="14" width="7" height="7" rx="1"/>
+          <rect x="3" y="14" width="7" height="7" rx="1"/>
+        </svg>
+        <span style="font-size: 10px; font-weight: 500;">Painel</span>
+      </button>
+      <button class="nav-btn" data-nav="carteira-de-ativos" onclick="mostrarTela('carteira-de-ativos')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+          <line x1="12" y1="22.08" x2="12" y2="12"/>
+        </svg>
+        <span style="font-size: 10px; font-weight: 500;">Carteira</span>
+      </button>
+      <button class="nav-btn" data-nav="historico-de-transacoes" onclick="mostrarTela('historico-de-transacoes')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+        </svg>
+        <span style="font-size: 10px; font-weight: 500;">Histórico</span>
+      </button>
+      <button class="nav-btn" data-nav="suporte-e-chat" onclick="mostrarTela('suporte-e-chat')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+        </svg>
+        <span style="font-size: 10px; font-weight: 500;">Suporte</span>
+      </button>
+      <button class="nav-btn" data-nav="meu-perfil" onclick="mostrarTela('meu-perfil')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+          <circle cx="12" cy="7" r="4"/>
+        </svg>
+        <span style="font-size: 10px; font-weight: 500;">Perfil</span>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Modal -->
+  <div id="modal-overlay" onclick="fecharModal(event)">
+    <div id="modal-content" onclick="event.stopPropagation()">
+      <div id="modal-header" style="padding: 20px; border-bottom: 1px solid #2a2a2a; display: flex; justify-content: space-between; align-items: center;">
+        <h3 id="modal-title" style="font-size: 17px; font-weight: 600; color: #FAFAFA; margin: 0;">Título</h3>
+        <button onclick="fecharModal()" style="background: none; border: none; color: #666; padding: 4px; cursor: pointer;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="18" y1="6" x2="6" y2="18"/>
+            <line x1="6" y1="6" x2="18" y2="18"/>
+          </svg>
+        </button>
+      </div>
+      <div id="modal-body" style="padding: 20px; overflow-y: auto; max-height: 60vh;"></div>
+    </div>
+  </div>
+
+  <script>
+    // Utilities
+    function brl(valor) {
+      return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      }).format(valor);
+    }
+
+    function dataBR(iso) {
+      const d = new Date(iso);
+      return d.toLocaleDateString('pt-BR');
+    }
+
+    function toast(mensagem, tipo = 'info') {
+      const container = document.getElementById('toast-container');
+      const el = document.createElement('div');
+      el.className = `toast ${tipo}`;
+      el.textContent = mensagem;
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    }
+
+    function abrirModal(html, titulo = 'Detalhes') {
+      document.getElementById('modal-title').textContent = titulo;
+      document.getElementById('modal-body').innerHTML = html;
+      document.getElementById('modal-overlay').classList.add('aberto');
+    }
+
+    function fecharModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('modal-overlay').classList.remove('aberto');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') fecharModal();
+    });
+
+    // Router
+    function mostrarTela(id) {
+      document.querySelectorAll('[data-tela]').forEach(function (s) {
+        s.classList.toggle('hidden', s.dataset.tela !== id);
+      });
+      document.querySelectorAll('[data-nav]').forEach(function (b) {
+        b.classList.toggle('ativo', b.dataset.nav === id);
+      });
+      window.scrollTo({ top: 0 });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      mostrarTela('painel-de-investimentos');
+    });
+  </script>
+</body>
+</html> + val.toFixed(2) + ' realizado com sucesso!', 'ok');
+              setTimeout(() => mostrarTela('carteira-de-ativos'), 600);
+            };
+            setTimeout(() => { const foot = document.querySelector('.modal-foot'); if (foot) foot.appendChild(btnConfirmar); }, 50);
+          }
+        }
+        function detalhes_do_ativo_resgatar() {
+          abrirModal(`
+            <div class="space-y-4">
+              <p class="text-sm text-neutral-500">Resgate parcial de <strong class="text-marca-800">Apple Inc. (AAP2)</strong></p>
+              <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5">
+                <p class="text-xs text-amber-700 mb-1">Você possui <strong>42.50 ações</strong> · Valor total: <strong>$9.030,83</strong></p>
+              </div>
+              <div class="relative">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-marca-700 font-bold text-lg">$</span>
+                <input type="number" id="input-resgate" placeholder="0,00" max="9030.83" class="w-full pl-8 pr-4 py-3.5 rounded-xl border border-neutral-200 text-marca-800 font-bold text-lg focus:outline-none focus:border-marca-700 focus:ring-2 focus:ring-marca-100 transition" />
+              </div>
+              <div class="flex gap-2 flex-wrap">
+                <button onclick="document.getElementById('input-resgate').value='500'" class="px-3 py-1.5 rounded-lg bg-marca-50 text-marca-700 text-xs font-semibold hover:bg-marca-100 transition">$500</button>
+                <button onclick="document.getElementById('input-resgate').value='2000'" class="px-3 py-1.5 rounded-lg bg-marca-50 text-marca-700 text-xs font-semibold hover:bg-marca-100 transition">$2.000</button>
+                <button onclick="document.getElementById('input-resgate').value='9030.83'" class="px-3 py-1.5 rounded-lg bg-marca-50 text-marca-700 text-xs font-semibold hover:bg-marca-100 transition">Máximo</button>
+              </div>
+              <p class="text-xs text-neutral-400">O resgate é processado em até 2 dias úteis. Taxa de resgate: 0,5%</p>
+            </div>
+          `, 'Solicitar Resgate');
+          const inp = document.getElementById('input-resgate');
+          if (inp) {
+            inp.addEventListener('input', function() {
+              const v = parseFloat(this.value);
+              if (v > 9030.83) { this.value = 9030.83; }
+            });
+            const btnConfirmar = document.createElement('button');
+            btnConfirmar.className = 'w-full bg-marca-700 text-white font-bold text-sm py-3.5 rounded-xl hover:bg-marca-600 active:scale-[0.97] transition-all mt-4';
+            btnConfirmar.textContent = 'Confirmar Resgate';
+            btnConfirmar.onclick = function() {
+              const val = parseFloat(inp.value);
+              if (!val || val <= 0) { toast('Informe um valor válido', 'erro'); return; }
+              if (val > 9030.83) { toast('Valor excede o saldo disponível', 'erro'); return; }
+              fecharModal();
+              toast('Solicitação de resgate enviada! Processamento em até 2 dias úteis.', 'ok');
+            };
+            setTimeout(() => { const foot = document.querySelector('.modal-foot'); if (foot) foot.appendChild(btnConfirmar); }, 50);
+          }
+        }
+        function detalhes_do_ativo_compartilhar() {
+          abrirModal(`
+            <div class="space-y-4">
+              <p class="text-sm text-neutral-500 text-center">Compartilhar <strong class="text-marca-800">Apple Inc. (AAPL)</strong></p>
+              <div class="grid grid-cols-2 gap-3">
+                <button onclick="detalhes_do_ativo_share('whatsapp')" class="flex items-center gap-3 p-3.5 rounded-xl border border-neutral-200 hover:bg-green-50 hover:border-green-200 transition">
+                  <div class="w-10 h-10 rounded-full bg-green-500 flex items-center justify-center"><svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></div>
+                  <span class="text-sm font-semibold text-neutral-700">WhatsApp</span>
+                </button>
+                <button onclick="detalhes_do_ativo_share('link')" class="flex items-center gap-3 p-3.5 rounded-xl border border-neutral-200 hover:bg-marca-50 hover:border-marca-200 transition">
+                  <div class="w-10 h-10 rounded-full bg-marca-700 flex items-center justify-center"><svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg></div>
+                  <span class="text-sm font-semibold text-neutral-700">Copiar Link</span>
+                </button>
+                <button onclick="detalhes_do_ativo_share('email')" class="flex items-center gap-3 p-3.5 rounded-xl border border-neutral-200 hover:bg-blue-50 hover:border-blue-200 transition">
+                  <div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center"><svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg></div>
+                  <span class="text-sm font-semibold text-neutral-700">E-mail</span>
+                </button>
+                <button onclick="detalhes_do_ativo_share('pdf')" class="flex items-center gap-3 p-3.5 rounded-xl border border-neutral-200 hover:bg-red-50 hover:border-red-200 transition">
+                  <div class="w-10 h-10 rounded-full bg-red-600 flex items-center justify-center"><svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+                  <span class="text-sm font-semibold text-neutral-700">PDF</span>
+                </button>
+              </div>
+            </div>
+          `, 'Compartilhar');
+        }
+        function detalhes_do_ativo_share(meio) {
+          fecharModal();
+          if (meio === 'whatsapp') toast('Abrindo WhatsApp para compartilhamento...', 'ok');
+          else if (meio === 'link') { navigator.clipboard.writeText('https://bluecircuit.app/ativo/aapl').then(() => toast('Link copiado para a área de transferência', 'ok')); }
+          else if (meio === 'email') toast('Abrindo cliente de e-mail...', 'ok');
+          else if (meio === 'pdf') toast('Gerando PDF do relatório...', 'info');
+        }
+      </script>
+    </section>
+
     <!-- TELAS -->
     </main>
 
