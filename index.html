@@ -1654,6 +1654,262 @@
 })();
 </script>
 
+    <section data-tela="meu-perfil" class="hidden">
+  <div class="px-5 py-6 space-y-5">
+    <div class="text-center">
+      <div class="relative inline-block">
+        <div class="w-24 h-24 rounded-full bg-marca-800 border-2 border-marca-500 flex items-center justify-center">
+          <svg class="w-12 h-12 text-marca-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"/></svg>
+        </div>
+        <button onclick="meu_perfil_alterarFoto()" class="absolute -bottom-1 -right-1 w-8 h-8 bg-marca-500 rounded-full flex items-center justify-center border-2 border-white active:scale-90 transition-transform shadow-lg">
+          <svg class="w-4 h-4 text-marca-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.54-.51 1.16-.36 1.79.15.63.6 1.16 1.2 1.41.6.25 1.28.19 1.85-.1A2.31 2.31 0 0110 12.17V13.5a.75.75 0 001.5 0v-.83a4.13 4.13 0 012.07-3.57c.57-.29 1.25-.35 1.85-.1.6.25 1.05.78 1.2 1.41.15.63.02 1.25-.36 1.79a2.31 2.31 0 01-1.64.55H9.5a2.31 2.31 0 01-1.64-.55z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 15.75l2.475-2.475m0 0a3.001 3.001 0 014.05 4.05l-1.06 1.06a.75.75 0 01-1.06 0l-1.06-1.06a3.001 3.001 0 010-4.05z"/></svg>
+        </button>
+      </div>
+      <h2 class="mt-3 font-display text-xl font-bold text-white">Ricardo Augusto Mendes</h2>
+      <p class="text-sm text-gray-400 mt-0.5">ID: RC-2024-0817</p>
+      <span class="inline-block mt-2 px-3 py-1 bg-emerald-500/10 text-emerald-400 text-xs font-semibold rounded-full">Conta Verificada</span>
+    </div>
+
+    <div class="grid grid-cols-3 gap-3">
+      <div class="card text-center !p-3">
+        <p class="text-xs text-gray-400 mb-1">Investido</p>
+        <p class="font-display font-bold text-white text-sm">R$ 47.850</p>
+      </div>
+      <div class="card text-center !p-3">
+        <p class="text-xs text-gray-400 mb-1">Dividendos</p>
+        <p class="font-display font-bold text-marca-400 text-sm">R$ 1.284</p>
+      </div>
+      <div class="card text-center !p-3">
+        <p class="text-xs text-gray-400 mb-1">Rentab.</p>
+        <p class="font-display font-bold text-emerald-400 text-sm">+14.2%</p>
+      </div>
+    </div>
+
+    <div class="card !p-0 overflow-hidden">
+      <div class="px-4 py-3 border-b border-white/5 flex items-center justify-between">
+        <h3 class="font-display font-bold text-white text-sm">Dados Pessoais</h3>
+        <button onclick="meu_perfil_editarDados()" class="text-xs text-marca-500 hover:text-marca-400 transition-colors">Editar</button>
+      </div>
+      <div class="p-4 space-y-3">
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Nome Completo</label>
+          <p id="campo-nome" class="text-white text-sm font-medium">Ricardo Augusto Mendes</p>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">CPF</label>
+          <p id="campo-cpf" class="text-white text-sm font-medium">123.456.789-00</p>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">E-mail</label>
+          <p id="campo-email" class="text-white text-sm font-medium">ricardo.mendes@email.com.br</p>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Telefone</label>
+          <p id="campo-telefone" class="text-white text-sm font-medium">(11) 99876-5432</p>
+        </div>
+        <div>
+          <label class="block text-xs text-gray-500 mb-1">Endereço</label>
+          <p id="campo-endereco" class="text-white text-sm font-medium">Av. Paulista, 1578, apto 42 — Bela Vista, SP</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="card !p-0 overflow-hidden">
+      <div class="px-4 py-3 border-b border-white/5 flex items-center justify-between">
+        <h3 class="font-display font-bold text-white text-sm">Dados Bancários</h3>
+        <span class="text-xs text-gray-500">Recebimento de Dividendos</span>
+      </div>
+      <div class="p-4 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-lg bg-blue-600 flex items-center justify-center">
+            <span class="text-white font-bold text-xs">ITAU</span>
+          </div>
+          <div>
+            <p class="text-white text-sm font-medium">Itaú Unibanco</p>
+            <p class="text-xs text-gray-500">Ag. 4321 · CC 98765-3</p>
+          </div>
+        </div>
+        <button onclick="meu_perfil_alterarBanco()" class="text-marca-500 text-xs font-semibold hover:text-marca-400 transition-colors active:scale-95 px-3 py-1.5 border border-marca-500/30 rounded-lg">Alterar</button>
+      </div>
+    </div>
+
+    <div class="card !p-0 overflow-hidden">
+      <div class="px-4 py-3 border-b border-white/5">
+        <h3 class="font-display font-bold text-white text-sm">Preferências</h3>
+      </div>
+      <div class="divide-y divide-white/5">
+        <div class="px-4 py-3.5 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg>
+            <div><p class="text-white text-sm">Notificações Push</p><p class="text-xs text-gray-500">Alertas no app</p></div>
+          </div>
+          <button onclick="meu_perfil_toggle(this, 'push')" data-on="true" class="toggle-btn w-12 h-6 rounded-full bg-marca-500 relative transition-colors flex-shrink-0"><span class="toggle-dot absolute top-1 left-7 w-4 h-4 rounded-full bg-white transition-all shadow"></span></button>
+        </div>
+        <div class="px-4 py-3.5 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            <div><p class="text-white text-sm">Notificações WhatsApp</p><p class="text-xs text-gray-500">Resumo diário</p></div>
+          </div>
+          <button onclick="meu_perfil_toggle(this, 'wpp')" data-on="true" class="toggle-btn w-12 h-6 rounded-full bg-marca-500 relative transition-colors flex-shrink-0"><span class="toggle-dot absolute top-1 left-7 w-4 h-4 rounded-full bg-white transition-all shadow"></span></button>
+        </div>
+        <div class="px-4 py-3.5 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992h4.992m12.017 0a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            <div><p class="text-white text-sm">Aporte Automático</p><p class="text-xs text-gray-500">Investimento recorrente</p></div>
+          </div>
+          <button onclick="meu_perfil_toggle(this, 'aporte')" data-on="false" class="toggle-btn w-12 h-6 rounded-full bg-gray-600 relative transition-colors flex-shrink-0"><span class="toggle-dot absolute top-1 left-1 w-4 h-4 rounded-full bg-white transition-all shadow"></span></button>
+        </div>
+        <div class="px-4 py-3.5 flex items-center justify-between cursor-pointer" onclick="meu_perfil_abrirMoeda()">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.5-2.303.5-3.678L15 14.25"/></svg>
+            <div><p class="text-white text-sm">Moeda de Preferência</p><p class="text-xs text-gray-500">Exibição de valores</p></div>
+          </div>
+          <div class="flex items-center gap-2">
+            <span id="moeda-label" class="text-marca-400 text-sm font-medium">BRL</span>
+            <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card !p-0 overflow-hidden">
+      <div class="px-4 py-3 border-b border-white/5">
+        <h3 class="font-display font-bold text-white text-sm">Segurança</h3>
+      </div>
+      <div class="divide-y divide-white/5">
+        <button onclick="mostrarTela('notificacoes')" class="w-full px-4 py-3.5 flex items-center justify-between hover:bg-white/5 transition-colors active:scale-[0.98]">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"/></svg>
+            <p class="text-white text-sm">Alterar Senha</p>
+          </div>
+          <svg class="w-4 h-4 text-gray-500" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5"/></svg>
+        </button>
+        <button onclick="meu_perfil_2FA()" class="w-full px-4 py-3.5 flex items-center justify-between hover:bg-white/5 transition-colors active:scale-[0.98]">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"/></svg>
+            <p class="text-white text-sm">Autenticação em Dois Fatores</p>
+          </div>
+          <span class="badge badge-ok text-[10px]">Ativo</span>
+        </button>
+        <button onclick="meu_perfil_biometria()" class="w-full px-4 py-3.5 flex items-center justify-between hover:bg-white/5 transition-colors active:scale-[0.98]">
+          <div class="flex items-center gap-3">
+            <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7.864 4.243A7.5 7.5 0 0119.5 10.5c0 2.92-.556 5.709-1.568 8.268M5.742 6.364A11.953 11.953 0 003.75 10.5c0 4.078 2.076 7.626 5.18 9.658M6.372 4.5A14.236 14.236 0 013 10.5c0 4.667 1.678 8.92 4.462 12.356"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+            <p class="text-white text-sm">Biometria</p>
+          </div>
+          <span class="badge badge-ok text-[10px]">Ativo</span>
+        </button>
+      </div>
+    </div>
+
+    <button onclick="meu_perfil_sair()" class="w-full py-3.5 border border-red-500/30 text-red-400 rounded-xl font-display font-bold text-sm hover:bg-red-500/10 transition-all active:scale-95 flex items-center justify-center gap-2">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9"/></svg>
+      Sair da Conta
+    </button>
+    <p class="text-center text-xs text-gray-600">BlueCircuit Investimentos v2.4.1</p>
+  </div>
+
+  <div id="modal-moeda" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/70 backdrop-blur-sm" onclick="meu_perfil_fecharMoeda()"></div>
+    <div class="absolute bottom-0 left-0 right-0 max-w-[430px] mx-auto bg-[#111111] rounded-t-2xl p-5 transform translate-y-full transition-transform duration-300" id="modal-moeda-sheet">
+      <div class="w-12 h-1 bg-gray-600 rounded-full mx-auto mb-4"></div>
+      <h3 class="font-display font-bold text-white text-lg mb-4">Moeda de Preferência</h3>
+      <div class="space-y-2">
+        <button onclick="meu_perfil_selecionarMoeda('BRL')" class="moeda-opt w-full px-4 py-3.5 rounded-xl border border-marca-500 bg-marca-500/10 flex items-center justify-between active:scale-95 transition-all">
+          <div><p class="text-white text-sm font-medium">Real Brasileiro</p><p class="text-xs text-gray-400">BRL — R$</p></div>
+          <svg class="w-5 h-5 text-marca-500" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        </button>
+        <button onclick="meu_perfil_selecionarMoeda('USD')" class="moeda-opt w-full px-4 py-3.5 rounded-xl border border-white/10 flex items-center justify-between active:scale-95 transition-all hover:border-white/20">
+          <div><p class="text-white text-sm font-medium">Dólar Americano</p><p class="text-xs text-gray-400">USD — US$</p></div>
+        </button>
+        <button onclick="meu_perfil_selecionarMoeda('EUR')" class="moeda-opt w-full px-4 py-3.5 rounded-xl border border-white/10 flex items-center justify-between active:scale-95 transition-all hover:border-white/20">
+          <div><p class="text-white text-sm font-medium">Euro</p><p class="text-xs text-gray-400">EUR — €</p></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+<script>
+function meu_perfil_toggle(btn, tipo) {
+  const on = btn.dataset.on === 'true';
+  const dot = btn.querySelector('.toggle-dot');
+  if (on) {
+    btn.dataset.on = 'false';
+    btn.classList.remove('bg-marca-500');
+    btn.classList.add('bg-gray-600');
+    dot.style.left = '4px';
+  } else {
+    btn.dataset.on = 'true';
+    btn.classList.remove('bg-gray-600');
+    btn.classList.add('bg-marca-500');
+    dot.style.left = '28px';
+  }
+  toast(on ? 'Preferência desativada' : 'Preferência ativada', 'ok');
+}
+
+function meu_perfil_alterarFoto() {
+  toast('Selecione uma foto da galeria', 'info');
+}
+
+function meu_perfil_editarDados() {
+  abrirModal('<div class="space-y-4"><div><label class="block text-xs text-gray-400 mb-1">Nome Completo</label><input type="text" value="Ricardo Augusto Mendes" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-white text-sm focus:border-marca-500 focus:outline-none"></div><div><label class="block text-xs text-gray-400 mb-1">CPF</label><input type="text" value="123.456.789-00" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-white text-sm focus:border-marca-500 focus:outline-none"></div><div><label class="block text-xs text-gray-400 mb-1">E-mail</label><input type="email" value="ricardo.mendes@email.com.br" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-white text-sm focus:border-marca-500 focus:outline-none"></div><div><label class="block text-xs text-gray-400 mb-1">Telefone</label><input type="tel" value="(11) 99876-5432" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-white text-sm focus:border-marca-500 focus:outline-none"></div><div><label class="block text-xs text-gray-400 mb-1">Endereço</label><input type="text" value="Av. Paulista, 1578, apto 42 — Bela Vista, SP" class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-2.5 text-white text-sm focus:border-marca-500 focus:outline-none"></div><button onclick="meu_perfil_salvarDados(); fecharModal();" class="btn w-full mt-2">Salvar Alterações</button></div>', 'Editar Dados Pessoais');
+}
+
+function meu_perfil_salvarDados() {
+  toast('Dados atualizados com sucesso', 'ok');
+}
+
+function meu_perfil_alterarBanco() {
+  abrirModal('<div class="space-y-4"><p class="text-gray-400 text-sm">Selecione o banco para recebimento de dividendos:</p><div class="space-y-2"><button class="w-full px-4 py-3 rounded-xl border border-white/10 text-left hover:border-marca-500/50 transition-colors"><p class="text-white text-sm font-medium">Itaú Unibanco</p><p class="text-xs text-gray-500">Ag. 4321 · CC 98765-3</p></button><button class="w-full px-4 py-3 rounded-xl border border-white/10 text-left hover:border-marca-500/50 transition-colors"><p class="text-white text-sm font-medium">Banco do Brasil</p><p class="text-xs text-gray-500">Ag. 1234-5 · CC 67890-1</p></button><button class="w-full px-4 py-3 rounded-xl border border-white/10 text-left hover:border-marca-500/50 transition-colors"><p class="text-white text-sm font-medium">Bradesco</p><p class="text-xs text-gray-500">Ag. 9999-0 · CC 54321-9</p></button></div></div>', 'Alterar Conta Bancária');
+}
+
+function meu_perfil_2FA() {
+  toast('Autenticação em dois fatores já está ativa', 'ok');
+}
+
+function meu_perfil_biometria() {
+  toast('Biometria configurada para este dispositivo', 'ok');
+}
+
+function meu_perfil_abrirMoeda() {
+  const modal = document.getElementById('modal-moeda');
+  const sheet = document.getElementById('modal-moeda-sheet');
+  modal.classList.remove('hidden');
+  requestAnimationFrame(() => { sheet.style.transform = 'translateY(0)'; });
+}
+
+function meu_perfil_fecharMoeda() {
+  const sheet = document.getElementById('modal-moeda-sheet');
+  sheet.style.transform = 'translateY(100%)';
+  setTimeout(() => { document.getElementById('modal-moeda').classList.add('hidden'); }, 300);
+}
+
+function meu_perfil_selecionarMoeda(codigo) {
+  document.getElementById('moeda-label').textContent = codigo;
+  document.querySelectorAll('.moeda-opt').forEach(b => {
+    b.classList.remove('border-marca-500', 'bg-marca-500/10');
+    b.classList.add('border-white/10');
+    const icon = b.querySelector('svg');
+    if (icon) icon.remove();
+  });
+  const sel = event.currentTarget;
+  sel.classList.remove('border-white/10');
+  sel.classList.add('border-marca-500', 'bg-marca-500/10');
+  sel.insertAdjacentHTML('beforeend', '<svg class="w-5 h-5 text-marca-500" fill="currentColor" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>');
+  meu_perfil_fecharMoeda();
+  toast('Moeda alterada para ' + codigo, 'ok');
+}
+
+function meu_perfil_sair() {
+  abrirModal('<div class="text-center space-y-4"><p class="text-white text-sm">Deseja realmente sair da sua conta?</p><div class="flex gap-3"><button onclick="fecharModal()" class="btn flex-1 !bg-transparent !border !border-white/10">Cancelar</button><button onclick="meu_perfil_confirmarSaida(); fecharModal();" class="btn flex-1 !bg-red-600">Sair</button></div></div>', 'Confirmar Saída');
+}
+
+function meu_perfil_confirmarSaida() {
+  toast('Você saiu da sua conta', 'info');
+  mostrarTela('painel-de-investimentos');
+}
+</script>
+</section>
+
     <!-- TELAS -->
     </main>
 
