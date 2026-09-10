@@ -1338,6 +1338,322 @@
       </script>
     </section>
 
+    <section data-tela="historico-de-transacoes" class="hidden">
+  <div class="px-4 pt-4 pb-2">
+    <!-- Cabeçalho da tela -->
+    <div class="flex items-start justify-between mb-1">
+      <div>
+        <h1 class="font-display text-xl font-bold text-gray-900">Histórico de Transações</h1>
+        <p class="text-xs text-gray-500 mt-0.5">Todas as movimentações financeiras</p>
+      </div>
+      <button onclick="historico_de_transacoes_exportarPDF()" class="btn bg-marca-900 text-marca-50 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 active:scale-95 transition-transform">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 16v4a2 2 0 002 2h14a2 2 0 002-2v-4M7 12l4-4 4 4 4-4M5 20h14"/></svg>
+        Exportar PDF
+      </button>
+    </div>
+
+    <!-- Cards indicadores -->
+    <div class="grid grid-cols-2 gap-2.5 mt-4 mb-4">
+      <div class="card bg-white rounded-xl p-3 border border-gray-100">
+        <div class="flex items-center gap-2 mb-1">
+          <div class="w-7 h-7 rounded-lg bg-marca-900/5 flex items-center justify-center">
+            <svg class="w-4 h-4 text-marca-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          </div>
+          <span class="text-[10px] font-medium text-gray-500 uppercase tracking-wider">Total</span>
+        </div>
+        <p id="hist-contador" class="font-display text-xl font-bold text-gray-900">128</p>
+        <p class="text-[10px] text-gray-400">transações</p>
+      </div>
+      <div class="card bg-white rounded-xl p-3 border border-gray-100">
+        <div class="flex items-center gap-2 mb-1">
+          <div class="w-7 h-7 rounded-lg bg-green-50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-green-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v16m8-8H4"/></svg>
+          </div>
+          <span class="text-[10px] font-medium text-gray-500 uppercase tracking-wider">Volume</span>
+        </div>
+        <p class="font-display text-xl font-bold text-gray-900">R$ 47.820</p>
+        <p class="text-[10px] text-green-600 font-medium">+12,4% no mês</p>
+      </div>
+      <div class="card bg-white rounded-xl p-3 border border-gray-100">
+        <div class="flex items-center gap-2 mb-1">
+          <div class="w-7 h-7 rounded-lg bg-blue-50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <span class="text-[10px] font-medium text-gray-500 uppercase tracking-wider">Dividendos</span>
+        </div>
+        <p class="font-display text-xl font-bold text-gray-900">R$ 2.340</p>
+        <p class="text-[10px] text-gray-400">recebidos</p>
+      </div>
+      <div class="card bg-white rounded-xl p-3 border border-gray-100">
+        <div class="flex items-center gap-2 mb-1">
+          <div class="w-7 h-7 rounded-lg bg-orange-50 flex items-center justify-center">
+            <svg class="w-4 h-4 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 10h18M3 14h18M5 6l3.5 3.5L5 13"/></svg>
+          </div>
+          <span class="text-[10px] font-medium text-gray-500 uppercase tracking-wider">Resgates</span>
+        </div>
+        <p class="font-display text-xl font-bold text-gray-900">R$ 1.200</p>
+        <p class="text-[10px] text-gray-400">no período</p>
+      </div>
+    </div>
+
+    <!-- Gráfico SVG inline - barras de volume mensal -->
+    <div class="card bg-white rounded-xl p-3 border border-gray-100 mb-3">
+      <p class="text-xs font-semibold text-gray-700 mb-2">Volume Mensal</p>
+      <svg viewBox="0 0 300 80" class="w-full h-16">
+        <rect x="10" y="55" width="22" height="15" rx="2" fill="#0A0A0A" opacity="0.9"/>
+        <rect x="40" y="45" width="22" height="25" rx="2" fill="#0A0A0A" opacity="0.85"/>
+        <rect x="70" y="30" width="22" height="40" rx="2" fill="#D4AF37" opacity="0.9"/>
+        <rect x="100" y="50" width="22" height="20" rx="2" fill="#0A0A0A" opacity="0.7"/>
+        <rect x="130" y="35" width="22" height="35" rx="2" fill="#0A0A0A" opacity="0.85"/>
+        <rect x="160" y="20" width="22" height="50" rx="2" fill="#D4AF37" opacity="1"/>
+        <rect x="190" y="40" width="22" height="30" rx="2" fill="#0A0A0A" opacity="0.8"/>
+        <rect x="220" y="25" width="22" height="45" rx="2" fill="#0A0A0A" opacity="0.9"/>
+        <rect x="250" y="38" width="22" height="32" rx="2" fill="#D4AF37" opacity="0.8"/>
+        <rect x="280" y="10" width="22" height="60" rx="2" fill="#D4AF37" opacity="1"/>
+        <text x="21" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Jan</text>
+        <text x="51" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Fev</text>
+        <text x="81" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Mar</text>
+        <text x="111" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Abr</text>
+        <text x="141" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Mai</text>
+        <text x="171" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Jun</text>
+        <text x="201" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Jul</text>
+        <text x="231" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Ago</text>
+        <text x="261" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Set</text>
+        <text x="291" y="73" text-anchor="middle" font-size="7" fill="#9CA3AF">Out</text>
+      </svg>
+    </div>
+
+    <!-- Busca -->
+    <div class="relative mb-3">
+      <svg class="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input id="hist-busca" type="text" placeholder="Buscar por ativo ou valor..." oninput="historico_de_transacoes_filtrar()" class="w-full pl-9 pr-4 py-2.5 bg-white border border-gray-200 rounded-xl text-sm text-gray-700 placeholder-gray-400 focus:outline-none focus:border-marca-900 focus:ring-1 focus:ring-marca-900/20 transition-all"/>
+    </div>
+
+    <!-- Filtros por tipo -->
+    <div class="flex gap-1.5 mb-2 overflow-x-auto pb-1 -mx-1 px-1" id="hist-filtros-tipo">
+      <button onclick="historico_de_transacoes_filtrarTipo('todos')" data-filtro="todos" class="hist-filtro-btn active whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium bg-marca-900 text-marca-50 transition-all">Todos</button>
+      <button onclick="historico_de_transacoes_filtrarTipo('aporte')" data-filtro="aporte" class="hist-filtro-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">Aportes</button>
+      <button onclick="historico_de_transacoes_filtrarTipo('dividendo')" data-filtro="dividendo" class="hist-filtro-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">Dividendos</button>
+      <button onclick="historico_de_transacoes_filtrarTipo('resgate')" data-filtro="resgate" class="hist-filtro-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">Resgates</button>
+      <button onclick="historico_de_transacoes_filtrarTipo('bonus')" data-filtro="bonus" class="hist-filtro-btn whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-medium bg-gray-100 text-gray-600 hover:bg-gray-200 transition-all">Bônus</button>
+    </div>
+
+    <!-- Filtros por período -->
+    <div class="flex gap-1.5 mb-3 overflow-x-auto pb-1 -mx-1 px-1" id="hist-filtros-periodo">
+      <button onclick="historico_de_transacoes_filtrarPeriodo('7d')" data-periodo="7d" class="hist-periodo-btn whitespace-nowrap px-2.5 py-1 rounded-md text-[11px] font-medium bg-gray-100 text-gray-500 hover:bg-gray-200 transition-all">7 dias</button>
+      <button onclick="historico_de_transacoes_filtrarPeriodo('30d')" data-periodo="30d" class="hist-periodo-btn active whitespace-nowrap px-2.5 py-1 rounded-md text-[11px] font-medium bg-marca-900 text-marca-50 transition-all">30 dias</button>
+      <button onclick="historico_de_transacoes_filtrarPeriodo('6m')" data-periodo="6m" class="hist-periodo-btn whitespace-nowrap px-2.5 py-1 rounded-md text-[11px] font-medium bg-gray-100 text-gray-500 hover:bg-gray-200 transition-all">6 meses</button>
+      <button onclick="historico_de_transacoes_filtrarPeriodo('1a')" data-periodo="1a" class="hist-periodo-btn whitespace-nowrap px-2.5 py-1 rounded-md text-[11px] font-medium bg-gray-100 text-gray-500 hover:bg-gray-200 transition-all">1 ano</button>
+      <button onclick="historico_de_transacoes_filtrarPeriodo('tudo')" data-periodo="tudo" class="hist-periodo-btn whitespace-nowrap px-2.5 py-1 rounded-md text-[11px] font-medium bg-gray-100 text-gray-500 hover:bg-gray-200 transition-all">Tudo</button>
+    </div>
+
+    <!-- Lista de transações -->
+    <div id="hist-lista" class="space-y-2.5 pb-6">
+      <!-- items gerados por JS -->
+    </div>
+
+    <!-- Estado vazio -->
+    <div id="hist-vazio" class="hidden text-center py-12">
+      <div class="w-14 h-14 rounded-full bg-gray-100 mx-auto mb-3 flex items-center justify-center">
+        <svg class="w-7 h-7 text-gray-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 0010.5 18.75a7.5 7.5 0 00-7.5-7.5 7.5 7.5 0 00-7.5 7.5m15 0A7.5 7.5 0 0010.5 18.75 7.5 7.5 0 0010.5 6.75"/></svg>
+      </div>
+      <p class="font-display font-semibold text-gray-700 text-sm">Nenhuma transação encontrada</p>
+      <p class="text-xs text-gray-400 mt-1">Tente ajustar os filtros ou a busca</p>
+    </div>
+  </div>
+</section>
+
+<script>
+(function() {
+  const transacoes = [
+    {id:'t1', tipo:'aporte', ativo:'Coca-Cola FEMSA', ticker:'KOF', valorBRL:1500, valorUSD:268.50, data:'2025-01-15T10:23:00', status:'concluido', conta:'Itaú', obs:'Aporte mensal automático via PIX'},
+    {id:'t2', tipo:'dividendo', ativo:'McDonald\'s Corp', ticker:'MCD', valorBRL:840, valorUSD:150.38, data:'2025-01-14T08:00:00', status:'concluido', conta:'—', obs:'Dividendo trimestral — 0,82 USD/ação'},
+    {id:'t3', tipo:'resgate', ativo:'Fundo Imobiliário Dollar REIT', ticker:'FDRE11', valorBRL:2200, valorUSD:393.75, data:'2025-01-13T14:45:00', status:'concluido', conta:'Itaú', obs:'Resgate total — vencimento do prazo'},
+    {id:'t4', tipo:'bonus', ativo:'BlueCircuit Rewards', ticker:'BCR', valorBRL:200, valorUSD:35.80, data:'2025-01-12T09:00:00', status:'concluido', conta:'—', obs:'Bônus de indicação — amigo João S.'},
+    {id:'t5', tipo:'aporte', ativo:'Apple Inc.', ticker:'AAPL', valorBRL:3000, valorUSD:536.95, data:'2025-01-11T11:30:00', status:'concluido', conta:'Bradesco', obs:'Aporte com cartão de crédito (Apple Card)'},
+    {id:'t6', tipo:'dividendo', ativo:'Energia Eólica Nordeste FIP', ticker:'EENF11', valorBRL:520, valorUSD:93.10, data:'2025-01-10T07:00:00', status:'processando', conta:'—', obs:'Dividendo mensal — previsão liquidação 15/01'},
+    {id:'t7', tipo:'aporte', ativo:'FIFA Sponsorship Fund', ticker:'FSF', valorBRL:5000, valorUSD:894.75, data:'2025-01-09T16:20:00', status:'concluido', conta:'Itaú', obs:'Aporte de entrada — fundo patrocínio FIFA'},
+    {id:'t8', tipo:'resgate', ativo:'Energia Solar Global ETF', ticker:'ESGE', valorBRL:800, valorUSD:143.10, data:'2025-01-08T13:10:00', status:'pendente', conta:'Bradesco', obs:'Resgate parcial — aguardando liquidação T+2'},
+    {id:'t9', tipo:'dividendo', ativo:'UEFA Champions League FIP', ticker:'UCLF11', valorBRL:340, valorUSD:60.84, data:'2025-01-07T08:00:00', status:'concluido', conta:'—', obs:'Dividendo semestral — 0,15 USD/cota'},
+    {id:'t10', tipo:'bonus', ativo:'BlueCircuit Rewards', ticker:'BCR', valorBRL:50, valorUSD:8.95, data:'2025-01-06T09:00:00', status:'concluido', conta:'—', obs:'Cashback no aporte do mês (0,5%)'},
+    {id:'t11', tipo:'aporte', ativo:'Usina Hidrelétrica Belo Monte', ticker:'UHBM', valorBRO:'---', valorBRL:8000, valorUSD:1431.60, data:'2025-01-05T10:00:00', status:'concluido', conta:'Itaú', obs:'Aporte em energia renovável — Belo Monte'},
+    {id:'t12', tipo:'resgate', ativo:'Fundo Imobiliário Dollar REIT', ticker:'FDRE11', valorBRL:1500, valorUSD:268.50, data:'2025-01-04T15:30:00', status:'concluido', conta:'Itaú', obs:'Resgate parcial para rebalanceamento'},
+  ];
+
+  let filtroTipo = 'todos';
+  let filtroPeriodo = '30d';
+
+  function iconePorTipo(tipo) {
+    if (tipo === 'aporte') return '<svg class="w-5 h-5" fill="none" stroke="#16A34A" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m-7 7l7-7 7 7"/></svg>';
+    if (tipo === 'dividendo') return '<svg class="w-5 h-5" fill="none" stroke="#2563EB" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19V5m-7 7l7-7 7 7"/></svg>';
+    if (tipo === 'resgate') return '<svg class="w-5 h-5" fill="none" stroke="#EA580C" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m7-7l-7 7-7-7"/></svg>';
+    if (tipo === 'bonus') return '<svg class="w-5 h-5" fill="#D4AF37" stroke="#B8962F" stroke-width="1.5" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>';
+    return '';
+  }
+
+  function badgeStatus(status) {
+    if (status === 'concluido') return '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-green-100 text-green-700"><span class="w-1.5 h-1.5 rounded-full bg-green-500"></span>Concluído</span>';
+    if (status === 'processando') return '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-blue-100 text-blue-700"><span class="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></span>Processando</span>';
+    if (status === 'pendente') return '<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-semibold bg-amber-100 text-amber-700"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Pendente</span>';
+    return '';
+  }
+
+  function corAvatar(tipo) {
+    if (tipo === 'aporte') return 'bg-green-100 text-green-700';
+    if (tipo === 'dividendo') return 'bg-blue-100 text-blue-700';
+    if (tipo === 'resgate') return 'bg-orange-100 text-orange-700';
+    if (tipo === 'bonus') return 'bg-yellow-100 text-yellow-700';
+    return 'bg-gray-100 text-gray-700';
+  }
+
+  function inicialNome(ativo) {
+    return ativo.split(' ').filter(w=>w.length>2).slice(0,2).map(w=>w[0]).join('').substring(0,2).toUpperCase();
+  }
+
+  function dentroPeriodo(dataISO) {
+    const d = new Date(dataISO);
+    const agora = new Date('2025-01-15');
+    const diff = (agora - d) / 86400000;
+    if (filtroPeriodo === 'tudo') return true;
+    if (filtroPeriodo === '7d') return diff <= 7;
+    if (filtroPeriodo === '30d') return diff <= 30;
+    if (filtroPeriodo === '6m') return diff <= 180;
+    if (filtroPeriodo === '1a') return diff <= 365;
+    return true;
+  }
+
+  window.historico_de_transacoes_filtrarTipo = function(tipo) {
+    filtroTipo = tipo;
+    document.querySelectorAll('#hist-filtros-tipo .hist-filtro-btn').forEach(b => {
+      b.classList.remove('bg-marca-900','text-marca-50');
+      b.classList.add('bg-gray-100','text-gray-600');
+    });
+    const ativo = document.querySelector(`#hist-filtros-tipo [data-filtro="${tipo}"]`);
+    if (ativo) { ativo.classList.add('bg-marca-900','text-marca-50'); ativo.classList.remove('bg-gray-100','text-gray-600'); }
+    window.historico_de_transacoes_filtrar();
+  };
+
+  window.historico_de_transacoes_filtrarPeriodo = function(periodo) {
+    filtroPeriodo = periodo;
+    document.querySelectorAll('#hist-filtros-periodo .hist-periodo-btn').forEach(b => {
+      b.classList.remove('bg-marca-900','text-marca-50');
+      b.classList.add('bg-gray-100','text-gray-500');
+    });
+    const ativo = document.querySelector(`#hist-filtros-periodo [data-periodo="${periodo}"]`);
+    if (ativo) { ativo.classList.add('bg-marca-900','text-marca-50'); ativo.classList.remove('bg-gray-100','text-gray-500'); }
+    window.historico_de_transacoes_filtrar();
+  };
+
+  window.historico_de_transacoes_filtrar = function() {
+    const busca = document.getElementById('hist-busca').value.toLowerCase().trim();
+    const lista = document.getElementById('hist-lista');
+    const vazio = document.getElementById('hist-vazio');
+    let visiveis = 0;
+
+    lista.innerHTML = '';
+    transacoes.forEach(t => {
+      if (filtroTipo !== 'todos' && t.tipo !== filtroTipo) return;
+      if (!dentroPeriodo(t.data)) return;
+      if (busca && !t.ativo.toLowerCase().includes(busca) && !String(t.valorBRL).includes(busca) && !(t.ticker&&t.ticker.toLowerCase().includes(busca))) return;
+
+      visiveis++;
+      const dt = new Date(t.data);
+      const dataStr = dt.toLocaleDateString('pt-BR', {day:'2-digit', month:'short', year:'numeric'});
+      const horaStr = dt.toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
+      const sinal = (t.tipo === 'aporte' || t.tipo === 'bonus' || t.tipo === 'dividendo') ? '+' : '-';
+      const corValor = (t.tipo === 'aporte' || t.tipo === 'bonus' || t.tipo === 'dividendo') ? 'text-green-700' : 'text-orange-700';
+      const USD = t.valorUSD ? `<span class="text-gray-400">· US$ ${t.valorUSD.toFixed(2)}</span>` : '';
+
+      const item = document.createElement('div');
+      item.className = 'card bg-white rounded-xl p-3 border border-gray-100 cursor-pointer active:scale-[0.98] transition-all hover:shadow-md';
+      item.onclick = () => window.historico_de_transacoes_abrirDetalhe(t.id);
+      item.innerHTML = `
+        <div class="flex items-start gap-3">
+          <div class="w-10 h-10 rounded-full ${corAvatar(t.tipo)} flex items-center justify-center flex-shrink-0">
+            <div class="w-6 h-6">${iconePorTipo(t.tipo)}</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <div class="flex items-center justify-between">
+              <p class="font-display font-semibold text-sm text-gray-900 truncate">${t.ativo}</p>
+              <span class="font-display font-bold text-sm ${corValor} ml-2 flex-shrink-0">${sinal} R$ ${t.valorBRL.toLocaleString('pt-BR',{minimumFractionDigits:2})}</span>
+            </div>
+            <div class="flex items-center justify-between mt-0.5">
+              <p class="text-[11px] text-gray-500 truncate">${t.obs} ${USD}</p>
+              ${badgeStatus(t.status)}
+            </div>
+            <p class="text-[10px] text-gray-400 mt-1">${dataStr} · ${horaStr}</p>
+          </div>
+        </div>`;
+      lista.appendChild(item);
+    });
+
+    if (visiveis === 0) {
+      vazio.classList.remove('hidden');
+    } else {
+      vazio.classList.add('hidden');
+    }
+    document.getElementById('hist-contador').textContent = visiveis;
+  };
+
+  window.historico_de_transacoes_abrirDetalhe = function(id) {
+    const t = transacoes.find(x => x.id === id);
+    if (!t) return;
+    const dt = new Date(t.data);
+    const dataStr = dt.toLocaleDateString('pt-BR', {day:'2-digit', month:'long', year:'numeric'});
+    const horaStr = dt.toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
+    const sinal = (t.tipo === 'aporte' || t.tipo === 'bonus' || t.tipo === 'dividendo') ? '+' : '-';
+    const corValor = (t.tipo === 'aporte' || t.tipo === 'bonus' || t.tipo === 'dividendo') ? 'text-green-700' : 'text-orange-700';
+    const tipoLabel = {aporte:'Aporte', dividendo:'Dividendo', resgate:'Resgate', bonus:'Bônus'}[t.tipo] || t.tipo;
+    const USD = t.valorUSD ? `<p class="text-sm text-gray-600 mt-1">US$ ${t.valorUSD.toFixed(2)} <span class="text-gray-400">· cotação do dia</span></p>` : '';
+    const obsHistorico = [
+      {d:'2025-01-15 10:23', txt:'Transação confirmada pelo banco.', tipo:'ok'},
+      {d:'2025-01-15 10:25', txt:'Notificação enviada ao usuário.', tipo:'info'},
+      {d:'2025-01-15 11:00', txt:'Saldo atualizado.', tipo:'ok'},
+    ];
+    const historicoHTML = obsHistorico.map(h => `
+      <div class="flex gap-2 items-start">
+        <span class="w-2 h-2 rounded-full mt-1 ${h.tipo==='ok'?'bg-green-500':'bg-blue-500'} flex-shrink-0"></span>
+        <div><p class="text-xs text-gray-700">${h.txt}</p><p class="text-[10px] text-gray-400">${h.d}</p></div>
+      </div>
+    `).join('');
+
+    const html = `
+      <div class="p-4">
+        <div class="flex items-center gap-3 mb-4">
+          <div class="w-12 h-12 rounded-full ${corAvatar(t.tipo)} flex items-center justify-center">${iconePorTipo(t.tipo)}</div>
+          <div>
+            <p class="font-display font-bold text-base text-gray-900">${t.ativo}</p>
+            <p class="text-xs text-gray-500">${t.ticker} · ${tipoLabel}</p>
+          </div>
+        </div>
+        <div class="bg-gray-50 rounded-xl p-4 mb-4">
+          <p class="font-display text-2xl font-bold ${corValor}">${sinal} R$ ${t.valorBRL.toLocaleString('pt-BR',{minimumFractionDigits:2})}</p>
+          ${USD}
+        </div>
+        <div class="space-y-2 mb-4">
+          <div class="flex justify-between text-sm"><span class="text-gray-500">Data e hora</span><span class="font-medium text-gray-800">${dataStr} às ${horaStr}</span></div>
+          <div class="flex justify-between text-sm"><span class="text-gray-500">Conta</span><span class="font-medium text-gray-800">${t.conta}</span></div>
+          <div class="flex justify-between text-sm"><span class="text-gray-500">Status</span>${badgeStatus(t.status)}</div>
+          <div class="flex justify-between text-sm"><span class="text-gray-500">Observação</span><span class="font-medium text-gray-800 text-right max-w-[60%]">${t.obs}</span></div>
+        </div>
+        <div class="border-t border-gray-200 pt-3 mb-4">
+          <p class="text-xs font-semibold text-gray-600 uppercase tracking-wider mb-2">Histórico da transação</p>
+          <div class="space-y-2">${historicoHTML}</div>
+        </div>
+        <button onclick="fecharModal(); toast('Comprovante enviado por e-mail','ok')" class="btn w-full bg-marca-900 text-marca-50 py-2.5 rounded-xl text-sm font-semibold active:scale-95 transition-transform">Solicitar Comprovante</button>
+      </div>`;
+    abrirModal(html, 'Detalhes da Transação');
+  };
+
+  window.historico_de_transacoes_exportarPDF = function() {
+    toast('Relatório PDF gerado com sucesso! Verifique seu e-mail.','ok');
+  };
+
+  // Inicializa
+  window.historico_de_transacoes_filtrar();
+})();
+</script>
+
     <!-- TELAS -->
     </main>
 
