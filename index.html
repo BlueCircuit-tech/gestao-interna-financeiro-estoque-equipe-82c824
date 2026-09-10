@@ -616,6 +616,457 @@
       </script>
     </section>
 
+    <section data-tela="catalogo-de-investimentos" class="hidden">
+      <div id="catalogo-content" class="animate-fadeIn">
+        <div class="px-5 pt-2 pb-1">
+          <h1 class="font-display text-2xl font-bold text-gray-900 leading-tight">Catálogo de<br>Investimentos</h1>
+          <p class="text-sm text-gray-500 mt-1 font-body">Explore oportunidades de retorno global</p>
+        </div>
+
+        <div class="px-5 mt-4">
+          <div class="relative">
+            <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none">
+              <svg class="h-4 w-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </div>
+            <input id="catalogo-search" type="text" placeholder="Buscar ativo, categoria..."
+              class="w-full pl-10 pr-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm font-body text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-yellow-600 focus:border-transparent transition-all"
+              oninput="catalogo_de_investimentos_filtrar(this.value)">
+          </div>
+        </div>
+
+        <div id="catalogo-indicadores" class="flex gap-3 px-5 mt-4 overflow-x-auto pb-1 scrollbar-hide">
+          <div class="flex-shrink-0 w-28 bg-gray-900 rounded-2xl p-3.5 shadow-lg">
+            <p class="text-[10px] text-gray-400 uppercase tracking-wider font-medium">Total Investido</p>
+            <p class="text-white font-display font-bold text-lg mt-0.5">R$ 847.2k</p>
+            <p class="text-emerald-400 text-xs mt-1 font-medium flex items-center gap-0.5">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+              +12.4%
+            </p>
+          </div>
+          <div class="flex-shrink-0 w-28 bg-gray-900 rounded-2xl p-3.5 shadow-lg">
+            <p class="text-[10px] text-gray-400 uppercase tracking-wider font-medium">Rentabilidade</p>
+            <p class="text-yellow-500 font-display font-bold text-lg mt-0.5">18.7%</p>
+            <p class="text-emerald-400 text-xs mt-1 font-medium flex items-center gap-0.5">
+              <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+              +2.1%
+            </p>
+          </div>
+          <div class="flex-shrink-0 w-28 bg-gray-900 rounded-2xl p-3.5 shadow-lg">
+            <p class="text-[10px] text-gray-400 uppercase tracking-wider font-medium">Categorias</p>
+            <p class="text-white font-display font-bold text-lg mt-0.5">5 ativas</p>
+            <p class="text-gray-400 text-xs mt-1 font-medium">3 pendentes</p>
+          </div>
+        </div>
+
+        <div class="px-5 mt-5">
+          <div class="bg-gray-900 rounded-2xl p-4 shadow-lg">
+            <p class="text-xs text-gray-400 uppercase tracking-wider font-medium mb-3">Rentabilidade dos últimos 7 dias</p>
+            <svg viewBox="0 0 300 80" class="w-full h-16">
+              <defs>
+                <linearGradient id="chartGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.3"/>
+                  <stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/>
+                </linearGradient>
+              </defs>
+              <polyline fill="url(#chartGrad)" stroke="none" points="0,65 30,60 60,55 90,58 120,48 150,45 180,50 210,38 240,30 270,25 300,20 300,80 0,80"/>
+              <polyline fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="0,65 30,60 60,55 90,58 120,48 150,45 180,50 210,38 240,30 270,25 300,20"/>
+              <circle cx="300" cy="20" r="4" fill="#D4AF37"/>
+              <circle cx="300" cy="20" r="7" fill="#D4AF37" opacity="0.3">
+                <animate attributeName="r" values="5;9;5" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.4;0;0.4" dur="2s" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+            <div class="flex justify-between mt-2">
+              <span class="text-[10px] text-gray-500 font-body">Seg 10/03</span>
+              <span class="text-[10px] text-gray-500 font-body">Dom 16/03</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="px-5 mt-5">
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="font-display font-bold text-base text-gray-900">Categorias</h2>
+            <button class="text-xs text-yellow-700 font-medium font-body hover:text-yellow-800 transition-colors" onclick="mostrarTela('minha-carteira')">Ver carteira</button>
+          </div>
+          <div id="catalogo-categorias" class="space-y-3">
+            <div class="catalogo-card bg-white border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-yellow-200 transition-all cursor-pointer active:scale-[0.98]" data-categoria="acoes" onclick="catalogo_de_investimentos_abrirCategoria('acoes')">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-display font-bold text-sm text-gray-900">Ações Globais</h3>
+                  <p class="text-xs text-gray-500 mt-0.5 font-body">Apple, Coca-Cola, McDonald's</p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <p class="font-display font-bold text-sm text-emerald-600">+18.4%</p>
+                  <p class="text-[10px] text-gray-400 font-body">ao ano</p>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center gap-3">
+                <svg viewBox="0 0 120 32" class="w-24 h-8 flex-shrink-0">
+                  <polyline fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="0,24 15,20 30,22 45,16 60,18 75,10 90,12 105,6 120,4" opacity="0.8"/>
+                </svg>
+                <span class="badge bg-green-100 text-green-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">Alta</span>
+              </div>
+            </div>
+
+            <div class="catalogo-card bg-white border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-yellow-200 transition-all cursor-pointer active:scale-[0.98]" data-categoria="energias" onclick="catalogo_de_investimentos_abrirCategoria('energias')">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-display font-bold text-sm text-gray-900">Energias Renováveis</h3>
+                  <p class="text-xs text-gray-500 mt-0.5 font-body">Solar, Eólica, Hidrelétrica</p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <p class="font-display font-bold text-sm text-emerald-600">+14.2%</p>
+                  <p class="text-[10px] text-gray-400 font-body">ao ano</p>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center gap-3">
+                <svg viewBox="0 0 120 32" class="w-24 h-8 flex-shrink-0">
+                  <polyline fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="0,18 15,20 30,16 45,14 60,18 75,12 90,8 105,10 120,6" opacity="0.8"/>
+                </svg>
+                <span class="badge bg-green-100 text-green-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">Alta</span>
+              </div>
+            </div>
+
+            <div class="catalogo-card bg-white border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-yellow-200 transition-all cursor-pointer active:scale-[0.98]" data-categoria="esportes" onclick="catalogo_de_investimentos_abrirCategoria('esportes')">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-display font-bold text-sm text-gray-900">Esportes</h3>
+                  <p class="text-xs text-gray-500 mt-0.5 font-body">FIFA, UEFA e direitos esportivos</p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <p class="font-display font-bold text-sm text-emerald-600">+9.6%</p>
+                  <p class="text-[10px] text-gray-400 font-body">ao ano</p>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center gap-3">
+                <svg viewBox="0 0 120 32" class="w-24 h-8 flex-shrink-0">
+                  <polyline fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="0,20 15,18 30,22 45,16 60,20 75,14 90,16 105,12 120,8" opacity="0.8"/>
+                </svg>
+                <span class="badge bg-yellow-100 text-yellow-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">Estável</span>
+              </div>
+            </div>
+
+            <div class="catalogo-card bg-white border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-yellow-200 transition-all cursor-pointer active:scale-[0.98]" data-categoria="imobiliarios" onclick="catalogo_de_investimentos_abrirCategoria('imobiliarios')">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-amber-50 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-display font-bold text-sm text-gray-900">Fundos Imobiliários</h3>
+                  <p class="text-xs text-gray-500 mt-0.5 font-body">Dollarized dividendos globais</p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <p class="font-display font-bold text-sm text-emerald-600">+11.8%</p>
+                  <p class="text-[10px] text-gray-400 font-body">ao ano</p>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center gap-3">
+                <svg viewBox="0 0 120 32" class="w-24 h-8 flex-shrink-0">
+                  <polyline fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="0,22 15,20 30,18 45,20 60,16 75,14 90,16 105,10 120,8" opacity="0.8"/>
+                </svg>
+                <span class="badge bg-green-100 text-green-700 text-[10px] font-semibold px-2 py-0.5 rounded-full">Alta</span>
+              </div>
+            </div>
+
+            <div class="catalogo-card bg-white border border-gray-100 rounded-2xl p-4 shadow-sm hover:shadow-md hover:border-yellow-200 transition-all cursor-pointer active:scale-[0.98]" data-categoria="cripto" onclick="catalogo_de_investimentos_abrirCategoria('cripto')">
+              <div class="flex items-center gap-3">
+                <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center flex-shrink-0">
+                  <svg class="w-6 h-6 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                </div>
+                <div class="flex-1 min-w-0">
+                  <h3 class="font-display font-bold text-sm text-gray-900">Criptomoedas</h3>
+                  <p class="text-xs text-gray-500 mt-0.5 font-body">Bitcoin, Ethereum, Stablecoins</p>
+                </div>
+                <div class="text-right flex-shrink-0">
+                  <p class="font-display font-bold text-sm text-emerald-600">+32.1%</p>
+                  <p class="text-[10px] text-gray-400 font-body">ao ano</p>
+                </div>
+              </div>
+              <div class="mt-3 flex items-center gap-3">
+                <svg viewBox="0 0 120 32" class="w-24 h-8 flex-shrink-0">
+                  <polyline fill="none" stroke="#D4AF37" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" points="0,20 15,22 30,16 45,18 60,14 75,16 90,10 105,6 120,8" opacity="0.8"/>
+                </svg>
+                <span class="badge bg-red-100 text-red-600 text-[10px] font-semibold px-2 py-0.5 rounded-full">Alta Vol.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div id="catalogo-vazio" class="hidden px-5 mt-10 text-center">
+          <div class="w-16 h-16 mx-auto bg-gray-100 rounded-full flex items-center justify-center">
+            <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          </div>
+          <p class="mt-3 text-sm text-gray-500 font-body">Nenhum ativo encontrado</p>
+          <p class="text-xs text-gray-400 font-body mt-1">Tente buscar com outro termo</p>
+        </div>
+
+        <div class="px-5 mt-5 mb-24">
+          <div class="bg-gradient-to-br from-gray-900 to-gray-800 rounded-2xl p-5 shadow-lg">
+            <div class="flex items-start gap-3">
+              <div class="w-10 h-10 bg-yellow-500/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                <svg class="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <div>
+                <h3 class="font-display font-bold text-sm text-white">Diversificação recomendada</h3>
+                <p class="text-xs text-gray-400 mt-1 font-body leading-relaxed">Com base no seu perfil de risco moderado, sugerimos alocar 40% em ações globais, 25% em energias renováveis, 20% em fundos imobiliários, 10% em esportes e 5% em criptomoedas.</p>
+                <button class="mt-3 btn bg-yellow-600 text-white text-xs font-semibold px-4 py-2 rounded-lg hover:bg-yellow-500 active:scale-95 transition-all" onclick="mostrarTela('painel-de-investimentos'); toast('Perfil atualizado com sucesso', 'ok')">Ver perfil de risco</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="catalogo-detalhe" class="hidden animate-slideUp">
+        <div class="sticky top-0 bg-white/80 backdrop-blur-md z-10 px-5 pt-2 pb-3">
+          <button onclick="catalogo_de_investimentos_voltar()" class="flex items-center gap-1.5 text-sm text-gray-600 hover:text-gray-900 transition-colors font-body">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+            Voltar
+          </button>
+        </div>
+        <div id="catalogo-detalhe-body" class="px-5"></div>
+      </div>
+
+      <script>
+        const catalogo_de_investimentos_categorias = {
+          acoes: {
+            nome: 'Ações Globais',
+            retorno: '+18.4%',
+            cor: 'blue',
+            risco: 'Moderado',
+            minimo: 500,
+            taxa: '1.2% a.a.',
+            ativos: [
+              { nome: 'Apple Inc. (AAPL)', ticker: 'AAPL', preco: 214.29, retorno: '+22.1%', minimo: 1500, descricao: 'Líder global em tecnologia, hardware e serviços digitais.', setor: 'Tecnologia', classificacao: 'Large Cap' },
+              { nome: 'The Coca-Cola Co. (KO)', ticker: 'KO', preco: 64.83, retorno: '+8.4%', minimo: 1000, descricao: 'Maior empresa de bebidas não alcoólicas do mundo, com mais de 200 marcas.', setor: 'Bens de Consumo', classificacao: 'Blue Chip' },
+              { nome: "McDonald's Corp. (MCD)", ticker: 'MCD', preco: 288.71, retorno: '+14.2%', minimo: 1200, descricao: 'Rede de fast-food mais valiosa do mundo com presença em mais de 100 países.', setor: 'Alimentação', classificacao: 'Blue Chip' },
+              { nome: 'Microsoft Corp. (MSFT)', ticker: 'MSFT', preco: 415.26, retorno: '+28.5%', minimo: 2000, descricao: 'Cloud computing, IA e produtividade empresarial em crescimento constante.', setor: 'Tecnologia', classificacao: 'Large Cap' },
+              { nome: 'Amazon.com Inc. (AMZN)', ticker: 'AMZN', preco: 178.25, retorno: '+35.8%', minimo: 1800, descricao: 'E-commerce, AWS e Alexa — ecossistema que domina varejo e nuvem.', setor: 'Tecnologia/Consumo', classificacao: 'Large Cap' }
+            ]
+          },
+          energias: {
+            nome: 'Energias Renováveis',
+            retorno: '+14.2%',
+            cor: 'emerald',
+            risco: 'Moderado-Alto',
+            minimo: 750,
+            taxa: '1.0% a.a.',
+            ativos: [
+              { nome: 'Energia Solar Global ETF', ticker: 'TAN', preco: 32.45, retorno: '+19.7%', minimo: 800, descricao: 'ETF concentrado em empresas de energia solar fotovoltaica em expansão global.', setor: 'Energia Solar', classificacao: 'Setorial' },
+              { nome: 'NextEra Energy (NEE)', ticker: 'NEE', preco: 62.18, retorno: '+12.3%', minimo: 1500, descricao: 'Maior geradora de energia eólica e solar dos EUA, referência em transição energética.', setor: 'Energia Eólica', classificacao: 'Large Cap' },
+              { nome: 'Hidrelétricas BR ETF', ticker: 'EHAB', preco: 18.92, retorno: '+10.8%', minimo: 600, descricao: 'Fundo focado em empresas hidrelétricas brasileiras com contratos longos.', setor: 'Hidrelétrica', classificacao: 'Setorial' },
+              { nome: 'Iberdrola SA (IBE)', ticker: 'IBE', preco: 14.55, retorno: '+15.6%', minimo: 2000, descricao: 'Gigante espanhola de energias renováveis com presença na Europa e Américas.', setor: 'Multifonte', classificacao: 'Large Cap' }
+            ]
+          },
+          esportes: {
+            nome: 'Esportes',
+            retorno: '+9.6%',
+            cor: 'purple',
+            risco: 'Médio',
+            minimo: 2000,
+            taxa: '1.5% a.a.',
+            ativos: [
+              { nome: 'FIFA Commercial Rights', ticker: 'FIFACR', preco: null, retorno: '+9.2%', minimo: 5000, descricao: 'Direitos comerciais da Copa do Mundo e competições FIFA com receita global bilionária.', setor: 'Gestão Esportiva', classificacao: 'Direitos' },
+              { nome: 'UEFA Euro Bonds', ticker: 'UEFAB', preco: 1000.00, retorno: '+8.1%', minimo: 3000, descricao: 'Debêntures atreladas às receitas de direitos de transmissão da UEFA Euro.', setor: 'Direitos Esportivos', classificacao: 'Renda Fixa' },
+              { nome: 'DraftKings Inc. (DKNG)', ticker: 'DKNG', preco: 41.33, retorno: '+15.4%', minimo: 1500, descricao: 'Plataforma líder em fantasy sports e apostas esportivas nos Estados Unidos.', setor: 'Gaming/Esports', classificacao: 'Growth' }
+            ]
+          },
+          imobiliarios: {
+            nome: 'Fundos Imobiliários',
+            retorno: '+11.8%',
+            cor: 'amber',
+            risco: 'Baixo-Médio',
+            minimo: 300,
+            taxa: '0.8% a.a.',
+            ativos: [
+              { nome: 'HGLG11 — CSHG Logística', ticker: 'HGLG11', preco: 165.40, retorno: '+10.2%', minimo: 300, descricao: 'FII de tijolo com galpões logísticos em São Paulo e Rio de Janeiro. Dividendos mensais.', setor: 'Logística', classificacao: 'Tijolo' },
+              { nome: 'XPML11 — XP Malls', ticker: 'XPML11', preco: 108.75, retorno: '+9.8%', minimo: 300, descricao: 'FII de shopping centers com ativos em regiões de alta densidade demográfica.', setor: 'Varejo', classificacao: 'Tijolo' },
+              { nome: 'KNRI11 — Kinea Renda Imobiliária', ticker: 'KNRI11', preco: 140.20, retomo: '+12.4%', minimo: 500, descricao: 'FII de papel com recebíveis imobiliários e imóveis comerciais de alto padrão.', setor: 'Papel/Tijolo', classificacao: 'Misto' },
+              { nome: 'IRDM11 — IRB Renda Imobiliária', ticker: 'IRDM11', preco: 98.50, retorno: '+14.1%', minimo: 300, descricao: 'FII focado em imóveis de renda com hedge cambial e dividendos trimestrais.', setor: 'Multissetorial', classificacao: 'Tijolo' }
+            ]
+          },
+          cripto: {
+            nome: 'Criptomoedas',
+            retorno: '+32.1%',
+            cor: 'orange',
+            risco: 'Alto',
+            minimo: 100,
+            taxa: '2.0% a.a.',
+            ativos: [
+              { nome: 'Bitcoin (BTC)', ticker: 'BTC', preco: 68420.00, retorno: '+45.3%', minimo: 100, descricao: 'Maior criptomoeda do mundo por capitalização. Reserva de valor digital descentralizada.', setor: 'Criptomoeda', classificacao: 'Large Cap' },
+              { nome: 'Ethereum (ETH)', ticker: 'ETH', preco: 3628.50, retorno: '+28.7%', minimo: 100, descricao: 'Plataforma de smart contracts e DeFi. Base para a maioria das aplicações Web3.', setor: 'Plataforma', classificacao: 'Large Cap' },
+              { nome: 'Solana (SOL)', ticker: 'SOL', preco: 148.75, retorno: '+62.4%', minimo: 200, descricao: 'Blockchain de alta velocidade para DeFi, NFTs e aplicações descentralizadas.', setor: 'Layer 1', classificacao: 'Mid Cap' },
+              { nome: 'USD Coin (USDC)', ticker: 'USDC', preco: 1.00, retorno: '+5.2%', minimo: 100, descricao: 'Stablecoin lastreada em dólar americano. Proteção contra volatilidade do mercado.', setor: 'Stablecoin', classificacao: 'Reserva' }
+            ]
+          }
+        };
+
+        function catalogo_de_investimentos_filtrar(termo) {
+          const q = termo.toLowerCase().trim();
+          const cards = document.querySelectorAll('#catalogo-categorias .catalogo-card');
+          let visivel = 0;
+          cards.forEach(card => {
+            const cat = card.dataset.categoria;
+            const dados = catalogo_de_investimentos_categorias[cat];
+            const match = !q || dados.nome.toLowerCase().includes(q) || dados.ativos.some(a => a.nome.toLowerCase().includes(q));
+            card.style.display = match ? '' : 'none';
+            if (match) visivel++;
+          });
+          const vazio = document.getElementById('catalogo-vazio');
+          vazio.classList.toggle('hidden', visivel > 0);
+        }
+
+        function catalogo_de_investimentos_abrirCategoria(catId) {
+          const dados = catalogo_de_investimentos_categorias[catId];
+          const corMap = { blue: 'blue', emerald: 'emerald', purple: 'purple', amber: 'amber', orange: 'orange' };
+          const cor = corMap[dados.cor] || 'yellow';
+          const corBadge = cor === 'emerald' ? 'green' : cor === 'orange' ? 'orange' : cor === 'purple' ? 'purple' : cor === 'amber' ? 'amber' : 'blue';
+
+          let ativosHTML = dados.ativos.map((ativo, i) => {
+            const precoStr = ativo.preco ? ativo.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : '—';
+            return `
+              <div class="bg-white border border-gray-100 rounded-xl p-4 shadow-sm hover:shadow-md transition-all cursor-pointer active:scale-[0.98]" onclick="catalogo_de_investimentos_abrirAtivo('${catId}', ${i})">
+                <div class="flex items-start justify-between">
+                  <div class="flex-1 min-w-0">
+                    <h4 class="font-display font-bold text-sm text-gray-900 truncate">${ativo.nome}</h4>
+                    <p class="text-xs text-gray-400 mt-0.5 font-body">${ativo.ticker}</p>
+                  </div>
+                  <div class="text-right flex-shrink-0 ml-3">
+                    <p class="font-display font-bold text-sm text-emerald-600">${ativo.retorno}</p>
+                    <p class="text-[10px] text-gray-400 font-body">retorno</p>
+                  </div>
+                </div>
+                <div class="mt-3 flex items-center gap-4">
+                  <div class="flex-1">
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wider">Cotação</p>
+                    <p class="font-display font-bold text-sm text-gray-900">${precoStr === '—' ? '—' : 'USD ' + precoStr}</p>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wider">Aporte mín.</p>
+                    <p class="font-display font-bold text-sm text-gray-900">${brl(ativo.minimo)}</p>
+                  </div>
+                  <div class="flex-1">
+                    <p class="text-[10px] text-gray-400 uppercase tracking-wider">Classificação</p>
+                    <span class="badge bg-${corBadge}-100 text-${corBadge}-700 text-[10px] font-semibold px-2 py-0.5 rounded-full mt-0.5 inline-block">${ativo.classificacao}</span>
+                  </div>
+                </div>
+              </div>`;
+          }).join('');
+
+          document.getElementById('catalogo-detalhe-body').innerHTML = `
+            <div class="animate-fadeIn">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-${cor}-50 flex items-center justify-center">
+                  <svg class="w-6 h-6 text-${cor}-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+                </div>
+                <div>
+                  <h2 class="font-display font-bold text-lg text-gray-900">${dados.nome}</h2>
+                  <p class="text-xs text-gray-500 font-body">Retorno médio: <span class="text-emerald-600 font-semibold">${dados.retorno}</span> · Risco: ${dados.risco}</p>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-2 mb-4">
+                <div class="bg-gray-50 rounded-xl p-3 text-center">
+                  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-body">Aporte Mín.</p>
+                  <p class="font-display font-bold text-sm text-gray-900 mt-0.5">${brl(dados.minimo)}</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-3 text-center">
+                  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-body">Taxa Admin.</p>
+                  <p class="font-display font-bold text-sm text-gray-900 mt-0.5">${dados.taxa}</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-3 text-center">
+                  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-body">Risco</p>
+                  <p class="font-display font-bold text-sm text-gray-900 mt-0.5">${dados.risco}</p>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between mb-3">
+                <h3 class="font-display font-bold text-sm text-gray-900">Ativos disponíveis</h3>
+                <span class="badge bg-yellow-100 text-yellow-800 text-[10px] font-semibold px-2 py-0.5 rounded-full">${dados.ativos.length} opções</span>
+              </div>
+              <div class="space-y-3">
+                ${ativosHTML}
+              </div>
+            </div>`;
+
+          document.getElementById('catalogo-content').classList.add('hidden');
+          document.getElementById('catalogo-detalhe').classList.remove('hidden');
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function catalogo_de_investimentos_abrirAtivo(catId, ativoIdx) {
+          const dados = catalogo_de_investimentos_categorias[catId];
+          const ativo = dados.ativos[ativoIdx];
+          const precoStr = ativo.preco ? ativo.preco.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) : '—';
+
+          const svgPoints = Array.from({length: 10}, (_, i) => {
+            const x = i * 30;
+            const y = 50 - Math.random() * 40;
+            return `${x},${y}`;
+          }).join(' ');
+
+          const html = `
+            <div class="space-y-4">
+              <div class="bg-gray-900 rounded-2xl p-5 text-center">
+                <p class="text-xs text-gray-400 font-body uppercase tracking-wider">${ativo.ticker}</p>
+                <h3 class="font-display font-bold text-xl text-white mt-1">${ativo.nome}</h3>
+                <p class="font-display font-bold text-3xl text-yellow-500 mt-2">${precoStr === '—' ? 'Cotação variável' : 'USD ' + precoStr}</p>
+                <div class="flex items-center justify-center gap-1 mt-2">
+                  <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/></svg>
+                  <span class="text-emerald-400 font-display font-bold text-lg">${ativo.retorno}</span>
+                  <span class="text-gray-400 text-sm font-body">retorno médio</span>
+                </div>
+              </div>
+              <svg viewBox="0 0 300 80" class="w-full h-16">
+                <defs><linearGradient id="chartGrad2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#D4AF37" stop-opacity="0.3"/><stop offset="100%" stop-color="#D4AF37" stop-opacity="0"/></linearGradient></defs>
+                <polyline fill="url(#chartGrad2)" stroke="none" points="${svgPoints.replace(/,\S/g, m => m + ' 80,80,0,80')}" />
+                <polyline fill="none" stroke="#D4AF37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" points="${svgPoints}" />
+              </svg>
+              <div class="grid grid-cols-2 gap-3">
+                <div class="bg-gray-50 rounded-xl p-3">
+                  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-body">Aporte Mínimo</p>
+                  <p class="font-display font-bold text-sm text-gray-900">${brl(ativo.minimo)}</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-3">
+                  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-body">Setor</p>
+                  <p class="font-display font-bold text-sm text-gray-900">${ativo.setor}</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-3">
+                  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-body">Classificação</p>
+                  <p class="font-display font-bold text-sm text-gray-900">${ativo.classificacao}</p>
+                </div>
+                <div class="bg-gray-50 rounded-xl p-3">
+                  <p class="text-[10px] text-gray-400 uppercase tracking-wider font-body">Taxa Admin.</p>
+                  <p class="font-display font-bold text-sm text-gray-900">${dados.taxa}</p>
+                </div>
+              </div>
+              <div class="bg-yellow-50 border border-yellow-100 rounded-xl p-4">
+                <h4 class="font-display font-bold text-sm text-gray-900">Sobre</h4>
+                <p class="text-xs text-gray-600 font-body mt-1 leading-relaxed">${ativo.descricao}</p>
+              </div>
+              <button class="w-full btn bg-yellow-600 text-white font-display font-bold text-sm py-3.5 rounded-xl hover:bg-yellow-500 active:scale-95 transition-all shadow-lg" onclick="fecharModal(); mostrarTela('confirmar-aporte'); toast('Aporte iniciado com sucesso', 'ok')">Investir agora</button>
+            </div>`;
+
+          abrirModal(html, ativo.nome);
+        }
+
+        function catalogo_de_investimentos_voltar() {
+          document.getElementById('catalogo-detalhe').classList.add('hidden');
+          document.getElementById('catalogo-content').classList.remove('hidden');
+          document.getElementById('catalogo-search').value = '';
+          catalogo_de_investimentos_filtrar('');
+        }
+      </script>
+    </section>
+
     <!-- TELAS -->
       </main>
 
