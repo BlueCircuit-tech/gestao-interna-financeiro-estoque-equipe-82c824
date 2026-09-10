@@ -1910,6 +1910,484 @@ function meu_perfil_confirmarSaida() {
 </script>
 </section>
 
+    <section data-tela="painel-administrativo" class="hidden">
+  <div class="fade-in">
+    <header class="mb-6">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-display font-bold text-marca-900">Painel Administrativo</h1>
+          <p class="text-sm text-neutral-500 mt-1">Visão geral da plataforma BlueCircuit</p>
+        </div>
+        <button onclick="painel_administrativo_abrirComunicado()" class="bg-marca-900 text-white px-4 py-2.5 rounded-xl text-sm font-medium hover:bg-black active:scale-95 transition-all shadow-lg shadow-marca-900/20 flex items-center gap-2">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+          Enviar Comunicado
+        </button>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-2 gap-3 mb-5">
+      <div class="bg-white rounded-2xl p-4 border border-neutral-100 shadow-sm hover:shadow-md transition-shadow cursor-default">
+        <div class="flex items-center justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl bg-marca-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-marca-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          </div>
+          <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">+12,3%</span>
+        </div>
+        <p class="text-xs text-neutral-500 mb-0.5">Usuários Ativos</p>
+        <p class="text-xl font-display font-bold text-neutral-900">12.450</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 border border-neutral-100 shadow-sm hover:shadow-md transition-shadow cursor-default">
+        <div class="flex items-center justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl bg-marca-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-marca-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">+23,1%</span>
+        </div>
+        <p class="text-xs text-neutral-500 mb-0.5">Volume Investido</p>
+        <p class="text-xl font-display font-bold text-neutral-900">R$ 48,2M</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 border border-neutral-100 shadow-sm hover:shadow-md transition-shadow cursor-default">
+        <div class="flex items-center justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl bg-marca-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-marca-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+          </div>
+          <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">+8,7%</span>
+        </div>
+        <p class="text-xs text-neutral-500 mb-0.5">Dividendos no Mês</p>
+        <p class="text-xl font-display font-bold text-neutral-900">R$ 320K</p>
+      </div>
+
+      <div class="bg-white rounded-2xl p-4 border border-neutral-100 shadow-sm hover:shadow-md transition-shadow cursor-default">
+        <div class="flex items-center justify-between mb-3">
+          <div class="w-10 h-10 rounded-xl bg-marca-50 flex items-center justify-center">
+            <svg class="w-5 h-5 text-marca-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+          </div>
+          <span class="text-xs font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">+2,1%</span>
+        </div>
+        <p class="text-xs text-neutral-500 mb-0.5">Taxa de Crescimento</p>
+        <p class="text-xl font-display font-bold text-neutral-900">8,4%</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-2xl p-5 border border-neutral-100 shadow-sm mb-5">
+      <div class="flex items-center justify-between mb-4">
+        <div>
+          <h2 class="text-base font-display font-bold text-neutral-900">Cadastros nos Últimos 30 Dias</h2>
+          <p class="text-xs text-neutral-500 mt-0.5">Média de 415 novos usuários por dia</p>
+        </div>
+        <div class="flex gap-1">
+          <button onclick="painel_administrativo_filtrarGrafico('7d')" id="btn-graf-7d" class="text-xs px-3 py-1.5 rounded-lg bg-neutral-100 text-neutral-600 hover:bg-marca-50 hover:text-marca-900 transition-all">7d</button>
+          <button onclick="painel_administrativo_filtrarGrafico('30d')" id="btn-graf-30d" class="text-xs px-3 py-1.5 rounded-lg bg-marca-900 text-white transition-all">30d</button>
+        </div>
+      </div>
+      <svg id="grafico-cadastros" viewBox="0 0 340 140" class="w-full h-auto" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.3"/>
+            <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.02"/>
+          </linearGradient>
+        </defs>
+        <polyline id="linha-graf" fill="none" stroke="#0A0A0A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <polygon id="area-graf" fill="url(#areaGrad)"/>
+        <g id="pontos-graf"></g>
+        <g id="labels-graf" class="text-[9px]" fill="#737373" font-family="system-ui"></g>
+        <line x1="0" y1="130" x2="340" y2="130" stroke="#E5E5E5" stroke-width="1"/>
+        <line x1="0" y1="100" x2="340" y2="100" stroke="#F5F5F5" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="0" y1="70" x2="340" y2="70" stroke="#F5F5F5" stroke-width="1" stroke-dasharray="3,3"/>
+        <line x1="0" y1="40" x2="340" y2="40" stroke="#F5F5F5" stroke-width="1" stroke-dasharray="3,3"/>
+      </svg>
+    </div>
+
+    <div class="grid grid-cols-1 gap-5 mb-5">
+      <div class="bg-white rounded-2xl border border-neutral-100 shadow-sm">
+        <div class="p-5 pb-3 border-b border-neutral-50">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-display font-bold text-neutral-900">Ativos Mais Populares</h2>
+            <span class="text-xs text-neutral-400">Top 5 por volume</span>
+          </div>
+        </div>
+        <div id="lista-ativos-populares" class="divide-y divide-neutral-50"></div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-neutral-100 shadow-sm">
+        <div class="p-5 pb-3 border-b border-neutral-50">
+          <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <h2 class="text-base font-display font-bold text-neutral-900">Alertas</h2>
+              <span id="badge-alertas" class="bg-red-50 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded-full">3</span>
+            </div>
+            <button onclick="mostrarTela('notificacoes')" class="text-xs text-marca-900 font-medium hover:underline">Ver todas</button>
+          </div>
+        </div>
+        <div id="lista-alertas" class="divide-y divide-neutral-50"></div>
+      </div>
+    </div>
+
+    <div class="mb-8">
+      <h3 class="text-sm font-display font-bold text-neutral-900 mb-3">Ações Rápidas</h3>
+      <div class="grid grid-cols-2 gap-3">
+        <button onclick="painel_administrativo_cadastrarAtivo()" class="bg-marca-900 text-white p-4 rounded-2xl text-left hover:bg-black active:scale-[0.97] transition-all shadow-lg shadow-marca-900/20 flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Cadastrar Ativo</p>
+            <p class="text-[11px] text-white/60 mt-0.5">Novo investimento</p>
+          </div>
+        </button>
+        <button onclick="painel_administrativo_gerarRelatorio()" class="bg-white text-neutral-900 p-4 rounded-2xl text-left border border-neutral-200 hover:border-marca-900 hover:shadow-md active:scale-[0.97] transition-all flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-marca-50 flex items-center justify-center flex-shrink-0">
+            <svg class="w-5 h-5 text-marca-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold">Relatório Financeiro</p>
+            <p class="text-[11px] text-neutral-400 mt-0.5">Exportar dados</p>
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    var painelAdminDados = {
+      ativos: [
+        { id: 1, nome: 'Apple Inc.', ticker: 'AAPL', setor: 'Tecnologia', volume: 12400000, variacao: 5.2, cor: '#0A0A0A' },
+        { id: 2, nome: 'The Coca-Cola Company', ticker: 'KO', setor: 'Bebidas', volume: 9800000, variacao: 2.8, cor: '#D4AF37' },
+        { id: 3, nome: 'McDonald\'s Corporation', ticker: 'MCD', setor: 'Alimentação', volume: 8500000, variacao: 3.5, cor: '#0A0A0A' },
+        { id: 4, nome: 'Energia Solar Global ETF', ticker: 'ICLN', setor: 'Energia Renovável', volume: 7200000, variacao: 7.1, cor: '#D4AF37' },
+        { id: 5, nome: 'FIFA Real Estate Fund', ticker: 'FIFARE', setor: 'Fundo Imobiliário', volume: 6100000, variacao: -0.4, cor: '#0A0A0A' }
+      ],
+      alertas: [
+        { id: 1, tipo: 'saque', titulo: 'Saques pendentes de aprovação', descricao: '23 solicitações aguardando revisão', valor: 'R$ 145.230,00', urgencia: 'alta', data: '2026-01-15' },
+        { id: 2, tipo: 'suporte', titulo: 'Suportes abertos sem resposta', descricao: '7 tickets pendentes há mais de 4h', valor: null, urgencia: 'media', data: '2026-01-15' },
+        { id: 3, tipo: 'sistema', titulo: 'Atualização de dividendos pendente', descricao: '12 ativos com dados desatualizados', valor: null, urgencia: 'baixa', data: '2026-01-14' }
+      ],
+      grafico30d: [380,420,390,450,480,460,500,520,490,530,550,510,540,560,520,580,600,570,620,590,640,610,660,630,680,650,700,670,720,690],
+      grafico7d: [650,670,690,700,720,680,710]
+    };
+
+    function painel_administrativo_inicializar() {
+      painel_administrativo_renderizarAtivos();
+      painel_administrativo_renderizarAlertas();
+      painel_administrativo_desenharGrafico(painelAdminDados.grafico30d);
+    }
+
+    function painel_administrativo_renderizarAtivos() {
+      var container = document.getElementById('lista-ativos-populares');
+      if (!container) return;
+      var html = '';
+      painelAdminDados.ativos.forEach(function(ativo, i) {
+        var variacaoCor = ativo.variacao >= 0 ? 'text-emerald-600' : 'text-red-500';
+        var variacaoSinal = ativo.variacao >= 0 ? '+' : '';
+        var initials = ativo.nome.split(' ').map(function(w) { return w[0]; }).slice(0, 2).join('').toUpperCase();
+        html += '<div onclick="mostrarTela(\'detalhes-do-ativo\')" class="p-4 hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer flex items-center gap-3.5">' +
+          '<div class="w-10 h-10 rounded-xl flex items-center justify-center text-sm font-bold flex-shrink-0" style="background:' + ativo.cor + '; color:' + (ativo.cor === '#0A0A0A' ? '#FAFAFA' : '#0A0A0A') + '">' + initials + '</div>' +
+          '<div class="flex-1 min-w-0">' +
+            '<p class="text-sm font-semibold text-neutral-900 truncate">' + ativo.nome + '</p>' +
+            '<p class="text-xs text-neutral-400">' + ativo.ticker + ' · ' + ativo.setor + '</p>' +
+          '</div>' +
+          '<div class="text-right flex-shrink-0">' +
+            '<p class="text-sm font-semibold text-neutral-900">' + brl(ativo.volume) + '</p>' +
+            '<p class="text-xs font-medium ' + variacaoCor + '">' + variacaoSinal + ativo.variacao.toFixed(1) + '%</p>' +
+          '</div>' +
+        '</div>';
+      });
+      container.innerHTML = html;
+    }
+
+    function painel_administrativo_renderizarAlertas() {
+      var container = document.getElementById('lista-alertas');
+      if (!container) return;
+      var html = '';
+      painelAdminDados.alertas.forEach(function(alerta) {
+        var urgenciaCores = { alta: 'bg-red-50 text-red-600 border-red-200', media: 'bg-amber-50 text-amber-600 border-amber-200', baixa: 'bg-blue-50 text-blue-600 border-blue-200' };
+        var urgenciaBg = { alta: 'bg-red-500', media: 'bg-amber-500', baixa: 'bg-blue-500' };
+        var tipoIcon = '';
+        if (alerta.tipo === 'saque') {
+          tipoIcon = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"/></svg>';
+        } else if (alerta.tipo === 'suporte') {
+          tipoIcon = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>';
+        } else {
+          tipoIcon = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>';
+        }
+        var acaoTexto = alerta.tipo === 'saque' ? 'Revisar saques' : alerta.tipo === 'suporte' ? 'Ver suporte' : 'Resolver';
+        html += '<div onclick="painel_administrativo_abrirAlerta(' + alerta.id + ')" class="p-4 hover:bg-neutral-50 active:bg-neutral-100 transition-colors cursor-pointer flex items-start gap-3.5">' +
+          '<div class="w-9 h-9 rounded-xl border ' + urgenciaCores[alerta.urgencia] + ' flex items-center justify-center flex-shrink-0 mt-0.5">' + tipoIcon + '</div>' +
+          '<div class="flex-1 min-w-0">' +
+            '<div class="flex items-center gap-2 mb-0.5">' +
+              '<p class="text-sm font-semibold text-neutral-900">' + alerta.titulo + '</p>' +
+              '<span class="w-2 h-2 rounded-full ' + urgenciaBg[alerta.urgencia] + ' flex-shrink-0"></span>' +
+            '</div>' +
+            '<p class="text-xs text-neutral-500 mb-1.5">' + alerta.descricao + '</p>' +
+            (alerta.valor ? '<p class="text-sm font-semibold text-neutral-900">' + alerta.valor + '</p>' : '') +
+          '</div>' +
+          '<div class="flex flex-col items-end gap-1.5 flex-shrink-0">' +
+            '<span class="text-[10px] text-neutral-400">' + dataBR(alerta.data) + '</span>' +
+            '<span class="text-xs font-medium text-marca-900 hover:underline">' + acaoTexto + ' →</span>' +
+          '</div>' +
+        '</div>';
+      });
+      container.innerHTML = html;
+    }
+
+    function painel_administrativo_desenharGrafico(dados) {
+      var svg = document.getElementById('grafico-cadastros');
+      if (!svg) return;
+      var max = Math.max.apply(null, dados);
+      var min = Math.min.apply(null, dados);
+      var range = max - min || 1;
+      var padding = 5;
+      var w = 340, h = 140, graphH = h - 20;
+      var pontos = [];
+      var step = w / (dados.length - 1);
+      dados.forEach(function(val, i) {
+        var x = i * step;
+        var y = graphH - ((val - min + padding) / (range + padding * 2)) * graphH;
+        pontos.push({ x: x, y: y, val: val });
+      });
+      var linhaPath = pontos.map(function(p, i) { return (i === 0 ? 'M' : 'L') + p.x.toFixed(1) + ',' + p.y.toFixed(1); }).join(' ');
+      var areaPath = linhaPath + ' L' + pontos[pontos.length - 1].x.toFixed(1) + ',' + (graphH + 10) + ' L0,' + (graphH + 10) + ' Z';
+      document.getElementById('linha-graf').setAttribute('d', linhaPath);
+      document.getElementById('area-graf').setAttribute('d', areaPath);
+      var pontosG = document.getElementById('pontos-graf');
+      pontosG.innerHTML = '';
+      pontos.forEach(function(p, i) {
+        if (i % Math.max(1, Math.floor(pontos.length / 6)) === 0 || i === pontos.length - 1) {
+          pontosG.innerHTML += '<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="3.5" fill="#0A0A0A" stroke="#FAFAFA" stroke-width="2" style="cursor:pointer" onmouseover="painel_administrativo_tooltip(this,' + p.val + ')" onmouseout="painel_administrativo_hideTooltip()"/>';
+        }
+      });
+      var labelsG = document.getElementById('labels-graf');
+      labelsG.innerHTML = '';
+      var labelStep = Math.max(1, Math.floor(pontos.length / 5));
+      pontos.forEach(function(p, i) {
+        if (i % labelStep === 0 || i === pontos.length - 1) {
+          labelsG.innerHTML += '<text x="' + p.x.toFixed(1) + '" y="' + (h - 2) + '" text-anchor="middle">' + (i + 1) + '</text>';
+        }
+      });
+    }
+
+    function painel_administrativo_tooltip(circle, valor) {
+      var existing = document.getElementById('graf-tooltip');
+      if (existing) existing.remove();
+      var cx = parseFloat(circle.getAttribute('cx'));
+      var cy = parseFloat(circle.getAttribute('cy'));
+      var tt = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      tt.setAttribute('id', 'graf-tooltip');
+      tt.innerHTML = '<rect x="' + (cx - 22) + '" y="' + (cy - 28) + '" width="44" height="22" rx="4" fill="#0A0A0A" opacity="0.9"/><text x="' + cx + '" y="' + (cy - 14) + '" text-anchor="middle" fill="#FAFAFA" font-size="10" font-weight="600" font-family="system-ui">' + valor + '</text>';
+      var svgEl = document.getElementById('grafico-cadastros');
+      svgEl.appendChild(tt);
+    }
+
+    function painel_administrativo_hideTooltip() {
+      var tt = document.getElementById('graf-tooltip');
+      if (tt) tt.remove();
+    }
+
+    function painel_administrativo_filtrarGrafico(periodo) {
+      var dados = periodo === '7d' ? painelAdminDados.grafico7d : painelAdminDados.grafico30d;
+      painel_administrativo_desenharGrafico(dados);
+      document.getElementById('btn-graf-7d').className = 'text-xs px-3 py-1.5 rounded-lg transition-all ' + (periodo === '7d' ? 'bg-marca-900 text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-marca-50 hover:text-marca-900');
+      document.getElementById('btn-graf-30d').className = 'text-xs px-3 py-1.5 rounded-lg transition-all ' + (periodo === '30d' ? 'bg-marca-900 text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-marca-50 hover:text-marca-900');
+      toast('Gráfico atualizado: últimos ' + (periodo === '7d' ? '7' : '30') + ' dias', 'info');
+    }
+
+    function painel_administrativo_abrirAlerta(id) {
+      var alerta = painelAdminDados.alertas.find(function(a) { return a.id === id; });
+      if (!alerta) return;
+      var html = '<div class="space-y-4">' +
+        '<div class="flex items-center gap-3 p-3 bg-neutral-50 rounded-xl">' +
+          '<div class="w-10 h-10 rounded-full bg-marca-50 flex items-center justify-center">' +
+            '<svg class="w-5 h-5 text-marca-900" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>' +
+          '</div>' +
+          '<div><p class="text-sm font-semibold text-neutral-900">' + alerta.titulo + '</p><p class="text-xs text-neutral-500">' + dataBR(alerta.data) + '</p></div>' +
+        '</div>' +
+        '<p class="text-sm text-neutral-600">' + alerta.descricao + '</p>' +
+        (alerta.valor ? '<p class="text-lg font-display font-bold text-neutral-900">Valor total: ' + alerta.valor + '</p>' : '') +
+        '<div class="flex gap-2 pt-2">' +
+          '<button onclick="painel_administrativo_resolverAlerta(' + id + ')" class="flex-1 bg-marca-900 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-black active:scale-95 transition-all">Resolver</button>' +
+          '<button onclick="fecharModal()" class="flex-1 bg-neutral-100 text-neutral-700 py-2.5 rounded-xl text-sm font-semibold hover:bg-neutral-200 active:scale-95 transition-all">Fechar</button>' +
+        '</div>' +
+      '</div>';
+      abrirModal(html, 'Detalhes do Alerta');
+    }
+
+    function painel_administrativo_resolverAlerta(id) {
+      fecharModal();
+      painelAdminDados.alertas = painelAdminDados.alertas.filter(function(a) { return a.id !== id; });
+      painel_administrativo_renderizarAlertas();
+      var badge = document.getElementById('badge-alertos');
+      if (badge) { badge.textContent = painelAdminDados.alertas.length; badge.className = 'bg-red-50 text-red-600 text-[10px] font-bold px-2 py-0.5 rounded-full'; }
+      toast('Alerta resolvido com sucesso', 'ok');
+    }
+
+    function painel_administrativo_cadastrarAtivo() {
+      var html = '<div class="space-y-4">' +
+        '<div>' +
+          '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Nome do Ativo</label>' +
+          '<input type="text" id="input-nome-ativo" placeholder="Ex: Petrobras PN" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all" oninput="painel_administrativo_limparErro(this)"/>' +
+        '</div>' +
+        '<div class="grid grid-cols-2 gap-3">' +
+          '<div>' +
+            '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Ticker</label>' +
+            '<input type="text" id="input-ticker-ativo" placeholder="Ex: PETR4" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all uppercase" oninput="painel_administrativo_limparErro(this)"/>' +
+          '</div>' +
+          '<div>' +
+            '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Setor</label>' +
+            '<select id="input-setor-ativo" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all bg-white">' +
+              '<option value="">Selecionar</option>' +
+              '<option value="Tecnologia">Tecnologia</option>' +
+              '<option value="Energia">Energia</option>' +
+              '<option value="Alimentação">Alimentação</option>' +
+              '<option value="Bebidas">Bebidas</option>' +
+              '<option value="Fundo Imobiliário">Fundo Imobiliário</option>' +
+              '<option value="Financeiro">Financeiro</option>' +
+              '<option value="Saúde">Saúde</option>' +
+            '</select>' +
+          '</div>' +
+        '</div>' +
+        '<div>' +
+          '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Valor Mínimo de Aporte (R$)</label>' +
+          '<input type="text" id="input-valor-ativo" placeholder="R$ 0,00" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all" oninput="painel_administrativo_mascaraMoeda(this)"/>' +
+        '</div>' +
+        '<div class="flex gap-2 pt-2">' +
+          '<button onclick="painel_administrativo_salvarAtivo()" class="flex-1 bg-marca-900 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-black active:scale-95 transition-all">Cadastrar</button>' +
+          '<button onclick="fecharModal()" class="flex-1 bg-neutral-100 text-neutral-700 py-2.5 rounded-xl text-sm font-semibold hover:bg-neutral-200 active:scale-95 transition-all">Cancelar</button>' +
+        '</div>' +
+      '</div>';
+      abrirModal(html, 'Cadastrar Novo Ativo');
+    }
+
+    function painel_administrativo_salvarAtivo() {
+      var nome = document.getElementById('input-nome-ativo').value.trim();
+      var ticker = document.getElementById('input-ticker-ativo').value.trim();
+      var setor = document.getElementById('input-setor-ativo').value;
+      if (!nome || !ticker || !setor) {
+        toast('Preencha todos os campos obrigatórios', 'erro');
+        return;
+      }
+      fecharModal();
+      painelAdminDados.ativos.push({
+        id: Date.now(),
+        nome: nome,
+        ticker: ticker.toUpperCase(),
+        setor: setor,
+        volume: 0,
+        variacao: 0,
+        cor: '#0A0A0A'
+      });
+      painel_administrativo_renderizarAtivos();
+      toast('Ativo "' + nome + '" cadastrado com sucesso', 'ok');
+    }
+
+    function painel_administrativo_abrirComunicado() {
+      var html = '<div class="space-y-4">' +
+        '<div>' +
+          '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Título do Comunicado</label>' +
+          '<input type="text" id="input-titulo-comunicado" placeholder="Assunto do comunicado" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all" oninput="painel_administrativo_limparErro(this)"/>' +
+        '</div>' +
+        '<div>' +
+          '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Mensagem</label>' +
+          '<textarea id="input-msg-comunicado" rows="4" placeholder="Escreva o comunicado..." class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all resize-none" oninput="painel_administrativo_limparErro(this)"></textarea>' +
+        '</div>' +
+        '<div>' +
+          '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Público-alvo</label>' +
+          '<select id="input-publico-comunicado" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all bg-white">' +
+            '<option value="todos">Todos os usuários</option>' +
+            '<option value="ativos">Usuários ativos</option>' +
+            '<option value="inativos">Usuários inativos</option>' +
+            '<option value="investidores">Investidores only</option>' +
+          '</select>' +
+        '</div>' +
+        '<div class="flex gap-2 pt-2">' +
+          '<button onclick="painel_administrativo_enviarComunicado()" class="flex-1 bg-marca-900 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-black active:scale-95 transition-all">Enviar</button>' +
+          '<button onclick="fecharModal()" class="flex-1 bg-neutral-100 text-neutral-700 py-2.5 rounded-xl text-sm font-semibold hover:bg-neutral-200 active:scale-95 transition-all">Cancelar</button>' +
+        '</div>' +
+      '</div>';
+      abrirModal(html, 'Enviar Comunicado');
+    }
+
+    function painel_administrativo_enviarComunicado() {
+      var titulo = document.getElementById('input-titulo-comunicado').value.trim();
+      var msg = document.getElementById('input-msg-comunicado').value.trim();
+      if (!titulo || !msg) {
+        toast('Preencha título e mensagem', 'erro');
+        return;
+      }
+      fecharModal();
+      toast('Comunicado enviado para 12.450 usuários', 'ok');
+    }
+
+    function painel_administrativo_gerarRelatorio() {
+      var html = '<div class="space-y-4">' +
+        '<div>' +
+          '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Tipo de Relatório</label>' +
+          '<select id="input-tipo-relatorio" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all bg-white">' +
+            '<option value="financeiro">Relatório Financeiro</option>' +
+            '<option value="usuarios">Relatório de Usuários</option>' +
+            '<option value="investimentos">Relatório de Investimentos</option>' +
+            '<option value="dividendos">Relatório de Dividendos</option>' +
+          '</select>' +
+        '</div>' +
+        '<div class="grid grid-cols-2 gap-3">' +
+          '<div>' +
+            '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Data Inicial</label>' +
+            '<input type="date" id="input-data-inicio" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all"/>' +
+          '</div>' +
+          '<div>' +
+            '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Data Final</label>' +
+            '<input type="date" id="input-data-fim" class="w-full px-4 py-3 rounded-xl border border-neutral-200 text-sm focus:border-marca-900 focus:ring-2 focus:ring-marca-50 outline-none transition-all"/>' +
+          '</div>' +
+        '</div>' +
+        '<div>' +
+          '<label class="block text-xs font-semibold text-neutral-700 mb-1.5">Formato</label>' +
+          '<div class="flex gap-2">' +
+            '<button onclick="painel_administrativo_selFormato(this,\'pdf\')" class="flex-1 py-2.5 rounded-xl text-sm font-semibold border-2 border-marca-900 bg-marca-900 text-white transition-all">PDF</button>' +
+            '<button onclick="painel_administrativo_selFormato(this,\'xlsx\')" class="flex-1 py-2.5 rounded-xl text-sm font-semibold border-2 border-neutral-200 text-neutral-600 hover:border-marca-900 hover:text-marca-900 transition-all">XLSX</button>' +
+            '<button onclick="painel_administrativo_selFormato(this,\'csv\')" class="flex-1 py-2.5 rounded-xl text-sm font-semibold border-2 border-neutral-200 text-neutral-600 hover:border-marca-900 hover:text-marca-900 transition-all">CSV</button>' +
+          '</div>' +
+        '</div>' +
+        '<div class="flex gap-2 pt-2">' +
+          '<button onclick="painel_administrativo_confirmarRelatorio()" class="flex-1 bg-marca-900 text-white py-2.5 rounded-xl text-sm font-semibold hover:bg-black active:scale-95 transition-all">Gerar Relatório</button>' +
+          '<button onclick="fecharModal()" class="flex-1 bg-neutral-100 text-neutral-700 py-2.5 rounded-xl text-sm font-semibold hover:bg-neutral-200 active:scale-95 transition-all">Cancelar</button>' +
+        '</div>' +
+      '</div>';
+      abrirModal(html, 'Gerar Relatório');
+    }
+
+    var painelAdminFormatoSel = 'pdf';
+    function painel_administrativo_selFormato(btn, formato) {
+      painelAdminFormatoSel = formato;
+      var botoes = btn.parentElement.querySelectorAll('button');
+      botoes.forEach(function(b) {
+        b.className = 'flex-1 py-2.5 rounded-xl text-sm font-semibold border-2 border-neutral-200 text-neutral-600 hover:border-marca-900 hover:text-marca-900 transition-all';
+      });
+      btn.className = 'flex-1 py-2.5 rounded-xl text-sm font-semibold border-2 border-marca-900 bg-marca-900 text-white transition-all';
+    }
+
+    function painel_administrativo_confirmarRelatorio() {
+      fecharModal();
+      toast('Relatório gerado e disponível para download', 'ok');
+    }
+
+    function painel_administrativo_mascaraMoeda(input) {
+      var v = input.value.replace(/\D/g, '');
+      if (!v) { input.value = ''; return; }
+      v = (parseInt(v) / 100).toFixed(2);
+      v = v.replace('.', ',');
+      v = v.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      input.value = 'R$ ' + v;
+    }
+
+    function painel_administrativo_limparErro(input) {
+      input.classList.remove('border-red-400', 'ring-2', 'ring-red-50');
+    }
+
+    painel_administrativo_inicializar();
+  </script>
+</section>
+
     <!-- TELAS -->
     </main>
 
