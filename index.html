@@ -2714,6 +2714,399 @@ function meu_perfil_confirmarSaida() {
         </script>
     </section>
 
+    <section data-tela="reivindicacoes-e-dividendos" class="hidden">
+      <div class="px-5 pt-6 pb-8 space-y-6">
+        <!-- Header -->
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="font-display text-xl font-bold text-marca-900">Reivindicações e Dividendos</h1>
+            <p class="text-sm text-neutral-500 mt-0.5">Distribuições e saques dos seus investimentos</p>
+          </div>
+          <button onclick="mostrarTela('notificacoes')" class="relative w-10 h-10 flex items-center justify-center rounded-xl bg-white border border-neutral-200 active:scale-95 transition-all hover:border-marca-400">
+            <svg class="w-5 h-5 text-marca-900" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"/></svg>
+            <span class="absolute top-1.5 right-1.5 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"></span>
+          </button>
+        </div>
+
+        <!-- Resumo de Saque -->
+        <div class="bg-marca-900 rounded-2xl p-5 text-white relative overflow-hidden">
+          <div class="absolute top-0 right-0 w-40 h-40 rounded-full bg-marca/10 -translate-y-1/2 translate-x-1/4"></div>
+          <div class="absolute bottom-0 left-0 w-24 h-24 rounded-full bg-marca/10 translate-y-1/2 -translate-x-1/4"></div>
+          <div class="relative z-10">
+            <p class="text-sm text-neutral-400 font-medium mb-1">Disponível para saque</p>
+            <p id="saldo-disponivel" class="font-display text-3xl font-bold text-white tracking-tight">R$ 1.840,00</p>
+            <p class="text-xs text-neutral-500 mt-1">Equivale a US$ 351,24</p>
+            <button onclick="reivindicacoes_e_dividendos_abrirModalSaque()" class="mt-4 w-full bg-marca hover:bg-marca-600 active:scale-[0.97] text-marca-900 font-bold text-sm py-3 px-5 rounded-xl transition-all flex items-center justify-center gap-2 shadow-lg shadow-marca/20">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/></svg>
+              Solicitar Saque
+            </button>
+          </div>
+        </div>
+
+        <!-- Indicadores -->
+        <div class="grid grid-cols-3 gap-3">
+          <div class="card p-3 text-center">
+            <div class="w-8 h-8 mx-auto bg-marca/10 rounded-lg flex items-center justify-center mb-2">
+              <svg class="w-4 h-4 text-marca" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.5-2.303 1.5-3.659s-.62-2.53-1.5-3.659L12 3.5"/></svg>
+            </div>
+            <p class="font-display text-sm font-bold text-marca-900">R$ 4,1k</p>
+            <p class="text-[10px] text-neutral-500 mt-0.5">Total recebido</p>
+          </div>
+          <div class="card p-3 text-center">
+            <div class="w-8 h-8 mx-auto bg-emerald-50 rounded-lg flex items-center justify-center mb-2">
+              <svg class="w-4 h-4 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18L9 11.25l4.306 4.307a11.95 11.95 0 015.814-5.519l2.74-1.22m0 0l-5.94-2.28m5.94 2.28l-2.28 5.941"/></svg>
+            </div>
+            <p class="font-display text-sm font-bold text-marca-900">+12,4%</p>
+            <p class="text-[10px] text-neutral-500 mt-0.5">vs. mês anterior</p>
+          </div>
+          <div class="card p-3 text-center">
+            <div class="w-8 h-8 mx-auto bg-blue-50 rounded-lg flex items-center justify-center mb-2">
+              <svg class="w-4 h-4 text-blue-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z"/></svg>
+            </div>
+            <p class="font-display text-sm font-bold text-marca-900">10</p>
+            <p class="text-[10px] text-neutral-500 mt-0.5">Distribuições</p>
+          </div>
+        </div>
+
+        <!-- Gráfico de Rosca -->
+        <div>
+          <h2 class="font-display text-base font-bold text-marca-900 mb-3">Composição dos Dividendos</h2>
+          <div class="card p-5 flex items-center gap-5">
+            <div class="relative flex-shrink-0">
+              <svg width="160" height="160" viewBox="0 0 160 160" class="transform -rotate-0">
+                <circle cx="80" cy="80" r="60" fill="none" stroke="#F5F5F5" stroke-width="28"/>
+                <circle cx="80" cy="80" r="60" fill="none" stroke="#0A0A0A" stroke-width="28" stroke-dasharray="376.99 0" stroke-dashoffset="0" transform="rotate(-90 80 80)" stroke-linecap="butt"/>
+                <circle cx="80" cy="80" r="60" fill="none" stroke="#D4AF37" stroke-width="28" stroke-dasharray="131.95 376.99" stroke-dashoffset="-376.99" transform="rotate(-90 80 80)"/>
+                <circle cx="80" cy="80" r="60" fill="none" stroke="#F59E0B" stroke-width="28" stroke-dasharray="94.25 376.99" stroke-dashoffset="-508.94" transform="rotate(-90 80 80)"/>
+                <circle cx="80" cy="80" r="60" fill="none" stroke="#1E40AF" stroke-width="28" stroke-dasharray="94.25 376.99" stroke-dashoffset="-603.19" transform="rotate(-90 80 80)"/>
+                <circle cx="80" cy="80" r="60" fill="none" stroke="#F5F5F5" stroke-width="28" stroke-dasharray="56.55 376.99" stroke-dashoffset="-697.44" transform="rotate(-90 80 80)"/>
+                <text x="80" y="76" text-anchor="middle" class="font-display" font-size="18" font-weight="bold" fill="#0A0A0A">R$4,1k</text>
+                <text x="80" y="93" text-anchor="middle" font-size="9" fill="#737373">Total dividendos</text>
+              </svg>
+            </div>
+            <div class="space-y-2.5 flex-1">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-marca-900 flex-shrink-0"></span><span class="text-xs text-neutral-700">Energia</span></div>
+                <span class="text-xs font-bold text-marca-900">35%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-marca flex-shrink-0"></span><span class="text-xs text-neutral-700">Esportes</span></div>
+                <span class="text-xs font-bold text-marca-900">25%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-blue-800 flex-shrink-0"></span><span class="text-xs text-neutral-700">Multinacionais</span></div>
+                <span class="text-xs font-bold text-marca-900">25%</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2"><span class="w-3 h-3 rounded-sm bg-amber-500 flex-shrink-0"></span><span class="text-xs text-neutral-700">Imobiliário</span></div>
+                <span class="text-xs font-bold text-marca-900">15%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Distribuições Recebidas -->
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h2 class="font-display text-base font-bold text-marca-900">Distribuições Recebidas</h2>
+            <button onclick="mostrarTela('historico-de-transacoes')" class="text-xs text-marca font-semibold hover:underline">Ver todas</button>
+          </div>
+          <div class="relative mb-3">
+            <svg class="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400 pointer-events-none" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+            <input id="filtro-busca-reiv" type="text" placeholder="Buscar distribuição..." oninput="reivindicacoes_e_dividendos_filtrar()" class="w-full pl-10 pr-4 py-2.5 bg-white border border-neutral-200 rounded-xl text-sm text-marca-900 placeholder:text-neutral-400 focus:outline-none focus:border-marca focus:ring-1 focus:ring-marca/20 transition-all">
+          </div>
+          <div id="filtros-status-reiv" class="flex gap-2 mb-3 overflow-x-auto pb-1 -mx-5 px-5 scrollbar-hide">
+            <button onclick="reivindicacoes_e_dividendos_setFiltro('todos')" data-filtro="todos" class="reivindicacoes_e_dividendos_btn-filtro flex-shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-marca text-white transition-all">Todos</button>
+            <button onclick="reivindicacoes_e_dividendos_setFiltro('disponivel')" data-filtro="disponivel" class="reivindicacoes_e_dividendos_btn-filtro flex-shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-neutral-100 text-neutral-600 transition-all">Disponível</button>
+            <button onclick="reivindicacoes_e_dividendos_setFiltro('saque_solicitado')" data-filtro="saque_solicitado" class="reivindicacoes_e_dividendos_btn-filtro flex-shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-neutral-100 text-neutral-600 transition-all">Saque Solicitado</button>
+            <button onclick="reivindicacoes_e_dividendos_setFiltro('transferido')" data-filtro="transferido" class="reivindicacoes_e_dividendos_btn-filtro flex-shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-neutral-100 text-neutral-600 transition-all">Transferido</button>
+          </div>
+          <div id="lista-reivindicacoes" class="space-y-2.5"></div>
+          <div id="vazio-reivindicacoes" class="hidden text-center py-8">
+            <div class="w-14 h-14 mx-auto bg-neutral-100 rounded-full flex items-center justify-center mb-3">
+              <svg class="w-7 h-7 text-neutral-400" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"/></svg>
+            </div>
+            <p class="text-sm text-neutral-500">Nenhuma distribuição encontrada</p>
+            <p class="text-xs text-neutral-400 mt-1">Tente ajustar os filtros</p>
+          </div>
+        </div>
+
+        <!-- Histórico de Saques -->
+        <div>
+          <h2 class="font-display text-base font-bold text-marca-900 mb-3">Histórico de Saques</h2>
+          <div id="lista-historico-saques" class="space-y-2.5"></div>
+        </div>
+
+        <div class="h-2"></div>
+      </div>
+
+      <!-- Modal Saque -->
+      <div id="modal-saque-reiv" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="fecharModal()"></div>
+        <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl p-6 animate-slide-up max-w-[430px] mx-auto">
+          <div class="w-10 h-1 bg-neutral-300 rounded-full mx-auto mb-5"></div>
+          <h3 class="font-display text-lg font-bold text-marca-900 mb-1">Solicitar Saque</h3>
+          <p class="text-sm text-neutral-500 mb-5">Informe os dados bancários para receber</p>
+          <div class="space-y-3 mb-4">
+            <div>
+              <label class="text-xs font-semibold text-neutral-600 mb-1 block">Valor do saque (R$)</label>
+              <input id="input-valor-saque" type="text" inputmode="decimal" placeholder="R$ 0,00" oninput="reivindicacoes_e_dividendos_mascaraMoeda(this)" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm text-marca-900 font-bold focus:outline-none focus:border-marca focus:ring-1 focus:ring-marca/20 transition-all">
+            </div>
+            <div>
+              <label class="text-xs font-semibold text-neutral-600 mb-1 block">Banco</label>
+              <select id="input-banco-saque" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm text-marca-900 focus:outline-none focus:border-marca focus:ring-1 focus:ring-marca/20 transition-all appearance-none">
+                <option value="">Selecione o banco</option>
+                <option>Banco do Brasil</option>
+                <option>Caixa Econômica Federal</option>
+                <option>Itaú Unibanco</option>
+                <option>Bradesco</option>
+                <option>Santander</option>
+                <option>Nubank</option>
+                <option>Inter</option>
+                <option>C6 Bank</option>
+              </select>
+            </div>
+            <div>
+              <label class="text-xs font-semibold text-neutral-600 mb-1 block">Agência</label>
+              <input type="text" placeholder="0000" maxlength="5" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm text-marca-900 focus:outline-none focus:border-marca focus:ring-1 focus:ring-marca/20 transition-all">
+            </div>
+            <div>
+              <label class="text-xs font-semibold text-neutral-600 mb-1 block">Conta corrente</label>
+              <input type="text" placeholder="00000-0" maxlength="12" class="w-full px-4 py-3 bg-neutral-50 border border-neutral-200 rounded-xl text-sm text-marca-900 focus:outline-none focus:border-marca focus:ring-1 focus:ring-marca/20 transition-all">
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <button onclick="fecharModal()" class="flex-1 py-3 rounded-xl border border-neutral-200 text-sm font-semibold text-neutral-600 active:scale-[0.97] transition-all">Cancelar</button>
+            <button onclick="reivindicacoes_e_dividendos_confirmarSaque()" class="flex-1 py-3 rounded-xl bg-marca text-marca-900 text-sm font-bold active:scale-[0.97] transition-all hover:bg-marca-600">Confirmar</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal Detalhe Reivindicação -->
+      <div id="modal-detalhe-reiv" class="fixed inset-0 z-50 hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="fecharModal()"></div>
+        <div class="absolute bottom-0 left-0 right-0 bg-white rounded-t-3xl p-6 animate-slide-up max-w-[430px] mx-auto max-h-[80vh] overflow-y-auto">
+          <div class="w-10 h-1 bg-neutral-300 rounded-full mx-auto mb-5"></div>
+          <div id="detalhe-reiv-content"></div>
+        </div>
+      </div>
+
+      <script>
+        (function(){
+          const dadosReivindicacoes = [
+            { id:1, ativo:'Apple Inc.', tipo:'Multinacionais', descricao:'Dividendos Q1/2026', valorBRL:820.00, valorUSD:156.35, dataCredito:'2026-03-15', status:'disponivel', ref:'DIV-APL-2026-001' },
+            { id:2, ativo:'McDonald\'s Corporation', tipo:'Multinacionais', descricao:'Dividendos Q1/2026', valorBRL:450.00, valorUSD:85.83, dataCredito:'2026-03-15', status:'disponivel', ref:'DIV-MCD-2026-001' },
+            { id:3, ativo:'The Coca-Cola Company', tipo:'Multinacionais', descricao:'Dividendos Q1/2026', valorBRL:390.00, valorUSD:74.36, dataCredito:'2026-03-15', status:'disponivel', ref:'DIV-KO-2026-001' },
+            { id:4, ativo:'Energia Eólica Nordeste', tipo:'Energia', descricao:'Distribuição Mensal — Fev/2026', valorBRL:280.00, valorUSD:53.39, dataCredito:'2026-03-01', status:'disponivel', ref:'DIV-EOL-2026-002' },
+            { id:5, ativo:'FIFA — Royalties', tipo:'Esportes', descricao:'Distribuição Trimestral', valorBRL:350.00, valorUSD:66.75, dataCredito:'2026-02-28', status:'saque_solicitado', ref:'DIV-FIF-2026-001' },
+            { id:6, ativo:'UEFA Champions League', tipo:'Esportes', descricao:'Royalties Q4/2025', valorBRL:210.00, valorUSD:40.04, dataCredito:'2026-02-15', status:'transferido', ref:'DIV-UCL-2025-004' },
+            { id:7, ativo:'Usina Hidrelétrica Belo Monte', tipo:'Energia', descricao:'Distribuição Mensal — Fev/2026', valorBRL:195.00, valorUSD:37.20, dataCredito:'2026-02-28', status:'transferido', ref:'DIV-HID-2026-002' },
+            { id:8, ativo:'Coca-Cola FEMSA', tipo:'Multinacionais', descricao:'Dividendos Q4/2025', valorBRL:165.00, valorUSD:31.47, dataCredito:'2026-01-30', status:'transferido', ref:'DIV-KOF-2025-004' },
+            { id:9, ativo:'Fundo Imobiliário Global REIT', tipo:'Imobiliário', descricao:'Distribuição Mensal — Jan/2026', valorBRL:140.00, valorUSD:26.70, dataCredito:'2026-02-01', status:'transferido', ref:'DIV-REI-2026-001' },
+            { id:10, ativo:'Energia Solar Atacama', tipo:'Energia', descricao:'Distribuição Mensal — Jan/2026', valorBRL:140.00, valorUSD:26.70, dataCredito:'2026-02-01', status:'transferido', ref:'DIV-SOL-2026-001' }
+          ];
+
+          const dadosSaques = [
+            { id:1, data:'2026-02-14', valorBRL:520.00, valorUSD:99.16, banco:'Itaú Unibanco', agencia:'1234', conta:'56789-0', status:'concluido', comprovante:'CMP-2026-0147', ref:'DIV-UCL-2025-004' },
+            { id:2, data:'2026-01-29', valorBRL:380.00, valorUSD:72.45, banco:'Banco do Brasil', agencia:'4567', conta:'89012-3', status:'concluido', comprovante:'CMP-2026-0102', ref:'DIV-HID-2026-001' },
+            { id:3, data:'2026-01-15', valorBRL:450.00, valorUSD:85.83, banco:'Nubank', agencia:'0001', conta:'123456-7', status:'concluido', comprovante:'CMP-2026-0089', ref:'DIV-KOF-2025-003' },
+            { id:4, data:'2025-12-20', valorBRL:300.00, valorUSD:57.21, banco:'Itaú Unibanco', agencia:'1234', conta:'56789-0', status:'concluido', comprovante:'CMP-2025-0782', ref:'DIV-MCD-2025-003' },
+            { id:5, data:'2025-12-05', valorBRL:420.00, valorUSD:80.09, banco:'Banco do Brasil', agencia:'4567', conta:'89012-3', status:'concluido', comprovante:'CMP-2025-0756', ref:'' },
+            { id:6, data:'2025-11-18', valorBRL:280.00, valorUSD:53.39, banco:'Nubank', agencia:'0001', conta:'123456-7', status:'concluido', comprovante:'CMP-2025-0714', ref:'' }
+          ];
+
+          const corStatus = {
+            disponivel: { bg:'bg-emerald-50', text:'text-emerald-700', border:'border-emerald-200', label:'Disponível' },
+            saque_solicitado: { bg:'bg-amber-50', text:'text-amber-700', border:'border-amber-200', label:'Saque Solicitado' },
+            transferido: { bg:'bg-neutral-100', text:'neutral-500', border:'border-neutral-200', label:'Transferido' },
+            concluido: { bg:'bg-emerald-50', text:'text-emerald-700', border:'border-emerald-200', label:'Concluído' }
+          };
+
+          const corTipo = {
+            'Energia': { bg:'bg-marca-900', text:'text-white' },
+            'Esportes': { bg:'bg-marca', text:'text-marca-900' },
+            'Multinacionais': { bg:'bg-blue-800', text:'text-white' },
+            'Imobiliário': { bg:'bg-amber-500', text:'text-marca-900' }
+          };
+
+          let filtroAtual = 'todos';
+
+          function getIniciais(nome) {
+            const p = nome.split(' ');
+            if (p.length >= 2) return (p[0][0] + p[p.length-1][0]).toUpperCase();
+            return nome.substring(0,2).toUpperCase();
+          }
+
+          function getCorAvatar(nome) {
+            const hash = nome.split('').reduce((a,c)=>a+c.charCodeAt(0),0);
+            const cores = ['bg-marca-900','bg-marca','bg-blue-800','bg-emerald-700','bg-amber-600','bg-rose-700'];
+            return cores[hash % cores.length];
+          }
+
+          function renderLista() {
+            const container = document.getElementById('lista-reivindicacoes');
+            const vazio = document.getElementById('vazio-reivindicacoes');
+            const busca = (document.getElementById('filtro-busca-reiv').value || '').toLowerCase();
+
+            let filtrados = dadosReivindicacoes;
+            if (filtroAtual !== 'todos') filtrados = filtrados.filter(r => r.status === filtroAtual);
+            if (busca) filtados = filtrados.filter(r => r.ativo.toLowerCase().includes(busca) || r.descricao.toLowerCase().includes(busca) || r.ref.toLowerCase().includes(busca));
+
+            if (filtrados.length === 0) {
+              container.innerHTML = '';
+              vazio.classList.remove('hidden');
+              return;
+            }
+            vazio.classList.add('hidden');
+            container.innerHTML = filtrados.map(item => {
+              const s = corStatus[item.status];
+              const t = corTipo[item.tipo];
+              return '<div onclick="reivindicacoes_e_dividendos_abrirDetalhe('+item.id+')" class="card p-4 cursor-pointer active:scale-[0.98] transition-all hover:border-marca-300 group">' +
+                '<div class="flex items-start justify-between mb-2.5">' +
+                  '<div class="flex items-center gap-2.5">' +
+                    '<div class="w-9 h-9 rounded-full '+getCorAvatar(item.ativo)+' flex items-center justify-center flex-shrink-0">' +
+                      '<span class="text-[10px] font-bold text-white">'+getIniciais(item.ativo)+'</span>' +
+                    '</div>' +
+                    '<div class="min-w-0">' +
+                      '<p class="text-sm font-semibold text-marca-900 truncate group-hover:text-marca transition-colors">'+item.ativo+'</p>' +
+                      '<p class="text-xs text-neutral-500">'+item.descricao+'</p>' +
+                    '</div>' +
+                  '</div>' +
+                  '<span class="reivindicacoes_e_dividendos_badge-status flex-shrink-0 px-2 py-0.5 rounded-full text-[10px] font-bold border '+s.bg+' '+s.text+' '+s.border+'">'+s.label+'</span>' +
+                '</div>' +
+                '<div class="flex items-end justify-between">' +
+                  '<div>' +
+                    '<p class="font-display text-base font-bold text-marca-900">'+brl(item.valorBRL)+'</p>' +
+                    '<p class="text-xs text-neutral-400">US$ '+item.valorUSD.toFixed(2)+'</p>' +
+                  '</div>' +
+                  '<div class="text-right">' +
+                    '<span class="inline-block px-2 py-0.5 rounded text-[10px] font-semibold '+t.bg+' '+t.text+'">'+item.tipo+'</span>' +
+                    '<p class="text-[10px] text-neutral-400 mt-1">'+dataBR(item.dataCredito)+'</p>' +
+                  '</div>' +
+                '</div>' +
+              '</div>';
+            }).join('');
+          }
+
+          function renderSaques() {
+            const container = document.getElementById('lista-historico-saques');
+            container.innerHTML = dadosSaques.slice(0,6).map(s => {
+              return '<div class="card p-4">' +
+                '<div class="flex items-start justify-between">' +
+                  '<div class="flex items-center gap-3">' +
+                    '<div class="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center flex-shrink-0">' +
+                      '<svg class="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>' +
+                    '</div>' +
+                    '<div>' +
+                      '<p class="text-sm font-semibold text-marca-900">Transferência bancária</p>' +
+                      '<p class="text-xs text-neutral-500">'+s.banco+' • Ag. '+s.agencia+' • CC '+s.conta+'</p>' +
+                      '<p class="text-[10px] text-neutral-400 mt-0.5">Comprovante: '+s.comprovante+'</p>' +
+                    '</div>' +
+                  '</div>' +
+                  '<div class="text-right">' +
+                    '<p class="font-display text-sm font-bold text-marca-900">'+brl(s.valorBRL)+'</p>' +
+                    '<p class="text-[10px] text-neutral-400">'+dataBR(s.data)+'</p>' +
+                  '</div>' +
+                '</div>' +
+              '</div>';
+            }).join('');
+          }
+
+          function filtrar() { renderLista(); }
+
+          function setFiltro(f) {
+            filtroAtual = f;
+            document.querySelectorAll('.reivindicacoes_e_dividendos_btn-filtro').forEach(b => {
+              b.className = 'reivindicacoes_e_dividendos_btn-filtro flex-shrink-0 px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-all ' +
+                (b.dataset.filtro === f ? 'bg-marca text-white' : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200');
+            });
+            renderLista();
+          }
+
+          function abrirModalSaque() {
+            const modal = document.getElementById('modal-saque-reiv');
+            modal.classList.remove('hidden');
+            document.getElementById('input-valor-saque').value = '';
+            document.getElementById('input-banco-saque').value = '';
+            document.body.style.overflow = 'hidden';
+          }
+
+          function confirmarSaque() {
+            const valorStr = document.getElementById('input-valor-saque').value.replace(/[^\d,]/g,'').replace(',','.');
+            const banco = document.getElementById('input-banco-saque').value;
+            const valor = parseFloat(valorStr);
+            if (!valor || valor <= 0) { toast('Informe um valor válido para o saque.','erro'); return; }
+            if (valor > 1840) { toast('Saldo insuficiente para este saque.','erro'); return; }
+            if (!banco) { toast('Selecione o banco de destino.','erro'); return; }
+            fecharModal();
+            toast('Saque de '+brl(valor)+' solicitado com sucesso!','ok');
+            const saldoEl = document.getElementById('saldo-disponivel');
+            const novos = (1840 - valor).toFixed(2);
+            saldoEl.textContent = 'R$ '+novos.replace('.',',');
+            const itemDisponivel = dadosReivindicacoes.find(r => r.status === 'disponivel');
+            if (itemDisponivel) {
+              itemDisponivel.status = 'saque_solicitado';
+              dadosSaques.unshift({
+                id: dadosSaques.length+1,
+                data: new Date().toISOString().split('T')[0],
+                valorBRL: valor,
+                valorUSD: parseFloat((valor / 5.25).toFixed(2)),
+                banco: banco,
+                agencia: '—',
+                conta: '—',
+                status: 'concluido',
+                comprovante: 'CMP-'+new Date().getFullYear()+'-'+(1000+dadosSaques.length+1),
+                ref: itemDisponivel.ref
+              });
+            }
+            renderLista();
+            renderSaques();
+          }
+
+          function abrirDetalhe(id) {
+            const item = dadosReivindicacoes.find(r => r.id === id);
+            if (!item) return;
+            const s = corStatus[item.status];
+            const t = corTipo[item.tipo];
+            const html =
+              '<h3 class="font-display text-lg font-bold text-marca-900 mb-1">'+item.ativo+'</h3>' +
+              '<p class="text-sm text-neutral-500 mb-4">'+item.descricao+'</p>' +
+              '<div class="bg-neutral-50 rounded-xl p-4 mb-4 space-y-3">' +
+                '<div class="flex justify-between"><span class="text-xs text-neutral-500">Valor (BRL)</span><span class="text-sm font-bold text-marca-900">'+brl(item.valorBRL)+'</span></div>' +
+                '<div class="flex justify-between"><span class="text-xs text-neutral-500">Valor (USD)</span><span class="text-sm font-bold text-marca-900">US$ '+item.valorUSD.toFixed(2)+'</span></div>' +
+                '<div class="flex justify-between"><span class="text-xs text-neutral-500">Data de crédito</span><span class="text-sm text-marca-900">'+dataBR(item.dataCredito)+'</span></div>' +
+                '<div class="flex justify-between"><span class="text-xs text-neutral-500">Referência</span><span class="text-sm font-mono text-marca-900">'+item.ref+'</span></div>' +
+                '<div class="flex justify-between"><span class="text-xs text-neutral-500">Setor</span><span class="inline-block px-2 py-0.5 rounded text-[10px] font-bold '+t.bg+' '+t.text+'">'+item.tipo+'</span></div>' +
+                '<div class="flex justify-between items-center"><span class="text-xs text-neutral-500">Status</span><span class="reivindicacoes_e_dividendos_badge-status px-2.5 py-1 rounded-full text-[10px] font-bold border '+s.bg+' '+s.text+' '+s.border+'">'+s.label+'</span></div>' +
+              '</div>' +
+              '<p class="text-xs text-neutral-400 mb-4 text-center">Este valor já está refletido no saldo disponível para saque.</p>' +
+              (item.status === 'disponivel' ? '<button onclick="fecharModal(); reivindicacoes_e_dividendos_abrirModalSaque()" class="w-full py-3 rounded-xl bg-marca text-marca-900 font-bold text-sm active:scale-[0.97] transition-all hover:bg-marca-600">Solicitar Saque</button>' : '') +
+              '<button onclick="mostrarTela(\'historico-de-transacoes\'); fecharModal();" class="w-full mt-2 py-3 rounded-xl border border-neutral-200 text-sm font-semibold text-neutral-600 active:scale-[0.97] transition-all">Ver no histórico</button>';
+            abrirModal(html, 'Detalhe da Distribuição');
+          }
+
+          function mascaraMoeda(el) {
+            let v = el.value.replace(/[^\d]/g,'');
+            if (!v) v = '0';
+            v = (parseInt(v)/100).toFixed(2);
+            const parts = v.split('.');
+            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g,'.');
+            el.value = 'R$ '+parts.join(',');
+          }
+
+          window.reivindicacoes_e_dividendos_filtrar = filtrar;
+          window.reivindicacoes_e_dividendos_setFiltro = setFiltro;
+          window.reivindicacoes_e_dividendos_abrirModalSaque = abrirModalSaque;
+          window.reivindicacoes_e_dividendos_confirmarSaque = confirmarSaque;
+          window.reivindicacoes_e_dividendos_abrirDetalhe = abrirDetalhe;
+          window.reivindicacoes_e_dividendos_mascaraMoeda = mascaraMoeda;
+
+          renderLista();
+          renderSaques();
+        })();
+      </script>
+    </section>
+
     <!-- TELAS -->
     </main>
 
