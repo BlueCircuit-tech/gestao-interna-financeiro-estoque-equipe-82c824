@@ -4,51 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Vestr - Gestão de Investimentos</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet">
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            marca: {
-              50: '#fafaf8',
-              100: '#f5f5ec',
-              200: '#e8e6d4',
-              300: '#d4d0ae',
-              400: '#c2bd85',
-              500: '#b5ab64',
-              600: '#a89a4d',
-              700: '#8c7d3e',
-              800: '#756635',
-              900: '#5f502c',
-            },
-            dourado: '#D4AF37',
-            escuro: '#0A0A0A',
-            claro: '#FAFAFA',
-          },
-          fontFamily: {
-            display: ['Syne', 'sans-serif'],
-            body: ['DM Sans', 'sans-serif'],
-          },
-          boxShadow: {
-            'app': '0 25px 50px -12px rgba(0, 0, 0, 0.35)',
-            'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
-            'btn': '0 2px 8px rgba(212, 175, 55, 0.3)',
-          },
-          borderRadius: {
-            'app': '40px',
-          },
-          animation: {
-            'fade-in': 'fadeIn 0.3s ease-out',
-            'slide-up': 'slideUp 0.3s ease-out',
-          },
-        },
-      },
-    }
-  </script>
   <style>
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -303,6 +262,59 @@
       font-family: 'Syne', sans-serif;
     }
   </style>
+  <script>
+    // Utilities
+    function brl(valor) {
+      return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+      }).format(valor);
+    }
+
+    function dataBR(iso) {
+      const d = new Date(iso);
+      return d.toLocaleDateString('pt-BR');
+    }
+
+    function toast(mensagem, tipo = 'info') {
+      const container = document.getElementById('toast-container');
+      const el = document.createElement('div');
+      el.className = `toast ${tipo}`;
+      el.textContent = mensagem;
+      container.appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    }
+
+    function abrirModal(html, titulo = 'Detalhes') {
+      document.getElementById('modal-title').textContent = titulo;
+      document.getElementById('modal-body').innerHTML = html;
+      document.getElementById('modal-overlay').classList.add('aberto');
+    }
+
+    function fecharModal(e) {
+      if (e && e.target !== e.currentTarget) return;
+      document.getElementById('modal-overlay').classList.remove('aberto');
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') fecharModal();
+    });
+
+    // Router
+    function mostrarTela(id) {
+      document.querySelectorAll('[data-tela]').forEach(function (s) {
+        s.classList.toggle('hidden', s.dataset.tela !== id);
+      });
+      document.querySelectorAll('[data-nav]').forEach(function (b) {
+        b.classList.toggle('ativo', b.dataset.nav === id);
+      });
+      window.scrollTo({ top: 0 });
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      mostrarTela('painel-de-investimentos');
+    });
+  </script>
 </head>
 <body>
   <div class="app-container">
@@ -1081,7 +1093,7 @@
       </div>
 
       <!-- Botões Fixos -->
-      <div class="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-neutral-200 px-4 py-3 flex items-center gap-3 z-50">
+      <div class="fixed bottom-20 left-1/2 -translate-x-1/2 w-full max-w-[430px] bg-white/90 backdrop-blur-md border-t border-neutral-200 px-4 py-3 flex items-center gap-3 z-50">
         <div class="max-w-[430px] mx-auto w-full flex items-center gap-3">
           <button onclick="detalhes_do_ativo_aportar()" class="flex-1 bg-marca-700 hover:bg-marca-600 active:scale-[0.97] text-white font-bold text-sm py-3.5 rounded-xl transition-all">
             Aportar
@@ -1142,127 +1154,10 @@
               const val = parseFloat(inp.value);
               if (!val || val <= 0) { toast('Informe um valor válido', 'erro'); return; }
               fecharModal();
-              toast('Aporte de 
-    </main>
-
-    <!-- Bottom Navigation -->
-    <nav style="position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 430px; background: linear-gradient(180deg, #0f0f0f 0%, #0A0A0A 100%); border-top: 1px solid #1f1f1f; padding: 8px 8px 24px 8px; display: flex; justify-content: space-around; z-index: 100;">
-      <button class="nav-btn" data-nav="painel-de-investimentos" onclick="mostrarTela('painel-de-investimentos')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="3" y="3" width="7" height="7" rx="1"/>
-          <rect x="14" y="3" width="7" height="7" rx="1"/>
-          <rect x="14" y="14" width="7" height="7" rx="1"/>
-          <rect x="3" y="14" width="7" height="7" rx="1"/>
-        </svg>
-        <span style="font-size: 10px; font-weight: 500;">Painel</span>
-      </button>
-      <button class="nav-btn" data-nav="carteira-de-ativos" onclick="mostrarTela('carteira-de-ativos')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-          <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-          <line x1="12" y1="22.08" x2="12" y2="12"/>
-        </svg>
-        <span style="font-size: 10px; font-weight: 500;">Carteira</span>
-      </button>
-      <button class="nav-btn" data-nav="historico-de-transacoes" onclick="mostrarTela('historico-de-transacoes')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-        </svg>
-        <span style="font-size: 10px; font-weight: 500;">Histórico</span>
-      </button>
-      <button class="nav-btn" data-nav="suporte-e-chat" onclick="mostrarTela('suporte-e-chat')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-        </svg>
-        <span style="font-size: 10px; font-weight: 500;">Suporte</span>
-      </button>
-      <button class="nav-btn" data-nav="meu-perfil" onclick="mostrarTela('meu-perfil')" style="display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 8px 12px; background: none; border: none; color: #666;">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-          <circle cx="12" cy="7" r="4"/>
-        </svg>
-        <span style="font-size: 10px; font-weight: 500;">Perfil</span>
-      </button>
-    </nav>
-  </div>
-
-  <!-- Toast Container -->
-  <div id="toast-container" class="toast-container"></div>
-
-  <!-- Modal -->
-  <div id="modal-overlay" onclick="fecharModal(event)">
-    <div id="modal-content" onclick="event.stopPropagation()">
-      <div id="modal-header" style="padding: 20px; border-bottom: 1px solid #2a2a2a; display: flex; justify-content: space-between; align-items: center;">
-        <h3 id="modal-title" style="font-size: 17px; font-weight: 600; color: #FAFAFA; margin: 0;">Título</h3>
-        <button onclick="fecharModal()" style="background: none; border: none; color: #666; padding: 4px; cursor: pointer;">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="18" y1="6" x2="6" y2="18"/>
-            <line x1="6" y1="6" x2="18" y2="18"/>
-          </svg>
-        </button>
-      </div>
-      <div id="modal-body" style="padding: 20px; overflow-y: auto; max-height: 60vh;"></div>
-    </div>
-  </div>
-
-  <script>
-    // Utilities
-    function brl(valor) {
-      return new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-      }).format(valor);
-    }
-
-    function dataBR(iso) {
-      const d = new Date(iso);
-      return d.toLocaleDateString('pt-BR');
-    }
-
-    function toast(mensagem, tipo = 'info') {
-      const container = document.getElementById('toast-container');
-      const el = document.createElement('div');
-      el.className = `toast ${tipo}`;
-      el.textContent = mensagem;
-      container.appendChild(el);
-      setTimeout(() => el.remove(), 3000);
-    }
-
-    function abrirModal(html, titulo = 'Detalhes') {
-      document.getElementById('modal-title').textContent = titulo;
-      document.getElementById('modal-body').innerHTML = html;
-      document.getElementById('modal-overlay').classList.add('aberto');
-    }
-
-    function fecharModal(e) {
-      if (e && e.target !== e.currentTarget) return;
-      document.getElementById('modal-overlay').classList.remove('aberto');
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') fecharModal();
-    });
-
-    // Router
-    function mostrarTela(id) {
-      document.querySelectorAll('[data-tela]').forEach(function (s) {
-        s.classList.toggle('hidden', s.dataset.tela !== id);
-      });
-      document.querySelectorAll('[data-nav]').forEach(function (b) {
-        b.classList.toggle('ativo', b.dataset.nav === id);
-      });
-      window.scrollTo({ top: 0 });
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      mostrarTela('painel-de-investimentos');
-    });
-  </script>
-</body>
-</html> + val.toFixed(2) + ' realizado com sucesso!', 'ok');
+              toast('Aporte de $' + val.toFixed(2) + ' realizado com sucesso!', 'ok');
               setTimeout(() => mostrarTela('carteira-de-ativos'), 600);
             };
-            setTimeout(() => { const foot = document.querySelector('.modal-foot'); if (foot) foot.appendChild(btnConfirmar); }, 50);
+            document.getElementById('modal-body').appendChild(btnConfirmar);
           }
         }
         function detalhes_do_ativo_resgatar() {
@@ -1300,7 +1195,7 @@
               fecharModal();
               toast('Solicitação de resgate enviada! Processamento em até 2 dias úteis.', 'ok');
             };
-            setTimeout(() => { const foot = document.querySelector('.modal-foot'); if (foot) foot.appendChild(btnConfirmar); }, 50);
+            document.getElementById('modal-body').appendChild(btnConfirmar);
           }
         }
         function detalhes_do_ativo_compartilhar() {
@@ -3590,58 +3485,5 @@ function meu_perfil_confirmarSaida() {
     </div>
   </div>
 
-  <script>
-    // Utilities
-    function brl(valor) {
-      return new Intl.NumberFormat('pt-BR', {
-        style: 'currency',
-        currency: 'BRL'
-      }).format(valor);
-    }
-
-    function dataBR(iso) {
-      const d = new Date(iso);
-      return d.toLocaleDateString('pt-BR');
-    }
-
-    function toast(mensagem, tipo = 'info') {
-      const container = document.getElementById('toast-container');
-      const el = document.createElement('div');
-      el.className = `toast ${tipo}`;
-      el.textContent = mensagem;
-      container.appendChild(el);
-      setTimeout(() => el.remove(), 3000);
-    }
-
-    function abrirModal(html, titulo = 'Detalhes') {
-      document.getElementById('modal-title').textContent = titulo;
-      document.getElementById('modal-body').innerHTML = html;
-      document.getElementById('modal-overlay').classList.add('aberto');
-    }
-
-    function fecharModal(e) {
-      if (e && e.target !== e.currentTarget) return;
-      document.getElementById('modal-overlay').classList.remove('aberto');
-    }
-
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') fecharModal();
-    });
-
-    // Router
-    function mostrarTela(id) {
-      document.querySelectorAll('[data-tela]').forEach(function (s) {
-        s.classList.toggle('hidden', s.dataset.tela !== id);
-      });
-      document.querySelectorAll('[data-nav]').forEach(function (b) {
-        b.classList.toggle('ativo', b.dataset.nav === id);
-      });
-      window.scrollTo({ top: 0 });
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      mostrarTela('painel-de-investimentos');
-    });
-  </script>
 </body>
 </html>
